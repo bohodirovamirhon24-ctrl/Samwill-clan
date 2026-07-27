@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аренда рохли, лестницы, генератора, штабелера | Tez Kel</title>
+    <meta name="description" content="Аренда спецтехники и строительного оборудования в Ташкенте: рохли, лестницы, стремянки, генераторы, штабелеры, строительные леса, Wagner, Karcher, компрессоры. Быстрая доставка!">
+    <meta name="keywords" content="аренда рохли, аренда лестницы, аренда стремянки, аренда генератора, аренда штабелера, аренда строительных лесов, аренда wagner, аренда karcher, аренда компрессора, доставка спецтехники">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff6600, #d45500);
+            padding: 35px 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .contacts-bar {
+            background-color: #1e1e1e;
+            border: 2px solid #ff6600;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .contacts-bar h2 {
+            color: #ff6600;
+            margin-bottom: 15px;
+        }
+
+        .phone-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn-phone {
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            color: #ff6600;
+        }
+
+        .catalog {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            border-color: #ff6600;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .card p {
+            color: #aaa;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .btn-order {
+            background-color: #ff6600;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .info-box {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-box li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        .info-box li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ff6600;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            border-top: 1px solid #222;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tez Kel</h1>
+        <p>Аренда рохли, лестницы, генератора и спецтехники с доставкой</p>
+    </header>
+
+    <div class="container">
+
+        <div class="contacts-bar">
+            <h2>Быстрый заказ и консультация</h2>
+            <div class="phone-buttons">
+                <a href="tel:+998971224455" class="btn-phone">📞 +998 (97) 122-44-55</a>
+                <a href="tel:+998881074400" class="btn-phone">📞 +998 (88) 107-44-00</a>
+            </div>
+        </div>
+
+        <h2 class="section-title">Каталог оборудования в аренду</h2>
+        <div class="catalog">
+
+            <div class="card">
+                <h3>Аренда рохли</h3>
+                <p>Гидравлические тележки (рохли) для перемещения грузов и паллет на объекте.</p>
+                <a href="tel:+998971224455" class="btn-order">Арендовать рохлю</a>
+            </div>
+
+            <div class="card">
+                <h3>Аренда лестницы и стремянки</h3>
+                <p>Легкие и прочные алюминиевые лестницы и стремянки любой высоты.</p>
+                <a href="tel:+998971224455" class="btn-order">Арендовать лестницу</a>
+            </div>
+
+            <div class="card">
+                <h3>Аренда генератора</h3>
+                <p>Бензиновые и дизельные генераторы различной мощности для стройплощадок.</p>
+                <a href="tel:+998971224455" class="btn-order">Арендовать генератор</a>
+            </div>
+
+            <div class="card">
+                <h3>Аренда штабелера</h3>
+                <p>Надёжные штабелеры для складских работ и подъема тяжелых грузов.</p>
+                <a href="tel:+998971224455" class="btn-order">Арендовать штабелер</a>
+            </div>
+
+            <div class="card">
+                <h3>Аренда строительных лесов</h3>
+                <p>Деревянные и металлические строительные леса для фасадных и высотных работ.</p>
+                <a href="tel:+998971224455" class="btn-order">Арендовать леса</a>
+            </div>
+
+            <div class="card">
+                <h3>Аренда Wagner (краскопульт)</h3>
+                <p>Профессиональные аппараты Wagner для быстрой и качественной покраски.</p>
+                <a href="tel:+998971224455" class="btn-order">Арендовать Wagner</a>
+            </div>
+
+            <div class="card">
+                <h3>Аренда Kärcher</h3>
+                <p>Мойки высокого давления Kärcher для очистки техники, фасадов и площадок.</p>
+                <a href="tel:+998971224455" class="btn-order">Арендовать Kärcher</a>
+            </div>
+
+            <div class="card">
+                <h3>Аренда компрессора</h3>
+                <p>Воздушные компрессоры для подключения пневмоинструмента и продувки.</p>
+                <a href="tel:+998971224455" class="btn-order">Арендовать компрессор</a>
+            </div>
+
+        </div>
+
+        <h2 class="section-title">Условия аренды и доставка</h2>
+        <div class="info-box">
+            <ul>
+                <li><strong>Условия оформления:</strong> Под залог принимаются <u>деньги</u> или <u>документы</u>.</li>
+                <li><strong>Быстрая доставка:</strong> Привезём оборудование прямо на ваш объект или стройку.</li>
+                <li><strong>Звоните прямо сейчас:</strong> Подберем и доставим всё необходимое!</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Tez Kel — Аренда спецтехники и строительного оборудования.</p>
+    </footer>
+
+</body>
+</html>
+
