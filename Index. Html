@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клан SAMWILL - Официальный сайт</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #1a1a1a; color: #fff; margin: 0; padding: 0; text-align: center; }
+        header { background-color: #333; padding: 20px 0; }
+        h1 { margin: 0; color: #ff6600; }
+        .container { padding: 40px; }
+        .btn { display: inline-block; background-color: #ff6600; color: #fff; padding: 15px 30px; text-decoration: none; font-size: 18px; border-radius: 5px; margin-top: 20px; }
+        .btn:hover { background-color: #e65c00; }
+        .music-player { margin-top: 40px; background-color: #222; padding: 20px; border-radius: 10px; display: inline-block; }
+        audio { display: block; margin: 10px auto; }
+        footer { background-color: #222; padding: 10px 0; position: fixed; width: 100%; bottom: 0; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Клан SAMWILL</h1>
+    </header>
+    <div class="container">
+        <h2>Добро пожаловать на официальный сайт клана!</h2>
+        <p>Мы — дружная команда игроков в Rust. Здесь ты найдешь наши правила и информацию для вступления.</p>
+        <a href="https://discord.gg/TDF3XqMpG" class="btn">Вступить в Discord</a>
+        
+        <div class="music-player">
+            <h3>Музичка</h3>
+            
+            <p>Тема из «Сопрано» (Alabama 3 - Woke Up This Morning)</p>
+            <audio controls>
+                <source src="путь_к_файлу/sopranos.mp3" type="audio/mpeg">
+                Ваш браузер не поддерживает аудио элемент.
+            </audio>
+            
+            <p>Iron Man Theme</p>
+            <audio controls>
+                <source src="путь_к_файлу/ironman.mp3" type="audio/mpeg">
+                Ваш браузер не поддерживает аудио элемент.
+            </audio>
+        </div>
+    </div>
+    <footer>
+        <p>© 2026 Клан SAMWILL. Все права защищены.</p>
+    </footer>
+</body>
+</html>
