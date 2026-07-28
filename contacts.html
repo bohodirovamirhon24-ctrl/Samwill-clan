@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sherlest — Контакты и Условия | Алоқа ва Шартлар</title>
+    <title>Sherlest — Аренда строительного оборудования в Ташкенте</title>
     <style>
         :root {
             --primary: #ff6600;
@@ -23,113 +23,65 @@
         @keyframes fadeInPage { to { opacity: 1; } }
 
         /* Top Bar */
-        .top-bar { background: #050507; border-bottom: 1px solid var(--border-color); padding: 10px 20px; font-size: 0.88rem; animation: slideDown 0.5s ease-out; }
+        .top-bar { background: #050507; border-bottom: 1px solid var(--border-color); padding: 10px 20px; font-size: 0.88rem; }
         .top-bar-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .top-phones a { color: var(--primary); text-decoration: none; font-weight: 800; margin-left: 15px; display: inline-block; transition: 0.3s; }
-        .top-phones a:hover { transform: scale(1.05); text-shadow: 0 0 10px var(--primary); }
 
         /* Navigation Header */
-        nav { background-color: rgba(10, 10, 13, 0.9); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); backdrop-filter: blur(10px); animation: slideDown 0.5s ease-out 0.1s backwards; }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+        nav { background-color: rgba(10, 10, 13, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); backdrop-filter: blur(10px); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; position: relative; }
 
         /* Logo */
-        .logo { font-size: 2.2rem; font-weight: 900; color: #fff; text-decoration: none; letter-spacing: 2px; text-transform: uppercase; display: inline-block; transition: 0.3s; }
-        .logo span {
-            background: linear-gradient(90deg, #ff6600, #ffaa00, #ff3300, #ff6600);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: logoPulse 2s ease-in-out infinite alternate, gradientText 4s linear infinite;
-        }
-        .logo:hover { transform: scale(1.03) rotate(-1deg); }
-
-        @keyframes gradientText { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
-        @keyframes logoPulse { 0% { filter: drop-shadow(0 0 5px rgba(255,102,0,0.4)); } 100% { filter: drop-shadow(0 0 15px rgba(255,102,0,0.8)); } }
+        .logo { font-size: 2rem; font-weight: 900; color: #fff; text-decoration: none; letter-spacing: 2px; text-transform: uppercase; }
+        .logo span { background: linear-gradient(90deg, #ff6600, #ffaa00, #ff3300); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
         /* Nav Links */
         .nav-links { display: flex; gap: 15px; list-style: none; }
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 8px 15px;
-            border-radius: 8px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: 0.3s;
-            transform: translateX(-50%);
-            box-shadow: 0 0 10px var(--primary);
-        }
-        .nav-links a:hover { color: var(--primary); background: rgba(255,102,0,0.05); }
-        .nav-links a:hover::after { width: 80%; }
-        .nav-links a.active { color: var(--primary); background: rgba(255,102,0,0.1); }
-        .nav-links a.active::after { width: 80%; }
+        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 600; padding: 10px 18px; border-radius: 8px; transition: 0.3s; display: block; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); background: rgba(255,102,0,0.1); }
 
-        /* Contacts Page Layout */
-        .container { max-width: 1000px; margin: 0 auto; padding: 50px 20px; }
-        .page-title { text-align: center; margin-bottom: 40px; font-size: 2.5rem; text-transform: uppercase; animation: slideUp 0.7s ease-out; }
-        .page-title span { color: var(--primary); }
+        /* Burger Menu Icon for Mobile */
+        .burger-menu { display: none; flex-direction: column; justify-content: space-between; width: 30px; height: 21px; cursor: pointer; z-index: 1001; }
+        .burger-menu span { height: 3px; width: 100%; background-color: var(--primary); border-radius: 3px; transition: all 0.3s ease; }
 
-        .grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        /* Hero Banner */
+        .hero { text-align: center; padding: 80px 20px; background: radial-gradient(circle, rgba(255,102,0,0.15) 0%, rgba(10,10,13,1) 70%); }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; text-transform: uppercase; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 30px; }
+        .btn-main { display: inline-block; background: var(--primary); color: #fff; padding: 15px 35px; border-radius: 30px; font-weight: bold; text-decoration: none; font-size: 1.1rem; box-shadow: 0 0 20px var(--accent-glow); transition: 0.3s; }
+        .btn-main:hover { transform: translateY(-3px) scale(1.05); }
 
-        /* 🔥 Анимированные БЛОКИ 🔥 */
-        .card-box {
-            background-color: var(--card-bg); border: 1px solid var(--border-color); border-top: 4px solid var(--primary); border-radius: 14px; padding: 30px;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); opacity: 0; animation: cardAppear 0.6s ease-out forwards;
-        }
-        .card-box:nth-child(1) { animation-delay: 0.1s; }
-        .card-box:nth-child(2) { animation-delay: 0.3s; }
-        .card-box:nth-child(3) { animation-delay: 0.5s; grid-column: 1 / -1; }
+        footer { background-color: #050507; border-top: 1px solid var(--border-color); padding: 30px 20px; text-align: center; margin-top: 60px; color: var(--text-muted); }
 
-        .card-box:hover { transform: translateY(-8px); border-color: var(--primary); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px var(--accent-glow); }
-
-        .card-box h2 { font-size: 1.5rem; margin-bottom: 20px; color: var(--primary); display: flex; align-items: center; gap: 10px; transition: 0.3s; }
-        .card-box:hover h2 { text-shadow: 0 0 10px var(--primary); }
-        .card-box p, .card-box li { color: var(--text-muted); margin-bottom: 12px; font-size: 1.05rem; }
-        .card-box ul { list-style: none; }
-        .card-box ul li { position: relative; padding-left: 25px; }
-        .card-box ul li::before { content: '⚡'; position: absolute; left: 0; color: var(--primary); }
-
-        /* 🔥 Анимированные Кнопки Контактов 🔥 */
-        .contact-btn {
-            display: block; text-align: center; padding: 15px; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 1.1rem; margin-top: 15px;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden;
-        }
-        
-        .phone-btn { background: rgba(255, 102, 0, 0.05); border: 1px solid var(--primary); color: #fff; }
-        .phone-btn:hover { background: var(--primary); box-shadow: 0 5px 20px var(--accent-glow); transform: translateY(-3px) scale(1.02); }
-
-        .tg-btn { background: #0088cc; color: #fff; border: 1px solid #0088cc; }
-        .tg-btn:hover { background: #0077b3; border-color: #0077b3; box-shadow: 0 5px 20px rgba(0, 136, 204, 0.6); transform: translateY(-3px) scale(1.02); }
-
-        /* Common Animations */
-        @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes cardAppear { from { opacity: 0; transform: translateY(40px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
-
-        footer { background-color: #050507; border-top: 1px solid var(--border-color); padding: 30px 20px; text-align: center; margin-top: 60px; color: var(--text-muted); animation: fadeIn 1s ease-out 0.8s backwards; }
-
+        /* 🔥 МОБИЛЬНАЯ АДАПТАЦИЯ МЕНЮ 🔥 */
         @media (max-width: 768px) {
-            .page-title { font-size: 2rem; }
-            .nav-links { display: none; }
-            .top-bar-container { flex-direction: column; gap: 8px; text-align: center; }
-            .card-box { grid-column: 1 / -1 !as_important; }
+            .burger-menu { display: flex; }
+            .top-bar-container { flex-direction: column; gap: 5px; text-align: center; }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(15, 15, 20, 0.98);
+                border-bottom: 1px solid var(--border-color);
+                flex-direction: column;
+                gap: 0;
+                padding: 10px 0;
+                display: none; /* Скрыто по умолчанию */
+                box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+            }
+
+            .nav-links.show { display: flex; } /* Открывается при клике */
+            .nav-links li { width: 100%; text-align: center; }
+            .nav-links a { padding: 15px; border-radius: 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+            .hero h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Bar -->
     <div class="top-bar">
         <div class="top-bar-container">
             <span>🚚 <strong>Tez Kel</strong> — Тезкор етказиб бериш хизмати</span>
@@ -140,60 +92,43 @@
         </div>
     </div>
 
-    <!-- Navigation Bar -->
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">SHER<span>LEST</span></a>
-            <ul class="nav-links">
-                <li><a href="index.html">Bosh sahifa</a></li>
+            
+            <!-- Кнопка Бургер Меню для Телефона -->
+            <div class="burger-menu" id="burgerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Bosh sahifa</a></li>
                 <li><a href="catalog.html">Каталог</a></li>
-                <li><a href="contacts.html" class="active">Контакты / Алоқа</a></li>
+                <li><a href="contacts.html">Контакты / Алоқа</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <div class="container">
-        <h1 class="page-title">Алоқа ва <span>Шартлар</span></h1>
+    <section class="hero">
+        <h1>Курилиш Ускуналари <span>Ижараси</span></h1>
+        <p>Ташкент ва вилоят бўйлаб сифатли строительный ускуналар ва Tez Kel етказиб бериш хизмати.</p>
+        <a href="catalog.html" class="btn-main">Каталогга ўтиш ➔</a>
+    </section>
 
-        <div class="grid-layout">
-            
-            <!-- Блок 1: Контакты -->
-            <div class="card-box">
-                <h2>📞 Буюртма бериш</h2>
-                <p>Ускуналарни банд қилиш ва барча саволлар учун бизга телефон қилинг ёки Telegram'дан ёзинг:</p>
-                
-                <a href="tel:+998971224455" class="contact-btn phone-btn">📞 +998 (97) 122-44-55</a>
-                <a href="tel:+998881074400" class="contact-btn phone-btn">📞 +998 (88) 107-44-00</a>
-                <a href="https://t.me/Narvon24" target="_blank" class="contact-btn tg-btn">💬 Telegram: @Narvon24</a>
-            </div>
-
-            <!-- Блок 2: Условия аренды -->
-            <div class="card-box">
-                <h2>📋 Ижара шартлари</h2>
-                <p>Техникани ижарага олиш жуда осон. Бунинг учун қуйидаги шартлар бажарилиши керак:</p>
-                <ul>
-                    <li>⚡ <strong>Гаров (Залог):</strong> Ижарага олиш учун нақд пул ёки шахсни тасдиқловчи ҳужжат (Паспорт/Права) гаров эвазига олинади.</li>
-                    <li>⚡ <strong>Ҳолати:</strong> Барча ускуналар соз, ишлаб турган ва шай ҳолатда топширилади.</li>
-                    <li>⚡ <strong>Қайтариш:</strong> Ускунани ижара муддати тугагач, соз ва тоза ҳолатда қайтариш лозим.</li>
-                </ul>
-            </div>
-
-            <!-- Блок 3: Доставка Tez Kel -->
-            <div class="card-box">
-                <h2>🚚 Tez Kel Етказиб Бериш</h2>
-                <p>Ўзингиз келиб олиб кетишга вақтингиз йўқми? Муаммо эмас!</p>
-                <p>Бизнинг <strong>Tez Kel</strong> тезкор етказиб бериш хизматимиз ускуналарни Ташкент шаҳри ва вилояти бўйлаб исталган объектингизгача блиндек тез ва хавфсиз етказиб беради.</p>
-                <p style="color:var(--primary); font-weight:bold;">⚡ Буюртма беринг ва вақтингизни тежанг!</p>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 SHERLEST & Tez Kel. Барча ҳуқуқлар ҳимояланган.</p>
     </footer>
 
+    <script>
+        // Скрипт для открытия/закрытия меню на телефоне
+        const burger = id = document.getElementById('burgerMenu');
+        const nav = document.getElementById('navLinks');
+
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('show');
+        });
+    </script>
 </body>
 </html>
