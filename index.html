@@ -153,7 +153,7 @@
             flex-wrap: wrap;
         }
 
-        /* Premium Buttons */
+        /* Buttons */
         .btn {
             padding: 14px 32px;
             border-radius: 8px;
@@ -234,7 +234,7 @@
             font-size: 1.1rem;
         }
 
-        /* Catalog Grid with Photos */
+        /* Catalog Grid */
         .catalog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -258,9 +258,19 @@
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--accent-glow);
         }
 
+        .card-img-wrapper {
+            overflow: hidden;
+            position: relative;
+            height: 220px;
+            background-color: #111115;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .card-img {
             width: 100%;
-            height: 220px;
+            height: 100%;
             object-fit: cover;
             border-bottom: 1px solid var(--border-color);
             transition: transform 0.5s ease;
@@ -270,16 +280,11 @@
             transform: scale(1.05);
         }
 
-        .card-img-wrapper {
-            overflow: hidden;
-            position: relative;
-        }
-
         .card-badge {
             position: absolute;
             top: 12px;
             right: 12px;
-            background: rgba(0, 0, 0, 0.75);
+            background: rgba(0, 0, 0, 0.8);
             border: 1px solid var(--primary);
             color: var(--primary);
             padding: 4px 12px;
@@ -287,6 +292,7 @@
             font-size: 0.75rem;
             font-weight: 700;
             backdrop-filter: blur(5px);
+            z-index: 2;
         }
 
         .card-body {
@@ -406,7 +412,7 @@
         </div>
     </section>
 
-    <!-- Catalog Section with Photos -->
+    <!-- Catalog Section -->
     <section class="container" id="catalog">
         <div class="section-header">
             <h2>Наш <span>Каталог</span> / Ускуналар</h2>
@@ -415,11 +421,11 @@
 
         <div class="catalog-grid">
 
-            <!-- Card 1 -->
+            <!-- Card 1: Рохля -->
             <div class="card">
                 <div class="card-img-wrapper">
                     <span class="card-badge">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Рохля" class="card-img">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80" alt="Рохля" class="card-img">
                 </div>
                 <div class="card-body">
                     <h3>Гидравлическая Рохля</h3>
@@ -432,11 +438,11 @@
                 </div>
             </div>
 
-            <!-- Card 2 -->
+            <!-- Card 2: Генератор -->
             <div class="card">
                 <div class="card-img-wrapper">
                     <span class="card-badge">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=600&q=80" alt="Генератор" class="card-img">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&w=600&q=80" alt="Генератор" class="card-img">
                 </div>
                 <div class="card-body">
                     <h3>Бензиновый / Дизельный Генератор</h3>
@@ -449,11 +455,11 @@
                 </div>
             </div>
 
-            <!-- Card 3 -->
+            <!-- Card 3: Лестницы -->
             <div class="card">
                 <div class="card-img-wrapper">
                     <span class="card-badge">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Лестницы" class="card-img">
+                    <img src="https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=600&q=80" alt="Лестница" class="card-img">
                 </div>
                 <div class="card-body">
                     <h3>Лестницы и Стремянки</h3>
@@ -466,7 +472,7 @@
                 </div>
             </div>
 
-            <!-- Card 4 -->
+            <!-- Card 4: Перфоратор -->
             <div class="card">
                 <div class="card-img-wrapper">
                     <span class="card-badge">В наличии</span>
@@ -483,11 +489,11 @@
                 </div>
             </div>
 
-            <!-- Card 5 -->
+            <!-- Card 5: Леса -->
             <div class="card">
                 <div class="card-img-wrapper">
                     <span class="card-badge">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=600&q=80" alt="Строительные леса" class="card-img">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=600&q=80" alt="Строительные леса" class="card-img">
                 </div>
                 <div class="card-body">
                     <h3>Строительные леса (Леса)</h3>
@@ -500,18 +506,154 @@
                 </div>
             </div>
 
-            <!-- Card 6 -->
+            <!-- Card 6: Виброплита -->
             <div class="card">
                 <div class="card-img-wrapper">
                     <span class="card-badge">В наличии</span>
                     <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80" alt="Виброплита" class="card-img">
                 </div>
                 <div class="card-body">
-                    <h3>Виброплиты и Кенгуру</h3>
+                    <h3>Виброплиты ва Трамбовки</h3>
                     <ul class="card-specs">
                         <li>Уплотнение грунта, асфальта, плитки</li>
-                        <li>Вибротрамбовки для траншей</li>
+                        <li>Высокая сила уплотнения</li>
                         <li>Заминни зичлаш ва шиббалаш</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram">Заказать в Telegram</a>
+                </div>
+            </div>
+
+            <!-- Card 7: Штабелер -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=600&q=80" alt="Штабелер" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Гидравлический Штабелер</h3>
+                    <ul class="card-specs">
+                        <li>Грузоподъемность: до 1.5 т</li>
+                        <li>Подъем на высоту 1.6м — 3м</li>
+                        <li>Склад ишлари ва паллеталар учун</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram">Заказать в Telegram</a>
+                </div>
+            </div>
+
+            <!-- Card 8: Wagner -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80" alt="Краскопульт Wagner" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Краскопульт Wagner</h3>
+                    <ul class="card-specs">
+                        <li>Безвоздушный окрасочный аппарат</li>
+                        <li>Быстрое окрашивание стен и фасадов</li>
+                        <li>Тез ва сифатли бўёқ пуркаш</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram">Заказать в Telegram</a>
+                </div>
+            </div>
+
+            <!-- Card 9: Karcher -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=600&q=80" alt="Мойка Karcher" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Мойка Kärcher</h3>
+                    <ul class="card-specs">
+                        <li>Мойка высокого давления</li>
+                        <li>Для чистки стройплощадок и техники</li>
+                        <li>Юқори босимли тозалаш суви</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram">Заказать в Telegram</a>
+                </div>
+            </div>
+
+            <!-- Card 10: Компрессор -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80" alt="Компрессор" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Воздушный Компрессор</h3>
+                    <ul class="card-specs">
+                        <li>Компрессор высокого давления</li>
+                        <li>Для пневмоинструмента и продувки</li>
+                        <li>Пневматик ускуналар учун ҳаво</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram">Заказать в Telegram</a>
+                </div>
+            </div>
+
+            <!-- Card 11: Пылесос -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=600&q=80" alt="Строительный пылесос" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Строительный пылесос</h3>
+                    <ul class="card-specs">
+                        <li>Промышленный пылесос</li>
+                        <li>Сбор бетонной пыли и мусора</li>
+                        <li>Шпаклевка ва бетон чанглари учун</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram">Заказать в Telegram</a>
+                </div>
+            </div>
+
+            <!-- Card 12: Жираф -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=600&q=80" alt="Шлифмашина Жираф" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Шлифмашина (Жираф)</h3>
+                    <ul class="card-specs">
+                        <li>Для шлифовки стен и потолков</li>
+                        <li>Выравнивание шпаклевки</li>
+                        <li>Девор ва шипларни силлиқлаш</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram">Заказать в Telegram</a>
+                </div>
+            </div>
+
+            <!-- Card 13: Алмазный Бур -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=600&q=80" alt="Алмазный бур" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Установка алмазного бурения</h3>
+                    <ul class="card-specs">
+                        <li>Алмазное бурение бетона</li>
+                        <li>Точные отверстия любого диаметра</li>
+                        <li>Бетон деворларда тоза тешиклар</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram">Заказать в Telegram</a>
+                </div>
+            </div>
+
+            <!-- Card 14: Вибронога (Кенгуру) -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Вибронога Кенгуру" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Вибронога (Кенгуру)</h3>
+                    <ul class="card-specs">
+                        <li>Вибротрамбовка для траншей и узких мест</li>
+                        <li>Шиббалаш ва зичлаш учун</li>
+                        <li>Высокая мощность уплотнения</li>
                     </ul>
                     <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram">Заказать в Telegram</a>
                 </div>
