@@ -246,25 +246,25 @@
         }
 
         .card-img-box {
-            height: 200px;
-            background: linear-gradient(135deg, #1c1c24, #0f0f13);
+            height: 220px;
+            background: #0d0d11;
             display: flex;
             align-items: center;
             justify-content: center;
             border-bottom: 1px solid var(--border-color);
             position: relative;
+            overflow: hidden;
         }
 
-        .card-img-box svg {
-            width: 90px;
-            height: 90px;
-            fill: var(--primary);
-            filter: drop-shadow(0 0 8px var(--accent-glow));
-            transition: transform 0.4s ease;
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .card:hover .card-img-box svg {
-            transform: scale(1.15) rotate(-3deg);
+        .card:hover .card-img {
+            transform: scale(1.08);
         }
 
         .card-badge {
@@ -278,6 +278,7 @@
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 800;
+            z-index: 2;
         }
 
         .card-body {
@@ -400,10 +401,10 @@
         
         <!-- Filter Buttons -->
         <div class="filter-container">
-            <button class="filter-btn active" onclick="filterCatalog('all')">Барчаси (14)</button>
-            <button class="filter-btn" onclick="filterCatalog('height')">Высота / Леса / Лестницы</button>
-            <button class="filter-btn" onclick="filterCatalog('heavy')">Оғир техника</button>
-            <button class="filter-btn" onclick="filterCatalog('tools')">Электроинструмент</button>
+            <button class="filter-btn active" onclick="filterCatalog('all', event)">Барчаси (14)</button>
+            <button class="filter-btn" onclick="filterCatalog('height', event)">Высота / Леса / Лестницы</button>
+            <button class="filter-btn" onclick="filterCatalog('heavy', event)">Оғир техника</button>
+            <button class="filter-btn" onclick="filterCatalog('tools', event)">Электроинструмент</button>
         </div>
 
         <div class="catalog-grid">
@@ -412,7 +413,7 @@
             <div class="card" data-category="heavy">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM17 9.5h2.5l1.96 2.5H17V9.5z"/></svg>
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="Рохля" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Гидравлическая Рохля</h3>
@@ -429,7 +430,7 @@
             <div class="card" data-category="heavy">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h14v-8h3L12 3zm1 14h-2v-3H9l4-6v3h2l-2 3z"/></svg>
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&w=800&q=80" alt="Генератор" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Бензиновый / Дизельный Генератор</h3>
@@ -446,7 +447,7 @@
             <div class="card" data-category="height">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <svg viewBox="0 0 24 24"><path d="M19 3h-2.18l-1 2H17v2h-2.18l-1 2H16v2h-2.18l-1 2H15v2h-2.18l-1 2H14v2h-2.18l-1 2H13v3h2V5h2v2h-2v2h2v2h-2v2h2v2h-2v2h2v2h-2v2h2V3zM9 3H7v2h2v2H7v2h2v2H7v2h2v2H7v2h2v2H7v2h2v3h2V3H9z"/></svg>
+                    <img src="https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=800&q=80" alt="Лестница и стремянка" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Лестницы и Стремянки</h3>
@@ -463,7 +464,7 @@
             <div class="card" data-category="tools">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <svg viewBox="0 0 24 24"><path d="M22 9V7h-2V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2v-2h-2V9h2zm-4 10H4V5h14v14z"/></svg>
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" alt="Перфоратор" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Перфораторы и Отбойники</h3>
@@ -480,7 +481,7 @@
             <div class="card" data-category="height">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <svg viewBox="0 0 24 24"><path d="M19 2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 4h-6v4h6v2h-6v4h6v4H5v-4h6v-4H5V8h6V4h8v2z"/></svg>
+                    <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=800&q=80" alt="Строительные леса" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Строительные леса (Леса)</h3>
@@ -497,7 +498,7 @@
             <div class="card" data-category="heavy">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <svg viewBox="0 0 24 24"><path d="M19 13H5c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2zM12 3L4 9h16l-8-6z"/></svg>
+                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" alt="Виброплита" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Виброплиты ва Трамбовки</h3>
@@ -514,7 +515,7 @@
             <div class="card" data-category="heavy">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <svg viewBox="0 0 24 24"><path d="M18 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM20 8h-3V3H7v11H3v3h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-6l-3-3z"/></svg>
+                    <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=800&q=80" alt="Штабелер" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Гидравлический Штабелер</h3>
@@ -531,7 +532,7 @@
             <div class="card" data-category="tools">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <svg viewBox="0 0 24 24"><path d="M18 4V3c0-.55-.45-1-1-1H7c-.55 0-1 .45-1 1v1H4c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h2v11c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V10h2c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1h-2z"/></svg>
+                    <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80" alt="Краскопульт Wagner" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Краскопульт Wagner</h3>
@@ -548,7 +549,7 @@
             <div class="card" data-category="tools">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80" alt="Мойка Kärcher" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Мойка Kärcher</h3>
@@ -565,7 +566,7 @@
             <div class="card" data-category="heavy">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+                    <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=800&q=80" alt="Воздушный компрессор" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Воздушный Компрессор</h3>
@@ -582,7 +583,7 @@
             <div class="card" data-category="tools">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <svg viewBox="0 0 24 24"><path d="M20 15V8.5C20 5.46 17.54 3 14.5 3S9 5.46 9 8.5V15c0 1.66-1.34 3-3 3s-3-1.34-3-3V9h2V7H3c-1.1 0-2 .9-2 2v6c0 2.76 2.24 5 5 5s5-2.24 5-5V8.5C11 6.57 12.57 5 14.5 5S18 6.57 18 8.5V15h2z"/></svg>
+                    <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=800&q=80" alt="Строительный пылесос" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Строительный пылесос</h3>
@@ -599,7 +600,7 @@
             <div class="card" data-category="tools">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80" alt="Шлифмашина Жираф" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Шлифмашина (Жираф)</h3>
@@ -616,7 +617,7 @@
             <div class="card" data-category="tools">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <svg viewBox="0 0 24 24"><path d="M12 2L2 19h20L12 2zm0 3.8L18.4 17H5.6L12 5.8z"/></svg>
+                    <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80" alt="Установка алмазного бурения" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Установка алмазного бурения</h3>
@@ -633,7 +634,7 @@
             <div class="card" data-category="heavy">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Вибронога Кенгуру" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Вибронога (Кенгуру)</h3>
@@ -686,12 +687,12 @@
 
     <!-- Filter Script -->
     <script>
-        function filterCatalog(category) {
+        function filterCatalog(category, event) {
             const cards = document.querySelectorAll('.card');
             const buttons = document.querySelectorAll('.filter-btn');
 
             buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            event.currentTarget.classList.add('active');
 
             cards.forEach(card => {
                 if (category === 'all' || card.getAttribute('data-category') === category) {
