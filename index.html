@@ -14,7 +14,7 @@
             --text-light: #ffffff;
             --text-muted: #a0a0ab;
             --border-color: #24242c;
-            --accent-glow: rgba(255, 102, 0, 0.35);
+            --accent-glow: rgba(255, 102, 0, 0.4);
         }
 
         * {
@@ -53,11 +53,14 @@
             text-decoration: none;
             font-weight: 800;
             margin-left: 15px;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            display: inline-block;
         }
 
         .top-phones a:hover {
             color: #fff;
+            transform: scale(1.05);
+            text-shadow: 0 0 10px var(--primary);
         }
 
         /* Nav Header */
@@ -79,18 +82,43 @@
             padding: 15px 20px;
         }
 
+        /*🔥 АНИМИРОВАННЫЙ КРУТОЙ ЛОГОТИП SHERLEST 🔥*/
         .logo {
-            font-size: 2.2rem;
+            font-size: 2.3rem;
             font-weight: 900;
-            color: var(--text-light);
+            color: #fff;
             text-decoration: none;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            transition: transform 0.3s ease;
         }
 
         .logo span {
-            color: var(--primary);
-            text-shadow: 0 0 15px var(--accent-glow);
+            background: linear-gradient(90deg, #ff6600, #ffaa00, #ff3300, #ff6600);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientText 4s ease infinite, logoPulse 2s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 12px rgba(255, 102, 0, 0.6));
+        }
+
+        .logo:hover {
+            transform: scale(1.05) rotate(-1deg);
+        }
+
+        /* Анимация перелива градиента для лого */
+        @keyframes gradientText {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Анимация неонового пульса */
+        @keyframes logoPulse {
+            0% { filter: drop-shadow(0 0 8px rgba(255, 102, 0, 0.4)); }
+            100% { filter: drop-shadow(0 0 20px rgba(255, 102, 0, 0.9)); }
         }
 
         .nav-links {
@@ -104,33 +132,74 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
-            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+            box-shadow: 0 0 8px var(--primary);
         }
 
         .nav-links a:hover {
             color: var(--primary);
         }
 
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
         /* Hero Header */
         .hero {
             position: relative;
-            padding: 110px 20px 90px 20px;
+            padding: 120px 20px 100px 20px;
             text-align: center;
-            background: radial-gradient(circle at center, rgba(255, 102, 0, 0.15) 0%, rgba(10, 10, 13, 1) 70%);
+            background: radial-gradient(circle at center, rgba(255, 102, 0, 0.2) 0%, rgba(10, 10, 13, 1) 75%);
+            overflow: hidden;
+        }
+
+        /* Анимированный фоновый свет */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 102, 0, 0.15) 0%, transparent 70%);
+            animation: floatGlow 6s infinite alternate ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes floatGlow {
+            0% { transform: translate(-50%, -10px) scale(1); }
+            100% { transform: translate(-50%, 20px) scale(1.2); }
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 900;
             margin-bottom: 20px;
             text-transform: uppercase;
             line-height: 1.1;
         }
 
-        .hero h1 span {
-            background: linear-gradient(45deg, #ff6600, #ffaa00);
+        .hero h1 .hero-brand {
+            background: linear-gradient(45deg, #ff6600, #ffc000, #ff3300);
+            background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: gradientText 3s infinite ease;
+            text-shadow: 0 0 25px rgba(255, 102, 0, 0.3);
         }
 
         .hero p {
@@ -149,10 +218,10 @@
             flex-wrap: wrap;
         }
 
-        /* Premium Buttons */
+        /* Premium Ultra Buttons */
         .btn {
-            padding: 14px 32px;
-            border-radius: 10px;
+            padding: 15px 34px;
+            border-radius: 12px;
             font-weight: 700;
             text-decoration: none;
             display: inline-flex;
@@ -161,38 +230,40 @@
             gap: 10px;
             cursor: pointer;
             border: none;
-            transition: all 0.3s ease;
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             font-size: 1rem;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-primary {
             background: linear-gradient(135deg, #ff6600, #e65c00);
             color: #fff;
-            box-shadow: 0 4px 20px var(--accent-glow);
+            box-shadow: 0 5px 20px var(--accent-glow);
         }
 
         .btn-primary:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 8px 30px rgba(255, 102, 0, 0.5);
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 35px rgba(255, 102, 0, 0.6);
         }
 
         .btn-telegram {
             background-color: #0088cc;
             color: white;
-            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
+            box-shadow: 0 5px 20px rgba(0, 136, 204, 0.35);
         }
 
         .btn-telegram:hover {
             background-color: #0077b3;
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(0, 136, 204, 0.5);
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 30px rgba(0, 136, 204, 0.6);
         }
 
         /* Filter Controls */
         .filter-container {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
             margin-bottom: 40px;
             flex-wrap: wrap;
         }
@@ -201,18 +272,19 @@
             background: #181820;
             border: 1px solid var(--border-color);
             color: var(--text-muted);
-            padding: 10px 22px;
-            border-radius: 25px;
+            padding: 12px 24px;
+            border-radius: 30px;
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
 
         .filter-btn.active, .filter-btn:hover {
             background: var(--primary);
             color: #fff;
             border-color: var(--primary);
-            box-shadow: 0 0 15px var(--accent-glow);
+            box-shadow: 0 0 20px var(--accent-glow);
+            transform: translateY(-2px);
         }
 
         /* Catalog Layout */
@@ -228,9 +300,10 @@
             gap: 30px;
         }
 
+        /* Ultra Card Styling */
         .card {
             background-color: var(--card-bg);
-            border-radius: 16px;
+            border-radius: 18px;
             border: 1px solid var(--border-color);
             overflow: hidden;
             display: flex;
@@ -240,9 +313,9 @@
         }
 
         .card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-12px);
             border-color: var(--primary);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 20px var(--accent-glow);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 25px var(--accent-glow);
         }
 
         .card-img-box {
@@ -260,25 +333,45 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
         .card:hover .card-img {
-            transform: scale(1.08);
+            transform: scale(1.1);
         }
 
+        /* Пульсирующий бэдж "В наличии" */
         .card-badge {
             position: absolute;
             top: 15px;
             right: 15px;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(10, 10, 13, 0.85);
             border: 1px solid var(--primary);
-            color: var(--primary);
-            padding: 4px 14px;
+            color: #fff;
+            padding: 5px 14px;
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 800;
             z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(5px);
+        }
+
+        .card-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background-color: #00ff66;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #00ff66;
+            animation: dotPulse 1.5s infinite alternate;
+        }
+
+        @keyframes dotPulse {
+            0% { opacity: 0.4; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); }
         }
 
         .card-body {
@@ -330,6 +423,11 @@
             border-radius: 16px;
             border: 1px solid var(--border-color);
             border-left: 5px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
         }
 
         .info-card h4 {
@@ -356,6 +454,7 @@
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.3rem; }
+            .logo { font-size: 1.8rem; }
             .nav-links { display: none; }
             .top-bar-container { flex-direction: column; gap: 8px; text-align: center; }
         }
@@ -377,6 +476,7 @@
     <!-- Navigation Bar -->
     <nav>
         <div class="nav-container">
+            <!-- 🔥 Анимированный Неоновый Логотип 🔥 -->
             <a href="#" class="logo">SHER<span>LEST</span></a>
             <ul class="nav-links">
                 <li><a href="#catalog">Ускуналар / Каталог</a></li>
@@ -388,7 +488,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>SHER<span>LEST</span> — Аренда Спецтехники</h1>
+        <h1><span class="hero-brand">SHERLEST</span> — Аренда Спецтехники</h1>
         <p>Ташкентда профессионал қурилиш ускуналари ва спецтехника ижараси. 100% кафолат ва сифат!</p>
         <div class="hero-btns">
             <a href="#catalog" class="btn btn-primary">🔥 Каталогни кўриш</a>
@@ -413,7 +513,7 @@
             <div class="card" data-category="heavy">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="Рохля" class="card-img" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop" alt="Рохля" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Гидравлическая Рохля</h3>
@@ -430,7 +530,7 @@
             <div class="card" data-category="heavy">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&w=800&q=80" alt="Генератор" class="card-img" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?w=800&auto=format&fit=crop" alt="Генератор" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Бензиновый / Дизельный Генератор</h3>
@@ -447,7 +547,7 @@
             <div class="card" data-category="height">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=800&q=80" alt="Лестница и стремянка" class="card-img" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&auto=format&fit=crop" alt="Лестница и стремянка" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Лестницы и Стремянки</h3>
@@ -464,7 +564,7 @@
             <div class="card" data-category="tools">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" alt="Перфоратор" class="card-img" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop" alt="Перфоратор" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Перфораторы и Отбойники</h3>
@@ -481,7 +581,7 @@
             <div class="card" data-category="height">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=800&q=80" alt="Строительные леса" class="card-img" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&auto=format&fit=crop" alt="Строительные леса" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Строительные леса (Леса)</h3>
@@ -498,7 +598,7 @@
             <div class="card" data-category="heavy">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" alt="Виброплита" class="card-img" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&auto=format&fit=crop" alt="Виброплита" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Виброплиты ва Трамбовки</h3>
@@ -515,7 +615,7 @@
             <div class="card" data-category="heavy">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=800&q=80" alt="Штабелер" class="card-img" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=800&auto=format&fit=crop" alt="Штабелер" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Гидравлический Штабелер</h3>
@@ -532,7 +632,7 @@
             <div class="card" data-category="tools">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80" alt="Краскопульт Wagner" class="card-img" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&auto=format&fit=crop" alt="Краскопульт Wagner" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Краскопульт Wagner</h3>
@@ -549,7 +649,7 @@
             <div class="card" data-category="tools">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80" alt="Мойка Kärcher" class="card-img" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=800&auto=format&fit=crop" alt="Мойка Kärcher" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Мойка Kärcher</h3>
@@ -566,7 +666,7 @@
             <div class="card" data-category="heavy">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=800&q=80" alt="Воздушный компрессор" class="card-img" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=800&auto=format&fit=crop" alt="Воздушный компрессор" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Воздушный Компрессор</h3>
@@ -583,7 +683,7 @@
             <div class="card" data-category="tools">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=800&q=80" alt="Строительный пылесос" class="card-img" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1558317374-067fb5f30001?w=800&auto=format&fit=crop" alt="Строительный пылесос" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Строительный пылесос</h3>
@@ -600,7 +700,7 @@
             <div class="card" data-category="tools">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80" alt="Шлифмашина Жираф" class="card-img" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop" alt="Шлифмашина Жираф" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Шлифмашина (Жираф)</h3>
@@ -617,7 +717,7 @@
             <div class="card" data-category="tools">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80" alt="Установка алмазного бурения" class="card-img" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=800&auto=format&fit=crop" alt="Установка алмазного бурения" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Установка алмазного бурения</h3>
@@ -634,7 +734,7 @@
             <div class="card" data-category="heavy">
                 <div class="card-img-box">
                     <span class="card-badge">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Вибронога Кенгуру" class="card-img" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop" alt="Вибронога Кенгуру" class="card-img" loading="lazy">
                 </div>
                 <div class="card-body">
                     <h3>Вибронога (Кенгуру)</h3>
