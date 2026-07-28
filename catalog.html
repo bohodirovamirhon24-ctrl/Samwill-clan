@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sherlest — Каталог ускуналар</title>
+    <title>Sherlest — Полный Каталог</title>
     <style>
         :root {
             --primary: #ff6600;
@@ -19,44 +19,74 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
         body { background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; overflow-x: hidden; }
 
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Top Bar & Nav */
         .top-bar { background: #050507; border-bottom: 1px solid var(--border-color); padding: 10px 20px; font-size: 0.88rem; position: relative; z-index: 10; }
         .top-bar-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .top-phones a { color: var(--primary); text-decoration: none; font-weight: 800; margin-left: 15px; }
+        .top-phones a { color: var(--primary); text-decoration: none; font-weight: 800; margin-left: 15px; transition: 0.3s; }
+        .top-phones a:hover { color: #fff; }
 
         nav { background-color: rgba(10, 10, 13, 0.98); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); backdrop-filter: blur(10px); }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; position: relative; }
 
-        .logo { font-size: 2rem; font-weight: 900; color: #fff; text-decoration: none; letter-spacing: 2px; text-transform: uppercase; z-index: 1001; }
+        .logo { font-size: 2rem; font-weight: 900; color: #fff; text-decoration: none; letter-spacing: 2px; text-transform: uppercase; z-index: 1001; transition: 0.3s; }
+        .logo:hover { transform: scale(1.03); }
         .logo span { background: linear-gradient(90deg, #ff6600, #ffaa00, #ff3300); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        .nav-links { display: flex; gap: 15px; list-style: none; z-index: 1001; position: relative; pointer-events: auto; }
+        .nav-links { display: flex; gap: 15px; list-style: none; z-index: 1001; position: relative; }
         .nav-links li { display: block; }
-        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 600; padding: 10px 18px; border-radius: 8px; transition: 0.3s; display: inline-block; cursor: pointer; pointer-events: auto; }
-        .nav-links a:hover, .nav-links a.active { color: var(--primary); background: rgba(255,102,0,0.15); }
+        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 600; padding: 10px 18px; border-radius: 8px; transition: all 0.3s ease; display: inline-block; cursor: pointer; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); background: rgba(255,102,0,0.15); transform: translateY(-2px); }
 
         .burger-menu { display: none; flex-direction: column; justify-content: space-between; width: 30px; height: 21px; cursor: pointer; z-index: 1001; }
         .burger-menu span { height: 3px; width: 100%; background-color: var(--primary); border-radius: 3px; }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+        /* Container & Header */
+        .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; animation: fadeIn 0.8s ease-out; }
         .page-title { text-align: center; font-size: 2.2rem; margin-bottom: 30px; text-transform: uppercase; }
         .page-title span { color: var(--primary); }
 
-        .filter-container { display: flex; justify-content: center; gap: 8px; margin-bottom: 30px; flex-wrap: wrap; }
-        .filter-btn { background: #181820; border: 1px solid var(--border-color); color: var(--text-muted); padding: 8px 18px; border-radius: 20px; cursor: pointer; font-weight: 600; transition: 0.3s; }
-        .filter-btn.active, .filter-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+        /* Filter Buttons with Animations */
+        .filter-container { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
+        .filter-btn { 
+            background: #181820; border: 1px solid var(--border-color); color: var(--text-muted); 
+            padding: 10px 22px; border-radius: 20px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; 
+        }
+        .filter-btn.active, .filter-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 4px 15px rgba(255,102,0,0.3); }
 
-        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .card { background-color: var(--card-bg); border-radius: 14px; border: 1px solid var(--border-color); overflow: hidden; display: flex; flex-direction: column; }
-        .card-img-box { height: 200px; background: #0d0d11; border-bottom: 1px solid var(--border-color); position: relative; }
-        .card-img { width: 100%; height: 100%; object-fit: cover; }
-        .card-badge { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.8); border: 1px solid var(--primary); color: var(--primary); padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: bold; }
+        /* Catalog Cards Grid */
+        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { 
+            background-color: var(--card-bg); border-radius: 14px; border: 1px solid var(--border-color); 
+            overflow: hidden; display: flex; flex-direction: column; transition: all 0.4s ease; animation: fadeIn 0.5s ease-out;
+        }
+        .card:hover { transform: translateY(-8px); border-color: var(--primary); box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 15px rgba(255,102,0,0.2); }
+
+        .card-img-box { height: 200px; background: #0d0d11; border-bottom: 1px solid var(--border-color); position: relative; overflow: hidden; }
+        .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .card:hover .card-img { transform: scale(1.08); }
+
+        .card-badge { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.85); border: 1px solid var(--primary); color: var(--primary); padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: bold; }
         .card-body { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
         .card h3 { font-size: 1.2rem; color: #fff; margin-bottom: 10px; }
         .card-specs { list-style: none; margin-bottom: 15px; color: var(--text-muted); font-size: 0.9rem; flex-grow: 1; }
         .card-specs li { margin-bottom: 6px; padding-left: 18px; position: relative; }
         .card-specs li::before { content: "⚡"; position: absolute; left: 0; }
 
-        .btn-telegram { background-color: #0088cc; color: white; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: bold; text-align: center; display: block; }
+        .btn-telegram { 
+            background-color: #0088cc; color: white; padding: 12px; border-radius: 8px; 
+            text-decoration: none; font-weight: bold; text-align: center; display: block; transition: all 0.3s ease; 
+        }
+        .btn-telegram:hover { background-color: #00aaff; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 136, 204, 0.4); }
 
         footer { background-color: #050507; border-top: 1px solid var(--border-color); padding: 30px 20px; text-align: center; margin-top: 50px; color: var(--text-muted); }
 
@@ -68,7 +98,7 @@
                 position: absolute; top: 100%; left: 0; width: 100%; background-color: rgba(15, 15, 20, 0.98);
                 border-bottom: 1px solid var(--border-color); flex-direction: column; gap: 0; padding: 10px 0; display: none;
             }
-            .nav-links.show { display: flex; }
+            .nav-links.show { display: flex; animation: slideDown 0.4s ease-out forwards; }
             .nav-links li { width: 100%; text-align: center; }
             .nav-links a { padding: 15px; border-radius: 0; border-bottom: 1px solid rgba(255,255,255,0.05); width: 100%; }
         }
@@ -109,27 +139,62 @@
         
         <div class="filter-container">
             <button class="filter-btn active" onclick="filterCatalog('all', event)">Барчаси</button>
-            <button class="filter-btn" onclick="filterCatalog('height', event)">Нарвон / Леса</button>
+            <button class="filter-btn" onclick="filterCatalog('height', event)">Нарвон / Леса / Тўра</button>
             <button class="filter-btn" onclick="filterCatalog('heavy', event)">Оғир техника</button>
             <button class="filter-btn" onclick="filterCatalog('tools', event)">Инструментлар</button>
+            <button class="filter-btn" onclick="filterCatalog('concrete', event)">Бетон ишлари</button>
         </div>
 
         <div class="catalog-grid">
-            <div class="card" data-category="heavy">
-                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800" class="card-img"></div>
-                <div class="card-body"><h3>Гидравлическая Рохля</h3><ul class="card-specs"><li>Грузоподъемность: 2.5 — 3 т</li><li>Для складов и стройплощадок</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
-            </div>
-            <div class="card" data-category="heavy">
-                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?w=800" class="card-img"></div>
-                <div class="card-body"><h3>Генератор</h3><ul class="card-specs"><li>Мощность: от 3 до 15 кВт</li><li>Выходы 220V и 380V</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
-            </div>
+            <!-- 1 -->
             <div class="card" data-category="height">
                 <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800" class="card-img"></div>
-                <div class="card-body"><h3>Лестницы и Стремянки</h3><ul class="card-specs"><li>Высота: от 2m до 10m</li><li>Прочный и легкий алюминий</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+                <div class="card-body"><h3>Алюминий Нарвон (Лестница)</h3><ul class="card-specs"><li>Баландлиги: 2м дан 12м гача</li><li>3 секцияли трансформер</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
             </div>
+            <!-- 2 -->
+            <div class="card" data-category="height">
+                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?w=800" class="card-img"></div>
+                <div class="card-body"><h3>Строительные Леса ва Вышка-Тура</h3><ul class="card-specs"><li>Бўйи: 2м дан 15м гача</li><li>Ғилдиракли ва хавфсиз</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+            </div>
+            <!-- 3 -->
+            <div class="card" data-category="heavy">
+                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800" class="card-img"></div>
+                <div class="card-body"><h3>Гидравлическая Рохля</h3><ul class="card-specs"><li>Юк кўтариши: 2.5 — 3 тонна</li><li>Склад ва стройка учун</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+            </div>
+            <!-- 4 -->
+            <div class="card" data-category="heavy">
+                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?w=800" class="card-img"></div>
+                <div class="card-body"><h3>Бензин / Дизель Генератор</h3><ul class="card-specs"><li>Қуввати: 3кВт дан 15кВт гача</li><li>220V ва 380V чиқишлар</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+            </div>
+            <!-- 5 -->
             <div class="card" data-category="tools">
                 <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800" class="card-img"></div>
-                <div class="card-body"><h3>Перфоратор / Отбойник</h3><ul class="card-specs"><li>Мощные отбойные молотки</li><li>Бурение бетона</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+                <div class="card-body"><h3>Отбойный Молоток / Перфоратор</h3><ul class="card-specs"><li>Кучли бетонолом ва отбойниклар</li><li>Бетон ва ғишт бузиш учун</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+            </div>
+            <!-- 6 -->
+            <div class="card" data-category="concrete">
+                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800" class="card-img"></div>
+                <div class="card-body"><h3>Бетономешалка (Бетон аралаштиргич)</h3><ul class="card-specs"><li>Ҳажми: 180Л — 220Л</li><li>Электрический 220V</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+            </div>
+            <!-- 7 -->
+            <div class="card" data-category="concrete">
+                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=800" class="card-img"></div>
+                <div class="card-body"><h3>Глубинный Вибратор для бетона</h3><ul class="card-specs"><li>Шланг узунлиги: 3m — 6m</li><li>Бетон сифатини ошириш учун</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+            </div>
+            <!-- 8 -->
+            <div class="card" data-category="heavy">
+                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=800" class="card-img"></div>
+                <div class="card-body"><h3>Виброплита (Трамбовка)</h3><ul class="card-specs"><li>Оғирлиги: 80кг — 120кг</li><li>Замин ва асфальт зичлаш</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+            </div>
+            <!-- 9 -->
+            <div class="card" data-category="tools">
+                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=800" class="card-img"></div>
+                <div class="card-body"><h3>Воздушный Компрессор</h3><ul class="card-specs"><li>Ҳажми: 50L — 100L</li><li>Краскопульт ва пневмо-инструментлар учун</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+            </div>
+            <!-- 10 -->
+            <div class="card" data-category="tools">
+                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1508873696983-2df515122519?w=800" class="card-img"></div>
+                <div class="card-body"><h3>Сварочный Аппарат (Инвертор)</h3><ul class="card-specs"><li>Ток кучи: 220A — 300A</li><li>Дуговая и полуавтомат сварка</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
             </div>
         </div>
     </section>
