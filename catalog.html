@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sherlest — Полный Каталог</title>
+    <title>Sherlest — Каталог ускуналар</title>
     <style>
         :root {
             --primary: #ff6600;
@@ -55,7 +55,7 @@
         .page-title { text-align: center; font-size: 2.2rem; margin-bottom: 30px; text-transform: uppercase; }
         .page-title span { color: var(--primary); }
 
-        /* Filter Buttons with Animations */
+        /* Filter Buttons */
         .filter-container { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
         .filter-btn { 
             background: #181820; border: 1px solid var(--border-color); color: var(--text-muted); 
@@ -71,11 +71,11 @@
         }
         .card:hover { transform: translateY(-8px); border-color: var(--primary); box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 15px rgba(255,102,0,0.2); }
 
-        .card-img-box { height: 200px; background: #0d0d11; border-bottom: 1px solid var(--border-color); position: relative; overflow: hidden; }
-        .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .card-img-box { height: 220px; background: #0d0d11; border-bottom: 1px solid var(--border-color); position: relative; overflow: hidden; }
+        .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
         .card:hover .card-img { transform: scale(1.08); }
 
-        .card-badge { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.85); border: 1px solid var(--primary); color: var(--primary); padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: bold; }
+        .card-badge { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.85); border: 1px solid var(--primary); color: var(--primary); padding: 4px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: bold; z-index: 2; }
         .card-body { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
         .card h3 { font-size: 1.2rem; color: #fff; margin-bottom: 10px; }
         .card-specs { list-style: none; margin-bottom: 15px; color: var(--text-muted); font-size: 0.9rem; flex-grow: 1; }
@@ -146,55 +146,132 @@
         </div>
 
         <div class="catalog-grid">
-            <!-- 1 -->
+            <!-- 1. Нарвон -->
             <div class="card" data-category="height">
-                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800" class="card-img"></div>
-                <div class="card-body"><h3>Алюминий Нарвон (Лестница)</h3><ul class="card-specs"><li>Баландлиги: 2м дан 12м гача</li><li>3 секцияли трансформер</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+                <div class="card-img-box">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Алюминий Нарвон" onerror="imgError(this)">
+                </div>
+                <div class="card-body">
+                    <h3>Алюминий Нарвон (Лестница)</h3>
+                    <ul class="card-specs">
+                        <li>Баландлиги: 2м дан 12м гача</li>
+                        <li>3 секцияли трансформер</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
             </div>
-            <!-- 2 -->
+
+            <!-- 2. Леса / Вышка-Тура -->
             <div class="card" data-category="height">
-                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?w=800" class="card-img"></div>
-                <div class="card-body"><h3>Строительные Леса ва Вышка-Тура</h3><ul class="card-specs"><li>Бўйи: 2м дан 15м гача</li><li>Ғилдиракли ва хавфсиз</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+                <div class="card-img-box">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Вышка-Тура" onerror="imgError(this)">
+                </div>
+                <div class="card-body">
+                    <h3>Строительные Леса ва Вышка-Тура</h3>
+                    <ul class="card-specs">
+                        <li>Бўйи: 2м дан 15м гача</li>
+                        <li>Ғилдиракли ва хавфсиз</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
             </div>
-            <!-- 3 -->
+
+            <!-- 3. Рохля -->
             <div class="card" data-category="heavy">
-                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800" class="card-img"></div>
-                <div class="card-body"><h3>Гидравлическая Рохля</h3><ul class="card-specs"><li>Юк кўтариши: 2.5 — 3 тонна</li><li>Склад ва стройка учун</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+                <div class="card-img-box">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Рохля" onerror="imgError(this)">
+                </div>
+                <div class="card-body">
+                    <h3>Гидравлическая Рохля</h3>
+                    <ul class="card-specs">
+                        <li>Юк кўтариши: 2.5 — 3 тонна</li>
+                        <li>Склад ва стройка учун</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
             </div>
-            <!-- 4 -->
+
+            <!-- 4. Генератор -->
             <div class="card" data-category="heavy">
-                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?w=800" class="card-img"></div>
-                <div class="card-body"><h3>Бензин / Дизель Генератор</h3><ul class="card-specs"><li>Қуввати: 3кВт дан 15кВт гача</li><li>220V ва 380V чиқишлар</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+                <div class="card-img-box">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Генератор" onerror="imgError(this)">
+                </div>
+                <div class="card-body">
+                    <h3>Бензин / Дизель Генератор</h3>
+                    <ul class="card-specs">
+                        <li>Қуввати: 3кВт дан 15кВт гача</li>
+                        <li>220V ва 380V чиқишлар</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
             </div>
-            <!-- 5 -->
+
+            <!-- 5. Отбойник -->
             <div class="card" data-category="tools">
-                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800" class="card-img"></div>
-                <div class="card-body"><h3>Отбойный Молоток / Перфоратор</h3><ul class="card-specs"><li>Кучли бетонолом ва отбойниклар</li><li>Бетон ва ғишт бузиш учун</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+                <div class="card-img-box">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Перфоратор" onerror="imgError(this)">
+                </div>
+                <div class="card-body">
+                    <h3>Отбойный Молоток / Перфоратор</h3>
+                    <ul class="card-specs">
+                        <li>Кучли бетонолом ва отбойниклар</li>
+                        <li>Бетон ва ғишт бузиш учун</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
             </div>
-            <!-- 6 -->
+
+            <!-- 6. Бетономешалка -->
             <div class="card" data-category="concrete">
-                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800" class="card-img"></div>
-                <div class="card-body"><h3>Бетономешалка (Бетон аралаштиргич)</h3><ul class="card-specs"><li>Ҳажми: 180Л — 220Л</li><li>Электрический 220V</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+                <div class="card-img-box">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Бетономешалка" onerror="imgError(this)">
+                </div>
+                <div class="card-body">
+                    <h3>Бетономешалка (Бетон аралаштиргич)</h3>
+                    <ul class="card-specs">
+                        <li>Ҳажми: 180Л — 220Л</li>
+                        <li>Электрический 220V</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
             </div>
-            <!-- 7 -->
+
+            <!-- 7. Вибратор для бетона -->
             <div class="card" data-category="concrete">
-                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=800" class="card-img"></div>
-                <div class="card-body"><h3>Глубинный Вибратор для бетона</h3><ul class="card-specs"><li>Шланг узунлиги: 3m — 6m</li><li>Бетон сифатини ошириш учун</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+                <div class="card-img-box">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Вибратор для бетона" onerror="imgError(this)">
+                </div>
+                <div class="card-body">
+                    <h3>Глубинный Вибратор для бетона</h3>
+                    <ul class="card-specs">
+                        <li>Шланг узунлиги: 3m — 6m</li>
+                        <li>Бетон сифатини ошириш учун</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
             </div>
-            <!-- 8 -->
+
+            <!-- 8. Виброплита -->
             <div class="card" data-category="heavy">
-                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=800" class="card-img"></div>
-                <div class="card-body"><h3>Виброплита (Трамбовка)</h3><ul class="card-specs"><li>Оғирлиги: 80кг — 120кг</li><li>Замин ва асфальт зичлаш</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
-            </div>
-            <!-- 9 -->
-            <div class="card" data-category="tools">
-                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=800" class="card-img"></div>
-                <div class="card-body"><h3>Воздушный Компрессор</h3><ul class="card-specs"><li>Ҳажми: 50L — 100L</li><li>Краскопульт ва пневмо-инструментлар учун</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
-            </div>
-            <!-- 10 -->
-            <div class="card" data-category="tools">
-                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1508873696983-2df515122519?w=800" class="card-img"></div>
-                <div class="card-body"><h3>Сварочный Аппарат (Инвертор)</h3><ul class="card-specs"><li>Ток кучи: 220A — 300A</li><li>Дуговая и полуавтомат сварка</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+                <div class="card-img-box">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Виброплита" onerror="imgError(this)">
+                </div>
+                <div class="card-body">
+                    <h3>Виброплита (Трамбовка)</h3>
+                    <ul class="card-specs">
+                        <li>Оғирлиги: 80кг — 120кг</li>
+                        <li>Замин ва асфальт зичлаш</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
             </div>
         </div>
     </section>
@@ -204,10 +281,12 @@
     </footer>
 
     <script>
+        // Мобильное меню
         const burger = document.getElementById('burgerMenu');
         const nav = document.getElementById('navLinks');
         burger.addEventListener('click', () => { nav.classList.toggle('show'); });
 
+        // Фильтр категорий
         function filterCatalog(category, event) {
             const cards = document.querySelectorAll('.card');
             const buttons = document.querySelectorAll('.filter-btn');
@@ -222,6 +301,12 @@
                     card.style.display = 'none';
                 }
             });
+        }
+
+        // Запасной вариант для фото (если интернет слаб)
+        function imgError(image) {
+            image.onerror = null;
+            image.src = "https://via.placeholder.com/800x600/141418/ff6600?text=SHERLEST+EQUIPMENT";
         }
     </script>
 </body>
