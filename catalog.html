@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sherlest — Контакты и Условия | Алоқа ва Шартлар</title>
+    <title>Sherlest — Каталог ускуналар | Полный список техники</title>
     <style>
         :root {
             --primary: #ff6600;
@@ -74,56 +74,64 @@
         .nav-links a.active { color: var(--primary); background: rgba(255,102,0,0.1); }
         .nav-links a.active::after { width: 80%; }
 
-        /* Contacts Page Layout */
-        .container { max-width: 1000px; margin: 0 auto; padding: 50px 20px; }
-        .page-title { text-align: center; margin-bottom: 40px; font-size: 2.5rem; text-transform: uppercase; animation: slideUp 0.7s ease-out; }
+        /* Catalog Layout */
+        .container { max-width: 1200px; margin: 0 auto; padding: 50px 20px; }
+        .page-title { text-align: center; font-size: 2.8rem; margin-bottom: 40px; text-transform: uppercase; animation: slideUp 0.7s ease-out; }
         .page-title span { color: var(--primary); }
 
-        .grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-
-        /* 🔥 Анимированные БЛОКИ 🔥 */
-        .card-box {
-            background-color: var(--card-bg); border: 1px solid var(--border-color); border-top: 4px solid var(--primary); border-radius: 14px; padding: 30px;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); opacity: 0; animation: cardAppear 0.6s ease-out forwards;
+        /* Filter Controls */
+        .filter-container { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; animation: fadeIn 1s ease-out 0.2s backwards; }
+        .filter-btn {
+            background: #181820; border: 1px solid var(--border-color); color: var(--text-muted); padding: 10px 22px; border-radius: 25px; cursor: pointer; font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .card-box:nth-child(1) { animation-delay: 0.1s; }
-        .card-box:nth-child(2) { animation-delay: 0.3s; }
-        .card-box:nth-child(3) { animation-delay: 0.5s; grid-column: 1 / -1; }
+        .filter-btn.active, .filter-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); box-shadow: 0 0 15px var(--accent-glow); transform: scale(1.05); }
 
-        .card-box:hover { transform: translateY(-8px); border-color: var(--primary); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px var(--accent-glow); }
-
-        .card-box h2 { font-size: 1.5rem; margin-bottom: 20px; color: var(--primary); display: flex; align-items: center; gap: 10px; transition: 0.3s; }
-        .card-box:hover h2 { text-shadow: 0 0 10px var(--primary); }
-        .card-box p, .card-box li { color: var(--text-muted); margin-bottom: 12px; font-size: 1.05rem; }
-        .card-box ul { list-style: none; }
-        .card-box ul li { position: relative; padding-left: 25px; }
-        .card-box ul li::before { content: '⚡'; position: absolute; left: 0; color: var(--primary); }
-
-        /* 🔥 Анимированные Кнопки Контактов 🔥 */
-        .contact-btn {
-            display: block; text-align: center; padding: 15px; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 1.1rem; margin-top: 15px;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden;
+        /* Catalog Grid & Cards */
+        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card {
+            background-color: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color); overflow: hidden; display: flex; flex-direction: column;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; opacity: 0;
+            animation: cardAppear 0.5s ease-out forwards;
         }
-        
-        .phone-btn { background: rgba(255, 102, 0, 0.05); border: 1px solid var(--primary); color: #fff; }
-        .phone-btn:hover { background: var(--primary); box-shadow: 0 5px 20px var(--accent-glow); transform: translateY(-3px) scale(1.02); }
+        @keyframes cardAppear { from { opacity: 0; transform: translateY(30px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
-        .tg-btn { background: #0088cc; color: #fff; border: 1px solid #0088cc; }
-        .tg-btn:hover { background: #0077b3; border-color: #0077b3; box-shadow: 0 5px 20px rgba(0, 136, 204, 0.6); transform: translateY(-3px) scale(1.02); }
+        .card:hover { transform: translateY(-10px) scale(1.02); border-color: var(--primary); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 25px var(--accent-glow); }
+
+        .card-img-box { height: 220px; background: #0d0d11; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border-color); overflow: hidden; position: relative; }
+        .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .card:hover .card-img { transform: scale(1.1); }
+
+        .card-badge {
+            position: absolute; top: 15px; right: 15px; background: rgba(0, 0, 0, 0.8); border: 1px solid var(--primary); color: var(--primary); padding: 4px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; z-index: 2;
+            animation: pulseBadge 1.5s infinite alternate; backdrop-filter: blur(5px);
+        }
+        @keyframes pulseBadge { 0% { box-shadow: 0 0 5px rgba(255,102,0,0.3); } 100% { box-shadow: 0 0 15px rgba(255,102,0,0.7); } }
+
+        .card-body { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+        .card h3 { font-size: 1.35rem; color: #fff; margin-bottom: 15px; font-weight: 700; transition: color 0.3s; }
+        .card:hover h3 { color: var(--primary); }
+        .card-specs { list-style: none; margin-bottom: 22px; color: var(--text-muted); font-size: 0.92rem; flex-grow: 1; }
+        .card-specs li { margin-bottom: 8px; padding-left: 20px; position: relative; }
+        .card-specs li::before { content: "⚡"; position: absolute; left: 0; font-size: 0.8rem; }
+
+        .btn-telegram {
+            background-color: #0088cc; color: white; padding: 12px; border-radius: 10px; text-decoration: none; font-weight: bold; text-align: center; display: block; margin-top: auto;
+            transition: all 0.3s ease;
+        }
+        .btn-telegram:hover { background-color: #0077b3; box-shadow: 0 0 15px rgba(0, 136, 204, 0.6); transform: translateY(-2px); }
 
         /* Common Animations */
         @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes cardAppear { from { opacity: 0; transform: translateY(40px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
-        footer { background-color: #050507; border-top: 1px solid var(--border-color); padding: 30px 20px; text-align: center; margin-top: 60px; color: var(--text-muted); animation: fadeIn 1s ease-out 0.8s backwards; }
+        footer { background-color: #050507; border-top: 1px solid var(--border-color); padding: 40px 20px; text-align: center; margin-top: 60px; color: var(--text-muted); animation: fadeIn 1s ease-out 0.8s backwards; }
 
         @media (max-width: 768px) {
-            .page-title { font-size: 2rem; }
+            .page-title { font-size: 2.2rem; }
             .nav-links { display: none; }
             .top-bar-container { flex-direction: column; gap: 8px; text-align: center; }
-            .card-box { grid-column: 1 / -1 !as_important; }
         }
     </style>
 </head>
@@ -146,54 +154,299 @@
             <a href="index.html" class="logo">SHER<span>LEST</span></a>
             <ul class="nav-links">
                 <li><a href="index.html">Bosh sahifa</a></li>
-                <li><a href="catalog.html">Каталог</a></li>
-                <li><a href="contacts.html" class="active">Контакты / Алоқа</a></li>
+                <li><a href="catalog.html" class="active">Каталог</a></li>
+                <li><a href="contacts.html">Контакты / Алоқа</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <div class="container">
-        <h1 class="page-title">Алоқа ва <span>Шартлар</span></h1>
+    <!-- Catalog Section -->
+    <section class="container">
+        <h1 class="page-title">Ускуналар <span>Каталоги</span></h1>
+        
+        <!-- Filter Buttons -->
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterCatalog('all', event)">Барчаси (14)</button>
+            <button class="filter-btn" onclick="filterCatalog('height', event)">Нарвон / Леса</button>
+            <button class="filter-btn" onclick="filterCatalog('heavy', event)">Оғир техника</button>
+            <button class="filter-btn" onclick="filterCatalog('tools', event)">Инструментлар</button>
+        </div>
 
-        <div class="grid-layout">
-            
-            <!-- Блок 1: Контакты -->
-            <div class="card-box">
-                <h2>📞 Буюртма бериш</h2>
-                <p>Ускуналарни банд қилиш ва барча саволлар учун бизга телефон қилинг ёки Telegram'дан ёзинг:</p>
-                
-                <a href="tel:+998971224455" class="contact-btn phone-btn">📞 +998 (97) 122-44-55</a>
-                <a href="tel:+998881074400" class="contact-btn phone-btn">📞 +998 (88) 107-44-00</a>
-                <a href="https://t.me/Narvon24" target="_blank" class="contact-btn tg-btn">💬 Telegram: @Narvon24</a>
+        <div class="catalog-grid">
+
+            <!-- 1. Рохля -->
+            <div class="card" data-category="heavy" style="animation-delay: 0.05s;">
+                <div class="card-img-box">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800" alt="Рохля" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Гидравлическая Рохля</h3>
+                    <ul class="card-specs">
+                        <li>Грузоподъемность: 2.5 — 3 тонны</li>
+                        <li>Для складов и стройплощадок</li>
+                        <li>Мустаҳкам ва енгил бошқарилувчи</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
             </div>
 
-            <!-- Блок 2: Условия аренды -->
-            <div class="card-box">
-                <h2>📋 Ижара шартлари</h2>
-                <p>Техникани ижарага олиш жуда осон. Бунинг учун қуйидаги шартлар бажарилиши керак:</p>
-                <ul>
-                    <li>⚡ <strong>Гаров (Залог):</strong> Ижарага олиш учун нақд пул ёки шахсни тасдиқловчи ҳужжат (Паспорт/Права) гаров эвазига олинади.</li>
-                    <li>⚡ <strong>Ҳолати:</strong> Барча ускуналар соз, ишлаб турган ва шай ҳолатда топширилади.</li>
-                    <li>⚡ <strong>Қайтариш:</strong> Ускунани ижара муддати тугагач, соз ва тоза ҳолатда қайтариш лозим.</li>
-                </ul>
+            <!-- 2. Генератор -->
+            <div class="card" data-category="heavy" style="animation-delay: 0.1s;">
+                <div class="card-img-box">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?w=800" alt="Генератор" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Бензиновый / Дизельный Генератор</h3>
+                    <ul class="card-specs">
+                        <li>Мощность: от 3 кВт до 15 кВт</li>
+                        <li>Выходы 220V и 380V</li>
+                        <li>Узлуксиз электр энергияси</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
             </div>
 
-            <!-- Блок 3: Доставка Tez Kel -->
-            <div class="card-box">
-                <h2>🚚 Tez Kel Етказиб Бериш</h2>
-                <p>Ўзингиз келиб олиб кетишга вақтингиз йўқми? Муаммо эмас!</p>
-                <p>Бизнинг <strong>Tez Kel</strong> тезкор етказиб бериш хизматимиз ускуналарни Ташкент шаҳри ва вилояти бўйлаб исталган объектингизгача блиндек тез ва хавфсиз етказиб беради.</p>
-                <p style="color:var(--primary); font-weight:bold;">⚡ Буюртма беринг ва вақтингизни тежанг!</p>
+            <!-- 3. Лестницы -->
+            <div class="card" data-category="height" style="animation-delay: 0.15s;">
+                <div class="card-img-box">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800" alt="Лестница" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Лестницы и Стремянки</h3>
+                    <ul class="card-specs">
+                        <li>Высота: от 2m до 10m (Трансформер)</li>
+                        <li>Прочный и легкий алюминий</li>
+                        <li>Ички ва ташқи ишлар учун</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
+            </div>
+
+            <!-- 4. Перфоратор -->
+            <div class="card" data-category="tools" style="animation-delay: 0.2s;">
+                <div class="card-img-box">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800" alt="Перфоратор" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Перфораторы и Отбойники</h3>
+                    <ul class="card-specs">
+                        <li>Мощные отбойные молотки</li>
+                        <li>Для сноса и бурения бетона</li>
+                        <li>Оғир деворларни тешиш ва бузиш</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
+            </div>
+
+            <!-- 5. Леса -->
+            <div class="card" data-category="height" style="animation-delay: 0.25s;">
+                <div class="card-img-box">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800" alt="Строительные леса" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Строительные леса (Леса)</h3>
+                    <ul class="card-specs">
+                        <li>Фасадные металлические леса</li>
+                        <li>Безопасная конструкция</li>
+                        <li>Осон ва тез йиғилувчи лесалар</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
+            </div>
+
+            <!-- 6. Виброплита -->
+            <div class="card" data-category="heavy" style="animation-delay: 0.3s;">
+                <div class="card-img-box">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800" alt="Виброплита" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Виброплиты ва Трамбовки</h3>
+                    <ul class="card-specs">
+                        <li>Уплотнение грунта, асфальта, плитки</li>
+                        <li>Высокая сила уплотнения</li>
+                        <li>Заминни зичлаш ва шиббалаш</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
+            </div>
+
+            <!-- 7. Штабелер -->
+            <div class="card" data-category="heavy" style="animation-delay: 0.35s;">
+                <div class="card-img-box">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=800" alt="Штабелер" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Гидравлический Штабелер</h3>
+                    <ul class="card-specs">
+                        <li>Грузоподъемность: до 1.5 т</li>
+                        <li>Подъем на высоту 1.6м — 3м</li>
+                        <li>Склад ишлари ва паллеталар учун</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
+            </div>
+
+            <!-- 8. Wagner -->
+            <div class="card" data-category="tools" style="animation-delay: 0.4s;">
+                <div class="card-img-box">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800" alt="Краскопульт Wagner" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Краскопульт Wagner</h3>
+                    <ul class="card-specs">
+                        <li>Безвоздушный окрасочный аппарат</li>
+                        <li>Быстрое окрашивание стен и фасадов</li>
+                        <li>Тез ва сифатли бўёқ пуркаш</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
+            </div>
+
+            <!-- 9. Karcher -->
+            <div class="card" data-category="tools" style="animation-delay: 0.45s;">
+                <div class="card-img-box">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=800" alt="Мойка Karcher" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Мойка Kärcher</h3>
+                    <ul class="card-specs">
+                        <li>Мойка высокого давления</li>
+                        <li>Для чистки стройплощадок и техники</li>
+                        <li>Юқори босимли тозалаш суви</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
+            </div>
+
+            <!-- 10. Компрессор -->
+            <div class="card" data-category="heavy" style="animation-delay: 0.5s;">
+                <div class="card-img-box">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=800" alt="Компрессор" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Воздушный Компрессор</h3>
+                    <ul class="card-specs">
+                        <li>Компрессор высокого давления</li>
+                        <li>Для пневмоинструмента и продувки</li>
+                        <li>Пневматик ускуналар учун ҳаво</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
+            </div>
+
+            <!-- 11. Пылесос -->
+            <div class="card" data-category="tools" style="animation-delay: 0.55s;">
+                <div class="card-img-box">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1558317374-067fb5f30001?w=800" alt="Строительный пылесос" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Строительный пылесос</h3>
+                    <ul class="card-specs">
+                        <li>Промышленный пылесос</li>
+                        <li>Сбор бетонной пыли и мусора</li>
+                        <li>Шпаклевка ва бетон чанглари учун</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
+            </div>
+
+            <!-- 12. Жираф -->
+            <div class="card" data-category="tools" style="animation-delay: 0.6s;">
+                <div class="card-img-box">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800" alt="Шлифмашина Жираф" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Шлифмашина (Жираф)</h3>
+                    <ul class="card-specs">
+                        <li>Для шлифовки стен и потолков</li>
+                        <li>Выравнивание шпаклевки</li>
+                        <li>Девор ва шипларни силлиқлаш</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
+            </div>
+
+            <!-- 13. Алмазный Бур -->
+            <div class="card" data-category="tools" style="animation-delay: 0.65s;">
+                <div class="card-img-box">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=800" alt="Алмазный бур" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Установка алмазного бурения</h3>
+                    <ul class="card-specs">
+                        <li>Алмазное бурение бетона</li>
+                        <li>Точные отверстия любого диаметра</li>
+                        <li>Бетон деворларда тоза тешиклар</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
+            </div>
+
+            <!-- 14. Вибронога -->
+            <div class="card" data-category="heavy" style="animation-delay: 0.7s;">
+                <div class="card-img-box">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800" alt="Вибронога Кенгуру" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Вибронога (Кенгуру)</h3>
+                    <ul class="card-specs">
+                        <li>Вибротрамбовка для траншей и узких мест</li>
+                        <li>Шиббалаш ва зичлаш учун</li>
+                        <li>Высокая мощность уплотнения</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
             </div>
 
         </div>
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 SHERLEST & Tez Kel. Барча ҳуқуқлар ҳимояланган.</p>
     </footer>
+
+    <!-- Working Filter Script -->
+    <script>
+        function filterCatalog(category, event) {
+            const cards = document.querySelectorAll('.card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            if (event && event.currentTarget) {
+                event.currentTarget.classList.add('active');
+            }
+
+            let visibleIndex = 0;
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                
+                if (category === 'all' || cardCat === category) {
+                    card.style.display = 'flex';
+                    card.style.animation = 'none';
+                    card.offsetHeight; // trigger reflow
+                    card.style.animation = `cardAppear 0.4s ease-out ${visibleIndex * 0.05}s forwards`;
+                    visibleIndex++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>
