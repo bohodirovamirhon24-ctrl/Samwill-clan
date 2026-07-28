@@ -71,7 +71,7 @@
         }
         .card:hover { transform: translateY(-8px); border-color: var(--primary); box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 15px rgba(255,102,0,0.2); }
 
-        .card-img-box { height: 220px; background: #0d0d11; border-bottom: 1px solid var(--border-color); position: relative; overflow: hidden; }
+        .card-img-box { height: 230px; background: #1a1a22; border-bottom: 1px solid var(--border-color); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
         .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
         .card:hover .card-img { transform: scale(1.08); }
 
@@ -146,11 +146,12 @@
         </div>
 
         <div class="catalog-grid">
-            <!-- 1. Нарвон -->
+
+            <!-- 1. Нарвон (Лестница) -->
             <div class="card" data-category="height">
                 <div class="card-img-box">
                     <span class="card-badge">Mavjud</span>
-                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Алюминий Нарвон" onerror="imgError(this)">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Ladder.jpg/800px-Ladder.jpg" class="card-img" alt="Алюминий Нарвон" onerror="imgError(this, '🪜 Нарвон')">
                 </div>
                 <div class="card-body">
                     <h3>Алюминий Нарвон (Лестница)</h3>
@@ -162,11 +163,11 @@
                 </div>
             </div>
 
-            <!-- 2. Леса / Вышка-Тура -->
+            <!-- 2. Вышка-Тура ва Леса -->
             <div class="card" data-category="height">
                 <div class="card-img-box">
                     <span class="card-badge">Mavjud</span>
-                    <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Вышка-Тура" onerror="imgError(this)">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Bauger%C3%BCst_01.jpg/800px-Bauger%C3%BCst_01.jpg" class="card-img" alt="Вышка-Тура ва Леса" onerror="imgError(this, '🏗️ Вышка-Тура')">
                 </div>
                 <div class="card-body">
                     <h3>Строительные Леса ва Вышка-Тура</h3>
@@ -178,11 +179,11 @@
                 </div>
             </div>
 
-            <!-- 3. Рохля -->
+            <!-- 3. Гидравлическая Рохля -->
             <div class="card" data-category="heavy">
                 <div class="card-img-box">
                     <span class="card-badge">Mavjud</span>
-                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Рохля" onerror="imgError(this)">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Hubwagen_01.jpg/800px-Hubwagen_01.jpg" class="card-img" alt="Гидравлическая Рохля" onerror="imgError(this, '🛒 Рохля')">
                 </div>
                 <div class="card-body">
                     <h3>Гидравлическая Рохля</h3>
@@ -198,7 +199,7 @@
             <div class="card" data-category="heavy">
                 <div class="card-img-box">
                     <span class="card-badge">Mavjud</span>
-                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Генератор" onerror="imgError(this)">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Stromerzeuger.jpg/800px-Stromerzeuger.jpg" class="card-img" alt="Генератор" onerror="imgError(this, '⚡ Генератор')">
                 </div>
                 <div class="card-body">
                     <h3>Бензин / Дизель Генератор</h3>
@@ -210,11 +211,11 @@
                 </div>
             </div>
 
-            <!-- 5. Отбойник -->
+            <!-- 5. Отбойный Молоток -->
             <div class="card" data-category="tools">
                 <div class="card-img-box">
                     <span class="card-badge">Mavjud</span>
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Перфоратор" onerror="imgError(this)">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Jackhammer.jpg/800px-Jackhammer.jpg" class="card-img" alt="Отбойный Молоток" onerror="imgError(this, '🔨 Отбойник')">
                 </div>
                 <div class="card-body">
                     <h3>Отбойный Молоток / Перфоратор</h3>
@@ -230,7 +231,7 @@
             <div class="card" data-category="concrete">
                 <div class="card-img-box">
                     <span class="card-badge">Mavjud</span>
-                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Бетономешалка" onerror="imgError(this)">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Betonmischer_1.jpg/800px-Betonmischer_1.jpg" class="card-img" alt="Бетономешалка" onerror="imgError(this, '🌀 Бетономешалка')">
                 </div>
                 <div class="card-body">
                     <h3>Бетономешалка (Бетон аралаштиргич)</h3>
@@ -242,11 +243,11 @@
                 </div>
             </div>
 
-            <!-- 7. Вибратор для бетона -->
+            <!-- 7. Глубинный Вибратор -->
             <div class="card" data-category="concrete">
                 <div class="card-img-box">
                     <span class="card-badge">Mavjud</span>
-                    <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Вибратор для бетона" onerror="imgError(this)">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Betonr%C3%BCttler.jpg/800px-Betonr%C3%BCttler.jpg" class="card-img" alt="Вибратор для бетона" onerror="imgError(this, '🌊 Вибратор')">
                 </div>
                 <div class="card-body">
                     <h3>Глубинный Вибратор для бетона</h3>
@@ -262,7 +263,7 @@
             <div class="card" data-category="heavy">
                 <div class="card-img-box">
                     <span class="card-badge">Mavjud</span>
-                    <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=800&q=80" class="card-img" alt="Виброплита" onerror="imgError(this)">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/R%C3%BCttelplatte.jpg/800px-R%C3%BCttelplatte.jpg" class="card-img" alt="Виброплита" onerror="imgError(this, '🚜 Виброплита')">
                 </div>
                 <div class="card-body">
                     <h3>Виброплита (Трамбовка)</h3>
@@ -273,6 +274,39 @@
                     <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
                 </div>
             </div>
+
+            <!-- 9. Компрессор -->
+            <div class="card" data-category="tools">
+                <div class="card-img-box">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Air_compressor.jpg/800px-Air_compressor.jpg" class="card-img" alt="Компрессор" onerror="imgError(this, '💨 Компрессор')">
+                </div>
+                <div class="card-body">
+                    <h3>Воздушный Компрессор</h3>
+                    <ul class="card-specs">
+                        <li>Ҳажми: 50L — 100L</li>
+                        <li>Пневмо-инструментлар учун</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
+            </div>
+
+            <!-- 10. Сварочный аппарат -->
+            <div class="card" data-category="tools">
+                <div class="card-img-box">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Welding_inverter.jpg/800px-Welding_inverter.jpg" class="card-img" alt="Сварочный аппарат" onerror="imgError(this, '🔥 Сварка')">
+                </div>
+                <div class="card-body">
+                    <h3>Сварочный Аппарат (Инвертор)</h3>
+                    <ul class="card-specs">
+                        <li>Ток кучи: 220A — 300A</li>
+                        <li>Инверторный компактный</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -281,12 +315,10 @@
     </footer>
 
     <script>
-        // Мобильное меню
         const burger = document.getElementById('burgerMenu');
         const nav = document.getElementById('navLinks');
         burger.addEventListener('click', () => { nav.classList.toggle('show'); });
 
-        // Фильтр категорий
         function filterCatalog(category, event) {
             const cards = document.querySelectorAll('.card');
             const buttons = document.querySelectorAll('.filter-btn');
@@ -303,10 +335,9 @@
             });
         }
 
-        // Запасной вариант для фото (если интернет слаб)
-        function imgError(image) {
+        function imgError(image, name) {
             image.onerror = null;
-            image.src = "https://via.placeholder.com/800x600/141418/ff6600?text=SHERLEST+EQUIPMENT";
+            image.src = "https://via.placeholder.com/800x600/141418/ff6600?text=" + encodeURIComponent("SHERLEST: " + name);
         }
     </script>
 </body>
