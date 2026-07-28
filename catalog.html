@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sherlest — Аренда строительного оборудования в Ташкенте</title>
+    <title>Sherlest — Каталог ускуналар</title>
     <style>
         :root {
             --primary: #ff6600;
@@ -16,67 +16,61 @@
             --accent-glow: rgba(255, 102, 0, 0.4);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; scroll-behavior: smooth; }
-        
-        body { background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; overflow-x: hidden; opacity: 0; animation: fadeInPage 0.6s ease-out forwards; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; overflow-x: hidden; }
 
-        @keyframes fadeInPage { to { opacity: 1; } }
-
-        /* Top Bar */
-        .top-bar { background: #050507; border-bottom: 1px solid var(--border-color); padding: 10px 20px; font-size: 0.88rem; }
+        .top-bar { background: #050507; border-bottom: 1px solid var(--border-color); padding: 10px 20px; font-size: 0.88rem; position: relative; z-index: 100; }
         .top-bar-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .top-phones a { color: var(--primary); text-decoration: none; font-weight: 800; margin-left: 15px; display: inline-block; transition: 0.3s; }
+        .top-phones a { color: var(--primary); text-decoration: none; font-weight: 800; margin-left: 15px; }
 
-        /* Navigation Header */
-        nav { background-color: rgba(10, 10, 13, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); backdrop-filter: blur(10px); }
+        nav { background-color: rgba(10, 10, 13, 0.98); position: sticky; top: 0; z-index: 9999; border-bottom: 1px solid var(--border-color); backdrop-filter: blur(10px); }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; position: relative; }
 
-        /* Logo */
-        .logo { font-size: 2rem; font-weight: 900; color: #fff; text-decoration: none; letter-spacing: 2px; text-transform: uppercase; }
+        .logo { font-size: 2rem; font-weight: 900; color: #fff; text-decoration: none; letter-spacing: 2px; text-transform: uppercase; z-index: 10000; }
         .logo span { background: linear-gradient(90deg, #ff6600, #ffaa00, #ff3300); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* Nav Links */
-        .nav-links { display: flex; gap: 15px; list-style: none; }
-        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 600; padding: 10px 18px; border-radius: 8px; transition: 0.3s; display: block; }
-        .nav-links a:hover, .nav-links a.active { color: var(--primary); background: rgba(255,102,0,0.1); }
+        .nav-links { display: flex; gap: 15px; list-style: none; z-index: 10000; position: relative; }
+        .nav-links li { display: block; }
+        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 600; padding: 10px 18px; border-radius: 8px; transition: 0.3s; display: inline-block; cursor: pointer; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); background: rgba(255,102,0,0.15); }
 
-        /* Burger Menu Icon for Mobile */
-        .burger-menu { display: none; flex-direction: column; justify-content: space-between; width: 30px; height: 21px; cursor: pointer; z-index: 1001; }
-        .burger-menu span { height: 3px; width: 100%; background-color: var(--primary); border-radius: 3px; transition: all 0.3s ease; }
+        .burger-menu { display: none; flex-direction: column; justify-content: space-between; width: 30px; height: 21px; cursor: pointer; z-index: 10000; }
+        .burger-menu span { height: 3px; width: 100%; background-color: var(--primary); border-radius: 3px; }
 
-        /* Hero Banner */
-        .hero { text-align: center; padding: 80px 20px; background: radial-gradient(circle, rgba(255,102,0,0.15) 0%, rgba(10,10,13,1) 70%); }
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; text-transform: uppercase; }
-        .hero h1 span { color: var(--primary); }
-        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 30px; }
-        .btn-main { display: inline-block; background: var(--primary); color: #fff; padding: 15px 35px; border-radius: 30px; font-weight: bold; text-decoration: none; font-size: 1.1rem; box-shadow: 0 0 20px var(--accent-glow); transition: 0.3s; }
-        .btn-main:hover { transform: translateY(-3px) scale(1.05); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+        .page-title { text-align: center; font-size: 2.2rem; margin-bottom: 30px; text-transform: uppercase; }
+        .page-title span { color: var(--primary); }
 
-        footer { background-color: #050507; border-top: 1px solid var(--border-color); padding: 30px 20px; text-align: center; margin-top: 60px; color: var(--text-muted); }
+        .filter-container { display: flex; justify-content: center; gap: 8px; margin-bottom: 30px; flex-wrap: wrap; }
+        .filter-btn { background: #181820; border: 1px solid var(--border-color); color: var(--text-muted); padding: 8px 18px; border-radius: 20px; cursor: pointer; font-weight: 600; transition: 0.3s; }
+        .filter-btn.active, .filter-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
 
-        /* 🔥 МОБИЛЬНАЯ АДАПТАЦИЯ МЕНЮ 🔥 */
+        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background-color: var(--card-bg); border-radius: 14px; border: 1px solid var(--border-color); overflow: hidden; display: flex; flex-direction: column; }
+        .card-img-box { height: 200px; background: #0d0d11; border-bottom: 1px solid var(--border-color); position: relative; }
+        .card-img { width: 100%; height: 100%; object-fit: cover; }
+        .card-badge { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.8); border: 1px solid var(--primary); color: var(--primary); padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: bold; }
+        .card-body { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+        .card h3 { font-size: 1.2rem; color: #fff; margin-bottom: 10px; }
+        .card-specs { list-style: none; margin-bottom: 15px; color: var(--text-muted); font-size: 0.9rem; flex-grow: 1; }
+        .card-specs li { margin-bottom: 6px; padding-left: 18px; position: relative; }
+        .card-specs li::before { content: "⚡"; position: absolute; left: 0; }
+
+        .btn-telegram { background-color: #0088cc; color: white; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: bold; text-align: center; display: block; }
+
+        footer { background-color: #050507; border-top: 1px solid var(--border-color); padding: 30px 20px; text-align: center; margin-top: 50px; color: var(--text-muted); }
+
         @media (max-width: 768px) {
             .burger-menu { display: flex; }
             .top-bar-container { flex-direction: column; gap: 5px; text-align: center; }
 
             .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: rgba(15, 15, 20, 0.98);
-                border-bottom: 1px solid var(--border-color);
-                flex-direction: column;
-                gap: 0;
-                padding: 10px 0;
-                display: none; /* Скрыто по умолчанию */
-                box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+                position: absolute; top: 100%; left: 0; width: 100%; background-color: rgba(15, 15, 20, 0.98);
+                border-bottom: 1px solid var(--border-color); flex-direction: column; gap: 0; padding: 10px 0; display: none;
             }
-
-            .nav-links.show { display: flex; } /* Открывается при клике */
+            .nav-links.show { display: flex; }
             .nav-links li { width: 100%; text-align: center; }
-            .nav-links a { padding: 15px; border-radius: 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-            .hero h1 { font-size: 2rem; }
+            .nav-links a { padding: 15px; border-radius: 0; border-bottom: 1px solid rgba(255,255,255,0.05); width: 100%; }
         }
     </style>
 </head>
@@ -84,7 +78,7 @@
 
     <div class="top-bar">
         <div class="top-bar-container">
-            <span>🚚 <strong>Tez Kel</strong> — Тезкор етказиб бериш хизмати</span>
+            <span>🚚 <strong>Tez Kel</strong> — Тезкор етказиб бериш</span>
             <div class="top-phones">
                 <a href="tel:+998971224455">📞 +998 (97) 122-44-55</a>
                 <a href="tel:+998881074400">📞 +998 (88) 107-44-00</a>
@@ -94,9 +88,8 @@
 
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">SHER<span>LEST</span></a>
+            <a href="./index.html" class="logo">SHER<span>LEST</span></a>
             
-            <!-- Кнопка Бургер Меню для Телефона -->
             <div class="burger-menu" id="burgerMenu">
                 <span></span>
                 <span></span>
@@ -104,17 +97,41 @@
             </div>
 
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html" class="active">Bosh sahifa</a></li>
-                <li><a href="catalog.html">Каталог</a></li>
-                <li><a href="contacts.html">Контакты / Алоқа</a></li>
+                <li><a href="./index.html">Bosh sahifa</a></li>
+                <li><a href="./catalog.html" class="active">Каталог</a></li>
+                <li><a href="./contacts.html">Контакты / Алоқа</a></li>
             </ul>
         </div>
     </nav>
 
-    <section class="hero">
-        <h1>Курилиш Ускуналари <span>Ижараси</span></h1>
-        <p>Ташкент ва вилоят бўйлаб сифатли строительный ускуналар ва Tez Kel етказиб бериш хизмати.</p>
-        <a href="catalog.html" class="btn-main">Каталогга ўтиш ➔</a>
+    <section class="container">
+        <h1 class="page-title">Ускуналар <span>Каталоги</span></h1>
+        
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterCatalog('all', event)">Барчаси</button>
+            <button class="filter-btn" onclick="filterCatalog('height', event)">Нарвон / Леса</button>
+            <button class="filter-btn" onclick="filterCatalog('heavy', event)">Оғир техника</button>
+            <button class="filter-btn" onclick="filterCatalog('tools', event)">Инструментлар</button>
+        </div>
+
+        <div class="catalog-grid">
+            <div class="card" data-category="heavy">
+                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800" class="card-img"></div>
+                <div class="card-body"><h3>Гидравлическая Рохля</h3><ul class="card-specs"><li>Грузоподъемность: 2.5 — 3 т</li><li>Для складов и стройплощадок</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+            </div>
+            <div class="card" data-category="heavy">
+                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?w=800" class="card-img"></div>
+                <div class="card-body"><h3>Генератор</h3><ul class="card-specs"><li>Мощность: от 3 до 15 кВт</li><li>Выходы 220V и 380V</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+            </div>
+            <div class="card" data-category="height">
+                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800" class="card-img"></div>
+                <div class="card-body"><h3>Лестницы и Стремянки</h3><ul class="card-specs"><li>Высота: от 2m до 10m</li><li>Прочный и легкий алюминий</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+            </div>
+            <div class="card" data-category="tools">
+                <div class="card-img-box"><span class="card-badge">В наличии</span><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800" class="card-img"></div>
+                <div class="card-body"><h3>Перфоратор / Отбойник</h3><ul class="card-specs"><li>Мощные отбойные молотки</li><li>Бурение бетона</li></ul><a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a></div>
+            </div>
+        </div>
     </section>
 
     <footer>
@@ -122,13 +139,25 @@
     </footer>
 
     <script>
-        // Скрипт для открытия/закрытия меню на телефоне
-        const burger = id = document.getElementById('burgerMenu');
+        const burger = document.getElementById('burgerMenu');
         const nav = document.getElementById('navLinks');
+        burger.addEventListener('click', () => { nav.classList.toggle('show'); });
 
-        burger.addEventListener('click', () => {
-            nav.classList.toggle('show');
-        });
+        function filterCatalog(category, event) {
+            const cards = document.querySelectorAll('.card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            if (event) event.currentTarget.classList.add('active');
+
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'all' || cardCat === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
     </script>
 </body>
 </html>
