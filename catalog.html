@@ -26,8 +26,38 @@
         nav { background-color: rgba(10, 10, 13, 0.98); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); backdrop-filter: blur(10px); }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
 
-        .logo { font-size: 2rem; font-weight: 900; color: #fff; text-decoration: none; letter-spacing: 2px; }
-        .logo span { background: linear-gradient(90deg, #ff6600, #ffaa00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        /* 🔥 Плавная анимация цвета для Логотипа SHERLEST */
+        .logo { 
+            font-size: 2rem; 
+            font-weight: 900; 
+            text-decoration: none; 
+            letter-spacing: 2px;
+            background: linear-gradient(270deg, #ffffff, #ff6600, #ffaa00, #ff0055, #ffffff);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 6s ease infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .logo span { 
+            background: linear-gradient(270deg, #ff6600, #ffaa00, #ff0055, #ff6600);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 4s ease infinite;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Ключевые кадры для плавной смены цвета */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
         .nav-links { display: flex; gap: 15px; list-style: none; }
         .nav-links a { 
@@ -57,7 +87,6 @@
 
         .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         
-        /* 🔥 Анимации и стили для карточек (как в меню) */
         .card { 
             background-color: var(--card-bg); 
             border-radius: 14px; 
