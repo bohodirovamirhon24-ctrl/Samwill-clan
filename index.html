@@ -4,23 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sherlest — Аренда спецтехники / Қурилиш техникалари ижараси | Tez Kel</title>
-    <meta name="description" content="Sherlest & Tez Kel: Аренда строительного оборудования и спецтехники в Ташкенте. Рохли, генераторы, перфораторы и др.">
+    <meta name="description" content="Sherlest & Tez Kel: Аренда строительного оборудования и спецтехники в Ташкенте.">
     <style>
         :root {
             --primary: #ff6600;
-            --primary-hover: #e65c00;
-            --bg-dark: #121212;
-            --card-bg: #1e1e1e;
-            --text-light: #f5f5f5;
-            --text-muted: #a0a0a0;
-            --border-color: #333333;
+            --primary-hover: #ff8533;
+            --bg-dark: #0f0f12;
+            --card-bg: #18181c;
+            --text-light: #ffffff;
+            --text-muted: #b0b0ba;
+            --border-color: #2a2a32;
+            --accent-glow: rgba(255, 102, 0, 0.25);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
             scroll-behavior: smooth;
         }
 
@@ -28,16 +29,44 @@
             background-color: var(--bg-dark);
             color: var(--text-light);
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Top Header Contact Bar */
+        .top-bar {
+            background: #08080a;
+            border-bottom: 1px solid var(--border-color);
+            padding: 8px 20px;
+            font-size: 0.85rem;
+        }
+
+        .top-bar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-phones {
+            display: flex;
+            gap: 15px;
+        }
+
+        .top-phones a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
         }
 
         /* Navigation Bar */
         nav {
-            background-color: rgba(18, 18, 18, 0.95);
+            background-color: rgba(15, 15, 18, 0.9);
             position: sticky;
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(12px);
         }
 
         .nav-container {
@@ -46,58 +75,35 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 20px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .logo-box {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            padding: 15px 20px;
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
+            font-size: 2rem;
+            font-weight: 900;
             color: var(--text-light);
             text-decoration: none;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
         .logo span {
             color: var(--primary);
-        }
-
-        .header-phones {
-            display: flex;
-            flex-direction: column;
-            font-size: 0.85rem;
-            border-left: 2px solid var(--primary);
-            padding-left: 10px;
-        }
-
-        .header-phones a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .header-phones a:hover {
-            color: var(--primary);
+            text-shadow: 0 0 12px var(--accent-glow);
         }
 
         .nav-links {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             list-style: none;
         }
 
         .nav-links a {
             color: var(--text-light);
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
         }
 
         .nav-links a:hover {
@@ -106,33 +112,38 @@
 
         /* Hero Banner */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), 
-                        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-            padding: 90px 20px;
+            position: relative;
+            background: linear-gradient(180deg, rgba(15, 15, 18, 0.6) 0%, rgba(15, 15, 18, 0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            padding: 120px 20px 100px 20px;
             text-align: center;
-            border-bottom: 3px solid var(--primary);
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            line-height: 1.15;
+            letter-spacing: 1px;
         }
 
         .hero h1 span {
             color: var(--primary);
+            background: linear-gradient(45deg, #ff6600, #ff9900);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 1.15rem;
-            color: #ddd;
-            margin-bottom: 25px;
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 35px;
         }
 
         .hero-btns {
@@ -142,214 +153,239 @@
             flex-wrap: wrap;
         }
 
-        /* Buttons */
+        /* Premium Buttons */
         .btn {
-            padding: 12px 28px;
-            border-radius: 6px;
+            padding: 14px 32px;
+            border-radius: 8px;
             font-weight: 700;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             cursor: pointer;
             border: none;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-size: 1rem;
         }
 
         .btn-primary {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, #ff6600, #e65c00);
             color: #fff;
+            box-shadow: 0 4px 20px var(--accent-glow);
         }
 
         .btn-primary:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 102, 0, 0.4);
         }
 
         .btn-telegram {
             background-color: #0088cc;
             color: white;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
         }
 
         .btn-telegram:hover {
             background-color: #0077b3;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 136, 204, 0.5);
         }
 
         .btn-outline {
-            border: 2px solid var(--primary);
+            border: 2px solid var(--border-color);
             color: var(--text-light);
-            background: transparent;
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .btn-outline:hover {
-            background-color: var(--primary);
+            border-color: var(--primary);
+            background: var(--primary);
             color: #fff;
         }
 
-        /* Container Sections */
+        /* Container & Titles */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 50px 20px;
+            padding: 70px 20px;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .section-header h2 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 10px;
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--text-light);
+            margin-bottom: 12px;
             text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-header h2 span {
+            color: var(--primary);
         }
 
         .section-header p {
             color: var(--text-muted);
-            font-size: 1.05rem;
+            font-size: 1.1rem;
         }
 
-        /* Contact Box */
-        .contact-box {
-            background-color: var(--card-bg);
-            border: 2px solid var(--primary);
-            border-radius: 12px;
-            padding: 25px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .contact-box h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        /* Catalog Grid */
+        /* Catalog Grid with Photos */
         .catalog-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
         .card {
             background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 22px;
+            border-radius: 14px;
             border: 1px solid var(--border-color);
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.3s, border-color 0.3s;
+            transition: all 0.35s ease;
+            position: relative;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             border-color: var(--primary);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--accent-glow);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.05);
+        }
+
+        .card-img-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(0, 0, 0, 0.75);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            backdrop-filter: blur(5px);
+        }
+
+        .card-body {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .card h3 {
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             color: #fff;
             margin-bottom: 12px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 8px;
+            font-weight: 700;
         }
 
         .card-specs {
             list-style: none;
             margin-bottom: 20px;
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 0.92rem;
+            flex-grow: 1;
         }
 
         .card-specs li {
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             position: relative;
-            padding-left: 18px;
+            padding-left: 20px;
         }
 
         .card-specs li::before {
-            content: "•";
+            content: "✓";
             color: var(--primary);
             position: absolute;
             left: 0;
             font-weight: bold;
         }
 
-        .card-action {
-            margin-top: auto;
-        }
-
-        /* Info & Conditions */
+        /* Conditions Block */
         .info-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
 
         .info-card {
             background-color: var(--card-bg);
-            padding: 25px;
-            border-radius: 10px;
-            border-left: 4px solid var(--primary);
+            padding: 30px;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--primary);
         }
 
         .info-card h4 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
             color: var(--primary);
         }
 
         /* Footer */
         footer {
-            background-color: #0a0a0a;
+            background-color: #08080a;
             border-top: 1px solid var(--border-color);
-            padding: 40px 20px 20px 20px;
+            padding: 50px 20px 30px 20px;
             text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            align-items: center;
-            margin-bottom: 20px;
         }
 
         .brand-tezkel {
             background: linear-gradient(90deg, #ff6600, #ffaa00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: bold;
-            font-size: 1.2rem;
+            font-weight: 800;
+            font-size: 1.4rem;
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
+            .hero h1 { font-size: 2.1rem; }
             .nav-links { display: none; }
-            .nav-container { justify-content: center; text-align: center; }
+            .top-bar-container { flex-direction: column; gap: 8px; text-align: center; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Top Contact Bar -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <span>🚀 <strong>Tez Kel</strong> — Быстрая доставка по Ташкенту / Тезкор етказиб бериш</span>
+            <div class="top-phones">
+                <a href="tel:+998971224455">📞 +998 (97) 122-44-55</a>
+                <a href="tel:+998881074400">📞 +998 (88) 107-44-00</a>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation Bar -->
     <nav>
         <div class="nav-container">
-            <div class="logo-box">
-                <a href="#" class="logo">SHER<span>LEST</span></a>
-                <!-- Телефоны в левом верхнем углу возле названия -->
-                <div class="header-phones">
-                    <a href="tel:+998971224455">📞 +998 (97) 122-44-55</a>
-                    <a href="tel:+998881074400">📞 +998 (88) 107-44-00</a>
-                </div>
-            </div>
-
-            <!-- Ички страницалар / Внутренние страницы (меню) -->
+            <a href="#" class="logo">SHER<span>LEST</span></a>
             <ul class="nav-links">
                 <li><a href="#catalog">Каталог / Каталог</a></li>
                 <li><a href="#conditions">Шартлар / Условия</a></li>
@@ -358,168 +394,126 @@
         </div>
     </nav>
 
-    <!-- Main Hero Banner -->
+    <!-- Hero Banner -->
     <section class="hero">
         <div class="hero-content">
             <h1>SHER<span>LEST</span> — Аренда спецтехники</h1>
-            <p>Қурилиш техникалари ва ускуналари ижараси | Аренда строительного оборудования в Ташкенте</p>
+            <p>Профессионал қурилиш ускуналари ва спецтехника ижараси Ташкентда</p>
             <div class="hero-btns">
-                <a href="#catalog" class="btn btn-primary">Каталогни кўриш / Каталог</a>
+                <a href="#catalog" class="btn btn-primary">🔥 Смотреть каталог</a>
                 <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram">💬 Telegram: @Narvon24</a>
             </div>
         </div>
     </section>
 
-    <!-- Fast Contacts Section -->
-    <div class="container" id="contacts">
-        <div class="contact-box">
-            <h3>Тезкор алоқа / Быстрая связь</h3>
-            <div class="hero-btns">
-                <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram">✈️ Telegram: @Narvon24</a>
-                <a href="tel:+998971224455" class="btn btn-outline">📞 +998 (97) 122-44-55</a>
-                <a href="tel:+998881074400" class="btn btn-outline">📞 +998 (88) 107-44-00</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Catalog Section -->
+    <!-- Catalog Section with Photos -->
     <section class="container" id="catalog">
         <div class="section-header">
-            <h2>Техника ва ускуналар каталоги / Каталог оборудования</h2>
-            <p>Барча ускуналар соз ва ишлашга тайёр | Вся техника в идеальном рабочем состоянии</p>
+            <h2>Наш <span>Каталог</span> / Ускуналар</h2>
+            <p>Вся техника проверена и готова к работе | Барча ускуналар соз ва шай ҳолатда</p>
         </div>
 
         <div class="catalog-grid">
 
+            <!-- Card 1 -->
             <div class="card">
-                <h3>Аренда рохли / Гидравлик Рохля</h3>
-                <ul class="card-specs">
-                    <li>Грузоподъемность: 2.5 — 3 тонны (Юк кўтариши)</li>
-                    <li>Удобная перемещение паллет (Паллета ва юкларни кўчириш)</li>
-                    <li>Для складов и строек (Склад ва қурилиш учун)</li>
-                </ul>
-                <div class="card-action">
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram" style="width:100%; text-align:center;">Заказать в Telegram</a>
+                <div class="card-img-wrapper">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Рохля" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Гидравлическая Рохля</h3>
+                    <ul class="card-specs">
+                        <li>Грузоподъемность: 2.5 — 3 тонны</li>
+                        <li>Для складов и стройплощадок</li>
+                        <li>Мустаҳкам ва енгил бошқарилувчи</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram">Заказать в Telegram</a>
                 </div>
             </div>
 
+            <!-- Card 2 -->
             <div class="card">
-                <h3>Аренда лестницы / Лестница ва Стремянка</h3>
-                <ul class="card-specs">
-                    <li>Высота: от 2м до 10м трансформеры (Баландлиги)</li>
-                    <li>Легкий и прочный алюминий (Алюмин, мустаҳкам)</li>
-                    <li>Для внутренних и наружных работ (Ички ва ташқи ишлар)</li>
-                </ul>
-                <div class="card-action">
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram" style="width:100%; text-align:center;">Заказать в Telegram</a>
+                <div class="card-img-wrapper">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=600&q=80" alt="Генератор" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Бензиновый / Дизельный Генератор</h3>
+                    <ul class="card-specs">
+                        <li>Мощность: от 3 кВт до 15 кВт</li>
+                        <li>Выходы 220V и 380V</li>
+                        <li>Узлуксиз электр энергияси</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram">Заказать в Telegram</a>
                 </div>
             </div>
 
+            <!-- Card 3 -->
             <div class="card">
-                <h3>Аренда генератора / Генераторлар</h3>
-                <ul class="card-specs">
-                    <li>Мощность: от 3 кВт до 15 кВт (Қуввати)</li>
-                    <li>Выходы 220V и 380V (220V ва 380V чиқишлари)</li>
-                    <li>Бензиновые и дизельные (Бензин ва дизель)</li>
-                </ul>
-                <div class="card-action">
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram" style="width:100%; text-align:center;">Заказать в Telegram</a>
+                <div class="card-img-wrapper">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Лестницы" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Лестницы и Стремянки</h3>
+                    <ul class="card-specs">
+                        <li>Высота: от 2m до 10m (Трансформер)</li>
+                        <li>Прочный и легкий алюминий</li>
+                        <li>Ички ва ташқи ишлар учун</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram">Заказать в Telegram</a>
                 </div>
             </div>
 
+            <!-- Card 4 -->
             <div class="card">
-                <h3>Аренда штабелера / Штабелер</h3>
-                <ul class="card-specs">
-                    <li>Грузоподъемность: до 1.5 тонны (Юк кўтариши)</li>
-                    <li>Подъем на высоту: 1.6м — 3м (Баландликка кўтариш)</li>
-                    <li>Для складских работ (Склад ишлари учун)</li>
-                </ul>
-                <div class="card-action">
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram" style="width:100%; text-align:center;">Заказать в Telegram</a>
+                <div class="card-img-wrapper">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="Перфоратор" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Перфораторы и Отбойники</h3>
+                    <ul class="card-specs">
+                        <li>Мощные отбойные молотки</li>
+                        <li>Для сноса и бурения бетона</li>
+                        <li>Оғир деворларни тешиш ва бузиш</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram">Заказать в Telegram</a>
                 </div>
             </div>
 
+            <!-- Card 5 -->
             <div class="card">
-                <h3>Аренда строительных лесов / Қурилиш лесалари</h3>
-                <ul class="card-specs">
-                    <li>Деревянные и металлические леса (Ёғоч ва металл)</li>
-                    <li>Для фасадных и высотных работ (Фасад ишлари учун)</li>
-                    <li>Быстрая сборка (Осон йиғилувчи)</li>
-                </ul>
-                <div class="card-action">
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram" style="width:100%; text-align:center;">Заказать в Telegram</a>
+                <div class="card-img-wrapper">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=600&q=80" alt="Строительные леса" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Строительные леса (Леса)</h3>
+                    <ul class="card-specs">
+                        <li>Фасадные металлические леса</li>
+                        <li>Безопасная конструкция</li>
+                        <li>Осон ва тез йиғилувчи</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram">Заказать в Telegram</a>
                 </div>
             </div>
 
+            <!-- Card 6 -->
             <div class="card">
-                <h3>Аренда Wagner / Краска аппарати</h3>
-                <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:15px;">Безвоздушный окрасочный аппарат. Фасад ва деворларни тез ва сифатли бўяш учун.</p>
-                <div class="card-action">
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram" style="width:100%; text-align:center;">Заказать в Telegram</a>
+                <div class="card-img-wrapper">
+                    <span class="card-badge">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80" alt="Виброплита" class="card-img">
                 </div>
-            </div>
-
-            <div class="card">
-                <h3>Аренда Kärcher / Мойка Kärcher</h3>
-                <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:15px;">Мойка высокого давления. Қурилиш техникалари ва майдончаларни тозалаш учун.</p>
-                <div class="card-action">
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram" style="width:100%; text-align:center;">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Аренда компрессора / Компрессор</h3>
-                <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:15px;">Воздушный компрессор высокого давления. Пневмоинструментлар ва продувка учун.</p>
-                <div class="card-action">
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram" style="width:100%; text-align:center;">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Аренда пылесоса / Строительный пылесос</h3>
-                <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:15px;">Промышленный пылесос. Шпаклевка ва бетон чангларини йиғиш учун саноат чангсочиғи.</p>
-                <div class="card-action">
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram" style="width:100%; text-align:center;">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Аренда перфоратора / Перфоратор</h3>
-                <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:15px;">Мощные перфораторы и отбойные молотки. Деворларни тешиш ва бузиш учун отбойниклар.</p>
-                <div class="card-action">
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram" style="width:100%; text-align:center;">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Аренда кенгуру / Вибронога (Кенгуру)</h3>
-                <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:15px;">Вибротрамбовка для грунта и траншей. Траншея ва тупроқни шиббалаш учун.</p>
-                <div class="card-action">
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram" style="width:100%; text-align:center;">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Аренда жирафа / Шлифмашина (Жираф)</h3>
-                <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:15px;">Шлифмашина для стен и потолков. Девор ва шиплардаги шпаклевкани силлиқлаш учун.</p>
-                <div class="card-action">
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram" style="width:100%; text-align:center;">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Аренда виброплиты / Виброплита</h3>
-                <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:15px;">Виброплита для уплотнения асфальта и плитки. Асфальт ва брусчатка ётқизишда зичлаш учун.</p>
-                <div class="card-action">
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram" style="width:100%; text-align:center;">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Аренда алмазного бура / Алмазный бур</h3>
-                <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:15px;">Установка алмазного бурения. Бетон ва ғишт деворларда тоза тешиклар очиш учун.</p>
-                <div class="card-action">
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram" style="width:100%; text-align:center;">Заказать в Telegram</a>
+                <div class="card-body">
+                    <h3>Виброплиты и Кенгуру</h3>
+                    <ul class="card-specs">
+                        <li>Уплотнение грунта, асфальта, плитки</li>
+                        <li>Вибротрамбовки для траншей</li>
+                        <li>Заминни зичлаш ва шиббалаш</li>
+                    </ul>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram">Заказать в Telegram</a>
                 </div>
             </div>
 
@@ -529,42 +523,40 @@
     <!-- Conditions Section -->
     <section class="container" id="conditions">
         <div class="section-header">
-            <h2>Шартлар ва Етказиб бериш / Условия и Доставка</h2>
+            <h2>Условия / <span>Шартлар</span></h2>
         </div>
 
         <div class="info-cards">
             <div class="info-card">
                 <h4>📋 Залог / Гаров</h4>
-                <p>Под залог принимаются <strong>деньги</strong> или <strong>документы</strong>. Гаров эвазига <strong>нақд пул</strong> ёки <strong>ҳужжат</strong> олинади.</p>
+                <p>Под залог принимаются <strong>деньги</strong> или <strong>документы</strong>. Гаров эвазига нақд пул ёки шахсни тасдиқловчи ҳужжат олинади.</p>
             </div>
             <div class="info-card">
                 <h4>🚚 Доставка / Етказиб бериш</h4>
-                <p>Быстрая доставка на ваш объект. Хизматимиз номи: <strong>Tez Kel</strong>!</p>
+                <p>Быстрая доставка прямо на объект. Сервис доставки: <strong>Tez Kel</strong>!</p>
             </div>
             <div class="info-card">
-                <h4>🛠 Качество / Сифат</h4>
-                <p>Вся техника проверена и готова к работе. Барча ускуналар соз ва техник кўрикдан ўтган.</p>
+                <h4>🛠 Гарантия / Сифат</h4>
+                <p>Вся техника полностью исправна и обслужена перед выдачей.</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="logo">SHER<span>LEST</span></div>
-            <p>Қурилиш ускуналари ижара маркази | Центр аренды строительного оборудования</p>
-            
-            <div class="hero-btns">
-                <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram">✈️ Telegram: @Narvon24</a>
-                <a href="tel:+998971224455" class="btn btn-outline">📞 +998 (97) 122-44-55</a>
-                <a href="tel:+998881074400" class="btn btn-outline">📞 +998 (88) 107-44-00</a>
-            </div>
-
-            <div class="brand-tezkel">
-                Доставка / Етказиб бериш: Tez Kel 🚚
-            </div>
+    <footer id="contacts">
+        <div class="logo" style="margin-bottom: 15px;">SHER<span>LEST</span></div>
+        <p style="color: var(--text-muted); margin-bottom: 25px;">Центр аренды строительного оборудования и спецтехники</p>
+        
+        <div class="hero-btns" style="margin-bottom: 30px;">
+            <a href="https://t.me/Narvon24" target="_blank" class="btn btn-telegram">✈️ Telegram: @Narvon24</a>
+            <a href="tel:+998971224455" class="btn btn-outline">📞 +998 (97) 122-44-55</a>
+            <a href="tel:+998881074400" class="btn btn-outline">📞 +998 (88) 107-44-00</a>
         </div>
-        <p style="color: var(--text-muted); font-size: 0.85rem;">&copy; 2026 SHERLEST. Барча ҳуқуқлар ҳимояланган / Все права защищены.</p>
+
+        <div class="brand-tezkel" style="margin-bottom: 20px;">
+            Доставка: Tez Kel 🚚
+        </div>
+        <p style="color: #666; font-size: 0.85rem;">&copy; 2026 SHERLEST. Все права защищены.</p>
     </footer>
 
 </body>
