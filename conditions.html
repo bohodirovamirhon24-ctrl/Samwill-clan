@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sherlest — Ижара шартлари ва Етказиб бериш</title>
+    <style>
+        :root {
+            --primary: #ff6600;
+            --bg-dark: #0a0a0d;
+            --card-bg: #141418;
+            --text-light: #ffffff;
+            --text-muted: #a0a0ab;
+            --border-color: #24242c;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-light); }
+
+        nav { background-color: rgba(10, 10, 13, 0.9); border-bottom: 1px solid var(--border-color); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+        .logo { font-size: 2.2rem; font-weight: 900; color: #fff; text-decoration: none; }
+        .logo span { color: var(--primary); }
+
+        .nav-links { display: flex; gap: 20px; list-style: none; }
+        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 600; }
+        .nav-links a.active { color: var(--primary); }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+        .box { background: var(--card-bg); border: 1px solid var(--border-color); border-left: 5px solid var(--primary); padding: 30px; border-radius: 12px; margin-bottom: 25px; }
+        .box h2 { color: var(--primary); margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">SHER<span>LEST</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Bosh sahifa</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="conditions.html" class="active">Шартлар</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 style="text-align: center; margin-bottom: 40px;">Ижара шартлари ва Алоқа</h1>
+
+        <div class="box">
+            <h2>📋 Залог / Гаров шартлари</h2>
+            <p>Ускуналарни ижарага олиш учун гаров эвазига **нақд пул** ёки **шахсни тасдиқловчи ҳужжат (Паспорт/Права)** талаб қилинади.</p>
+        </div>
+
+        <div class="box">
+            <h2>🚚 Tez Kel — Етказиб бериш</h2>
+            <p>Ташкент шаҳри ва вилоят бўйлаб **Tez Kel** хизмати орқали ускуналарни объектингизгача тезкор етказиб берамиз.</p>
+        </div>
+
+        <div class="box">
+            <h2>📞 Алоқа учун телефонлар</h2>
+            <p><strong>Telegram:</strong> <a href="https://t.me/Narvon24" style="color:var(--primary)">@Narvon24</a></p>
+            <p><strong>Тел:</strong> +998 (97) 122-44-55</p>
+            <p><strong>Тел:</strong> +998 (88) 107-44-00</p>
+        </div>
+    </div>
+
+</body>
+</html>
