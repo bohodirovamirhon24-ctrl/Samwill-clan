@@ -138,30 +138,6 @@
             transform: scale(1.08);
         }
 
-        .fallback-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, #1c1c28 0%, #0d0d12 100%);
-            color: var(--text-light);
-            text-align: center;
-            padding: 20px;
-        }
-
-        .fallback-box svg {
-            width: 48px;
-            height: 48px;
-            fill: var(--primary);
-            margin-bottom: 12px;
-            filter: drop-shadow(0 0 8px var(--primary-glow));
-        }
-
-        .fallback-box .title { font-size: 1rem; font-weight: 700; color: #ffffff; }
-        .fallback-box .subtitle { font-size: 0.75rem; color: var(--primary); letter-spacing: 1px; margin-top: 4px; text-transform: uppercase; }
-
         .card-badge { 
             position: absolute; 
             top: 12px; 
@@ -178,11 +154,17 @@
         }
 
         .card-body { padding: 22px; display: flex; flex-direction: column; flex-grow: 1; }
-        .card h3 { font-size: 1.25rem; color: #fff; margin-bottom: 12px; transition: color 0.3s ease; display: flex; align-items: center; gap: 8px; }
+        .card h3 { font-size: 1.25rem; color: #fff; margin-bottom: 12px; transition: color 0.3s ease; }
+        
         .card:hover h3 { color: var(--primary); }
 
         .card-specs { list-style: none; margin-bottom: 20px; color: var(--text-muted); font-size: 0.92rem; flex-grow: 1; }
-        .card-specs li { margin-bottom: 8px; position: relative; padding-left: 18px; }
+        .card-specs li { 
+            margin-bottom: 8px; 
+            position: relative; 
+            padding-left: 18px; 
+        }
+
         .card-specs li::before {
             content: "";
             position: absolute;
@@ -203,10 +185,7 @@
             text-decoration: none; 
             font-weight: bold; 
             text-align: center; 
-            display: flex; 
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
+            display: block; 
             transition: all 0.35s ease;
         }
 
@@ -221,12 +200,15 @@
         @media (max-width: 768px) {
             .top-bar-container { flex-direction: column; text-align: center; justify-content: center; }
             .top-phones { justify-content: center; margin-top: 5px; }
+            
             .nav-container { flex-direction: column; text-align: center; padding: 12px 15px; }
             .logo { font-size: 1.8rem; }
             .nav-links { width: 100%; justify-content: center; }
             .nav-links a { font-size: 0.9rem; padding: 8px 12px; }
+
             .container { padding: 25px 15px; }
             .page-title { font-size: 1.8rem; margin-bottom: 25px; }
+            
             .catalog-grid { grid-template-columns: 1fr; gap: 20px; }
             .card-img-box { height: 190px; }
         }
@@ -236,10 +218,10 @@
 
     <div class="top-bar">
         <div class="top-bar-container">
-            <span>🚀 <strong>Tez Kel</strong> — Тезкор етказиб бериш хизмати 🚚</span>
+            <span><strong>Tez Kel</strong> — Тезкор етказиб бериш хизмати</span>
             <div class="top-phones">
-                <a href="tel:+998971224455">📞 +998 (97) 122-44-55</a>
-                <a href="tel:+998881074400">📞 +998 (88) 107-44-00</a>
+                <a href="tel:+998971224455">+998 (97) 122-44-55</a>
+                <a href="tel:+998881074400">+998 (88) 107-44-00</a>
             </div>
         </div>
     </div>
@@ -248,223 +230,223 @@
         <div class="nav-container">
             <a href="index.html" class="logo">SHER<span>LEST</span></a>
             <ul class="nav-links">
-                <li><a href="index.html">🏠 Bosh sahifa</a></li>
-                <li><a href="catalog.html" class="active">📦 Каталог</a></li>
-                <li><a href="contacts.html">📞 Контакты / Алоқа</a></li>
+                <li><a href="index.html">Bosh sahifa</a></li>
+                <li><a href="catalog.html" class="active">Каталог</a></li>
+                <li><a href="contacts.html">Контакты / Алоқа</a></li>
             </ul>
         </div>
     </nav>
 
     <section class="container">
-        <h1 class="page-title">🛠️ Ускуналар <span>Каталоги</span> 🏗️</h1>
+        <h1 class="page-title">Ускуналар <span>Каталоги</span></h1>
 
         <div class="catalog-grid">
 
             <!-- 1. Нарвон -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud ✅</span>
-                    <img src="images/narvon.jpg" onerror="this.outerHTML='<div class=\'fallback-box\'><svg viewBox=\'0 0 24 24\'><path d=\'M19 2h-2v3E2h2v4h-2v3h2v4h-2v4h2v2h-4v-2h-6v2H5v-2h2v-4H5v-3h2V9H5V5h2V2h4v3h6V2h2zM9 5v4h6V5H9zm0 6v3h6v-3H9zm0 5v4h6v-4H9z\'/></svg><div class=\'title\'>Алюминий Нарвон</div><div class=\'subtitle\'>SHERLEST</div></div>'" alt="Алюминий Нарвон">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Aluminium_stepladder.jpg?width=600" alt="Алюминий Нарвон">
                 </div>
                 <div class="card-body">
-                    <h3>🪜 Алюминий Нарвон</h3>
+                    <h3>Алюминий Нарвон (Лестница)</h3>
                     <ul class="card-specs">
                         <li>Баландлиги: 2м дан 12м гача</li>
                         <li>3 секцияли трансформер</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">👉 Заказать в Telegram ✈️</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 2. Леса ва Вышка-Тура -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud ✅</span>
-                    <img src="images/lesa.jpg" onerror="this.outerHTML='<div class=\'fallback-box\'><svg viewBox=\'0 0 24 24\'><path d=\'M19 2H5v20h2v-3h10v3h2V2zm-2 5H7V4h10v3zm0 5H7V9h10v3zm0 5H7v-3h10v3z\'/></svg><div class=\'title\'>Строительные Леса</div><div class=\'subtitle\'>SHERLEST</div></div>'" alt="Строительные Леса">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Scaffolding_Installation.jpg?width=600" alt="Строительные Леса">
                 </div>
                 <div class="card-body">
-                    <h3>🏗️ Строительные Леса</h3>
+                    <h3>Строительные Леса ва Вышка-Тура</h3>
                     <ul class="card-specs">
                         <li>Бўйи: 2м дан 15м гача</li>
                         <li>Ғилдиракли ва хавфсиз</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">👉 Заказать в Telegram ✈️</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 3. Жираф -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud ✅</span>
-                    <img src="images/zhiraf.jpg" onerror="this.outerHTML='<div class=\'fallback-box\'><svg viewBox=\'0 0 24 24\'><path d=\'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z\'/></svg><div class=\'title\'>Шлифмашина Жираф</div><div class=\'subtitle\'>SHERLEST</div></div>'" alt="Шлифмашина Жираф">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Orbital_sander.jpg?width=600" alt="Шлифмашина Жираф">
                 </div>
                 <div class="card-body">
-                    <h3>🦒 Шлифмашина «Жираф»</h3>
+                    <h3>Шлифмашина «Жираф»</h3>
                     <ul class="card-specs">
                         <li>Девор ва шипни текислаш учун</li>
                         <li>Пылесос билан чангсиз ишлаш</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">👉 Заказать в Telegram ✈️</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 4. Рохля -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud ✅</span>
-                    <img src="images/rokhlya.jpg" onerror="this.outerHTML='<div class=\'fallback-box\'><svg viewBox=\'0 0 24 24\'><path d=\'M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4z\'/></svg><div class=\'title\'>Гидравлическая Рохля</div><div class=\'subtitle\'>SHERLEST</div></div>'" alt="Гидравлическая Рохля">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pallet_truck.jpg?width=600" alt="Гидравлическая Рохля">
                 </div>
                 <div class="card-body">
-                    <h3>🛒 Гидравлическая Рохля</h3>
+                    <h3>Гидравлическая Рохля</h3>
                     <ul class="card-specs">
                         <li>Юк кўтариши: 2.5 — 3 тонна</li>
                         <li>Склад ва стройка учун</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">👉 Заказать в Telegram ✈️</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 5. Штабелер -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud ✅</span>
-                    <img src="images/shtabeler.jpg" onerror="this.outerHTML='<div class=\'fallback-box\'><svg viewBox=\'0 0 24 24\'><path d=\'M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z\'/></svg><div class=\'title\'>Гидравлический Штабелер</div><div class=\'subtitle\'>SHERLEST</div></div>'" alt="Гидравлический Штабелер">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Forklift.jpg?width=600" alt="Гидравлический Штабелер">
                 </div>
                 <div class="card-body">
-                    <h3>🚡 Гидравлический Штабелер</h3>
+                    <h3>Гидравлический Штабелер</h3>
                     <ul class="card-specs">
                         <li>Юк кўтариши: 1 — 2 тонна</li>
                         <li>Кўтариш баландлиги: 1.6м — 3м</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">👉 Заказать в Telegram ✈️</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 6. Генератор -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud ✅</span>
-                    <img src="images/generator.jpg" onerror="this.outerHTML='<div class=\'fallback-box\'><svg viewBox=\'0 0 24 24\'><path d=\'M7 2v11h3v9l7-12h-4l4-8z\'/></svg><div class=\'title\'>Бензин Генератор</div><div class=\'subtitle\'>SHERLEST</div></div>'" alt="Бензин Генератор">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Portable_generator.jpg?width=600" alt="Бензин Генератор">
                 </div>
                 <div class="card-body">
-                    <h3>⚡ Бензин / Дизель Генератор</h3>
+                    <h3>Бензин / Дизель Генератор</h3>
                     <ul class="card-specs">
                         <li>Қуввати: 3кВт дан 15кВт гача</li>
                         <li>220V ва 380V чиқишлар</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">👉 Заказать в Telegram ✈️</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 7. Виброплита -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud ✅</span>
-                    <img src="images/vibroplita.jpg" onerror="this.outerHTML='<div class=\'fallback-box\'><svg viewBox=\'0 0 24 24\'><path d=\'M22 19H2v-2h20v2zm-2-4H4v-3h16v3zm-4-5H8V4h8v6z\'/></svg><div class=\'title\'>Виброплита (Трамбовка)</div><div class=\'subtitle\'>SHERLEST</div></div>'" alt="Виброплита">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Plate_compactor.jpg?width=600" alt="Виброплита">
                 </div>
                 <div class="card-body">
-                    <h3>🚜 Виброплита (Трамбовка)</h3>
+                    <h3>Виброплита (Трамбовка)</h3>
                     <ul class="card-specs">
                         <li>Оғирлиги: 60кг — 120кг</li>
                         <li>Грунт, брусчатка ва асфальт учун</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">👉 Заказать в Telegram ✈️</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 8. Алмазный бур -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud ✅</span>
-                    <img src="images/almaz.jpg" onerror="this.outerHTML='<div class=\'fallback-box\'><svg viewBox=\'0 0 24 24\'><path d=\'M12 2L2 22h20L12 2zm0 4.5l6.5 13.5h-13L12 6.5z\'/></svg><div class=\'title\'>Алмазный Бур</div><div class=\'subtitle\'>SHERLEST</div></div>'" alt="Алмазный Бур">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Core_drill.jpg?width=600" alt="Алмазный Бур">
                 </div>
                 <div class="card-body">
-                    <h3>💎 Алмазный Бур (Бурение)</h3>
+                    <h3>Алмазный Бур (Бурение)</h3>
                     <ul class="card-specs">
                         <li>Бетон, ғишт ва тош тешиш</li>
                         <li>Диаметр: 32мм дан 350мм гача</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">👉 Заказать в Telegram ✈️</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 9. Пылесос -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud ✅</span>
-                    <img src="images/pylesos.jpg" onerror="this.outerHTML='<div class=\'fallback-box\'><svg viewBox=\'0 0 24 24\'><path d=\'M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z\'/></svg><div class=\'title\'>Строительный Пылесос</div><div class=\'subtitle\'>SHERLEST</div></div>'" alt="Строительный Пылесос">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wet_and_dry_vacuum_cleaner.jpg?width=600" alt="Строительный Пылесос">
                 </div>
                 <div class="card-body">
-                    <h3>🧹 Строительный Пылесос</h3>
+                    <h3>Строительный Пылесос</h3>
                     <ul class="card-specs">
                         <li>Объём: 30L — 50L</li>
                         <li>Штроборез ва жираф учун</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">👉 Заказать в Telegram ✈️</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 10. Кенгуру -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud ✅</span>
-                    <img src="images/kenguru.jpg" onerror="this.outerHTML='<div class=\'fallback-box\'><svg viewBox=\'0 0 24 24\'><path d=\'M19 13H5v-2h14v2z\'/></svg><div class=\'title\'>Кенгуру (Трамбовка)</div><div class=\'subtitle\'>SHERLEST</div></div>'" alt="Вибротрамбовка Кенгуру">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Trench_rammer.jpg?width=600" alt="Вибротрамбовка Кенгуру">
                 </div>
                 <div class="card-body">
-                    <h3>🦘 Кенгуру (Вибротрамбовка)</h3>
+                    <h3>Кенгуру (Вибротрамбовка)</h3>
                     <ul class="card-specs">
                         <li>Чуқур ва траншея трамбовкаси</li>
                         <li>Ток ва сув йўллари учун</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">👉 Заказать в Telegram ✈️</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 11. Karcher -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud ✅</span>
-                    <img src="images/karcher.jpg" onerror="this.outerHTML='<div class=\'fallback-box\'><svg viewBox=\'0 0 24 24\'><path d=\'M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z\'/></svg><div class=\'title\'>Kärcher Мойка</div><div class=\'subtitle\'>SHERLEST</div></div>'" alt="Kärcher мойка">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pressure_washer.jpg?width=600" alt="Kärcher мойка">
                 </div>
                 <div class="card-body">
-                    <h3>💦 Kärcher (Мойка)</h3>
+                    <h3>Kärcher (Мойка высокого давления)</h3>
                     <ul class="card-specs">
                         <li>Юқори босимли ювиш аппарати</li>
                         <li>Стройка, фасад ва техника ювиш учун</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">👉 Заказать в Telegram ✈️</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 12. Компрессор -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud ✅</span>
-                    <img src="images/compressor.jpg" onerror="this.outerHTML='<div class=\'fallback-box\'><svg viewBox=\'0 0 24 24\'><path d=\'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z\'/></svg><div class=\'title\'>Воздушный Компрессор</div><div class=\'subtitle\'>SHERLEST</div></div>'" alt="Воздушный Компрессор">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Air-compressor.jpg?width=600" alt="Воздушный Компрессор">
                 </div>
                 <div class="card-body">
-                    <h3>💨 Воздушный Компрессор</h3>
+                    <h3>Воздушный Компрессор</h3>
                     <ul class="card-specs">
                         <li>Объём: 50L — 100L</li>
                         <li>Пневмоинструмент ва бўяш учун</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">👉 Заказать в Telegram ✈️</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 13. Wagner -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud ✅</span>
-                    <img src="images/wagner.jpg" onerror="this.outerHTML='<div class=\'fallback-box\'><svg viewBox=\'0 0 24 24\'><path d=\'M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 21l3.39-1.21C9.27 20.47 10.6 20.8 12 20.8c4.97 0 9-4.03 9-9s-4.03-8.8-9-8.8z\'/></svg><div class=\'title\'>Краскопульт Wagner</div><div class=\'subtitle\'>SHERLEST</div></div>'" alt="Краскопульт Wagner">
+                    <span class="card-badge">Mavjud</span>
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Spray_gun.jpg?width=600" alt="Краскопульт Wagner">
                 </div>
                 <div class="card-body">
-                    <h3>🎨 Краскопульт Wagner</h3>
+                    <h3>Wagner (Краскопульт / Бўяш)</h3>
                     <ul class="card-specs">
                         <li>Безвоздушная покраска (Безвоздушка)</li>
                         <li>Девор ва конструкцияларни тез бўяш</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">👉 Заказать в Telegram ✈️</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
                 </div>
             </div>
 
@@ -472,7 +454,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 SHERLEST & Tez Kel. Барча ҳуқуқлар ҳимояланган. ✨</p>
+        <p>&copy; 2026 SHERLEST & Tez Kel. Барча ҳуқуқлар ҳимояланган.</p>
     </footer>
 
 </body>
