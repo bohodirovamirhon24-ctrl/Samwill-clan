@@ -1,469 +1,227 @@
-<!DOCTYPE html>
-<html lang="uz">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sherlest — Ускуналар каталоги</title>
-    <style>
-        :root {
-            --primary: #ff6600;
-            --primary-glow: rgba(255, 102, 0, 0.45);
-            --bg-dark: #0a0a0d;
-            --card-bg: #141418;
-            --text-light: #ffffff;
-            --text-muted: #a0a0ab;
-            --border-color: #24242c;
-        }
+<!-- ================= СЕКЦИЯ КАТАЛОГА SHERLEST ================= -->
+<style>
+  /* Сброс и базовые настройки каталога */
+  .sherlest-catalog {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
-        body { 
-            background-color: var(--bg-dark); 
-            color: var(--text-light); 
-            line-height: 1.6; 
-            overflow-x: hidden;
-            background-image: radial-gradient(circle at 50% 0%, rgba(255,102,0,0.08) 0%, transparent 50%);
-        }
+  .catalog-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 800;
+    color: #1a1d20;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
 
-        .top-bar { background: #050507; border-bottom: 1px solid var(--border-color); padding: 10px 20px; font-size: 0.88rem; }
-        .top-bar-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-        .top-phones { display: flex; gap: 15px; flex-wrap: wrap; }
-        .top-phones a { color: var(--primary); text-decoration: none; font-weight: 800; transition: all 0.3s ease; display: inline-block; }
-        .top-phones a:hover { color: #ff8533; transform: scale(1.05); text-shadow: 0 0 12px var(--primary-glow); }
+  /* Сетка карточек */
+  .catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+  }
 
-        nav { background-color: rgba(10, 10, 13, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); backdrop-filter: blur(12px); }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; flex-wrap: wrap; gap: 15px; }
+  /* Карточка оборудования */
+  .tool-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e9ecef;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    /* Плавная анимация при наведении */
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+                box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-        .logo { 
-            font-size: 2.2rem; 
-            font-weight: 900; 
-            text-decoration: none; 
-            letter-spacing: 2px;
-            background: linear-gradient(270deg, #ffffff, #ff6600, #ffaa00, #ff0055, #ffffff);
-            background-size: 400% 400%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientShift 5s ease infinite, logoGlow 3s ease-in-out infinite alternate;
-            display: inline-block;
-            transition: transform 0.3s ease;
-        }
+  /* 1. АНИМАЦИЯ: Подъём карточки при наведении */
+  .tool-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+  }
 
-        .logo span { 
-            background: linear-gradient(270deg, #ff6600, #ffaa00, #ff0055, #ff6600);
-            background-size: 400% 400%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientShift 3s ease infinite;
-        }
+  /* Блок с изображением */
+  .tool-image-box {
+    position: relative;
+    width: 100%;
+    height: 210px;
+    background: #f8f9fa;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-        .logo:hover { transform: scale(1.08) rotate(-1deg); }
+  .tool-image-box img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    /* Плавная анимация зума картинки */
+    transition: transform 0.4s ease;
+  }
 
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+  /* 2. АНИМАЦИЯ: Увеличение фото при наведении */
+  .tool-card:hover .tool-image-box img {
+    transform: scale(1.08);
+  }
 
-        @keyframes logoGlow {
-            0% { filter: drop-shadow(0 0 2px rgba(255,102,0,0.2)); }
-            100% { filter: drop-shadow(0 0 10px rgba(255,102,0,0.8)); }
-        }
+  /* Статус наличия */
+  .tool-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #28a745;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+  }
 
-        .nav-links { display: flex; gap: 10px; list-style: none; flex-wrap: wrap; }
-        .nav-links a { 
-            color: var(--text-light); 
-            text-decoration: none; 
-            font-weight: 600; 
-            padding: 8px 16px; 
-            border-radius: 8px; 
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-            display: inline-block;
-        }
-        .nav-links a:hover { 
-            color: var(--primary); 
-            background: rgba(255, 102, 0, 0.12); 
-            border-color: rgba(255, 102, 0, 0.4);
-            box-shadow: 0 0 20px var(--primary-glow);
-            transform: translateY(-2px);
-        }
-        .nav-links a.active { 
-            color: var(--primary); 
-            background: rgba(255,102,0,0.18); 
-            border-color: var(--primary);
-            box-shadow: 0 0 12px rgba(255,102,0,0.3);
-        }
+  /* Контент карточки */
+  .tool-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-        .page-title { text-align: center; font-size: 2.4rem; margin-bottom: 35px; text-transform: uppercase; }
-        .page-title span { color: var(--primary); text-shadow: 0 0 15px var(--primary-glow); }
+  .tool-category {
+    font-size: 12px;
+    color: #6c757d;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
 
-        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        
-        .card { 
-            background-color: var(--card-bg); 
-            border-radius: 16px; 
-            border: 1px solid var(--border-color); 
-            overflow: hidden; 
-            display: flex; 
-            flex-direction: column;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-        }
+  .tool-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #212529;
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+  }
 
-        .card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: var(--primary);
-            box-shadow: 0 15px 35px var(--primary-glow);
-        }
-        
-        .card-img-box { 
-            height: 220px; 
-            background: #181822; 
-            border-bottom: 1px solid var(--border-color); 
-            position: relative; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            padding: 20px; 
-            transition: all 0.4s ease;
-        }
+  .tool-price-box {
+    margin-top: auto;
+    padding-top: 12px;
+    margin-bottom: 16px;
+  }
 
-        .card:hover .card-img-box {
-            background: #1f1f2e;
-            border-bottom-color: rgba(255, 102, 0, 0.5);
-        }
+  .tool-price {
+    font-size: 22px;
+    font-weight: 800;
+    color: #d90429;
+  }
 
-        .card-img-box svg { 
-            width: 100%; 
-            height: 100%; 
-            max-height: 170px; 
-            transition: transform 0.4s ease, filter 0.4s ease;
-        }
+  .tool-price span {
+    font-size: 13px;
+    color: #6c757d;
+    font-weight: 400;
+  }
 
-        .card:hover .card-img-box svg {
-            transform: scale(1.12) rotate(2deg);
-            filter: drop-shadow(0 0 8px var(--primary-glow));
-        }
+  /* Кнопка заказа */
+  .btn-rent {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #1a1d20;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 0;
+    border-radius: 10px;
+    text-decoration: none;
+    /* 3. АНИМАЦИЯ: Смена цвета и клика */
+    transition: background 0.25s ease, transform 0.15s ease;
+  }
 
-        .card-badge { 
-            position: absolute; 
-            top: 12px; 
-            right: 12px; 
-            background: rgba(10,10,13,0.9); 
-            border: 1px solid var(--primary); 
-            color: var(--primary); 
-            padding: 4px 12px; 
-            border-radius: 20px; 
-            font-size: 0.75rem; 
-            font-weight: bold; 
-            box-shadow: 0 0 10px rgba(255,102,0,0.2);
-        }
+  .btn-rent:hover {
+    background: #d90429;
+    transform: scale(1.02);
+  }
 
-        .card-body { padding: 22px; display: flex; flex-direction: column; flex-grow: 1; }
-        .card h3 { font-size: 1.25rem; color: #fff; margin-bottom: 12px; transition: color 0.3s ease; }
-        
-        .card:hover h3 { color: var(--primary); }
+  .btn-rent:active {
+    transform: scale(0.97);
+  }
+</style>
 
-        .card-specs { list-style: none; margin-bottom: 20px; color: var(--text-muted); font-size: 0.92rem; flex-grow: 1; }
-        .card-specs li { margin-bottom: 8px; }
+<section class="sherlest-catalog">
+  <h2 class="catalog-title">Каталог техники в аренду</h2>
+  
+  <div class="catalog-grid">
 
-        .btn-telegram { 
-            background: linear-gradient(135deg, #0088cc, #006699); 
-            color: white; 
-            padding: 13px; 
-            border-radius: 10px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            text-align: center; 
-            display: block; 
-            transition: all 0.35s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-telegram::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -60%;
-            width: 40px;
-            height: 200%;
-            background: rgba(255,255,255,0.3);
-            transform: rotate(30deg);
-            transition: all 0.5s ease;
-        }
-
-        .btn-telegram:hover::after { left: 140%; }
-
-        .btn-telegram:hover {
-            background: linear-gradient(135deg, #0099e6, #0077b3);
-            box-shadow: 0 5px 20px rgba(0, 136, 204, 0.6);
-            transform: translateY(-2px);
-        }
-        
-        footer { background-color: #050507; border-top: 1px solid var(--border-color); padding: 25px 20px; text-align: center; margin-top: 50px; color: var(--text-muted); font-size: 0.9rem; }
-
-        /* 📱 АДАПТИВНОСТЬ ДЛЯ ТЕЛЕФОНОВ */
-        @media (max-width: 768px) {
-            .top-bar-container { flex-direction: column; text-align: center; justify-content: center; }
-            .top-phones { justify-content: center; margin-top: 5px; }
-            .top-phones a { margin-left: 0; }
-            
-            .nav-container { flex-direction: column; text-align: center; padding: 12px 15px; }
-            .logo { font-size: 1.8rem; }
-            .nav-links { width: 100%; justify-content: center; }
-            .nav-links a { font-size: 0.9rem; padding: 8px 12px; }
-
-            .container { padding: 25px 15px; }
-            .page-title { font-size: 1.8rem; margin-bottom: 25px; }
-            
-            .catalog-grid { grid-template-columns: 1fr; gap: 20px; }
-            .card-img-box { height: 190px; }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="top-bar">
-        <div class="top-bar-container">
-            <span>🚚 <strong>Tez Kel</strong> — Тезкор етказиб бериш хизмати</span>
-            <div class="top-phones">
-                <a href="tel:+998971224455">📞 +998 (97) 122-44-55</a>
-                <a href="tel:+998881074400">📞 +998 (88) 107-44-00</a>
-            </div>
+    <!-- КАРТОЧКА 1: Генератор -->
+    <div class="tool-card">
+      <div class="tool-image-box">
+        <span class="tool-badge">В наличии</span>
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/7047316241394593668_0" alt="Бензиновый генератор">
+      </div>
+      <div class="tool-info">
+        <span class="tool-category">Электростанции</span>
+        <h3 class="tool-name">Генератор бензиновый 6.5 кВт</h3>
+        <div class="tool-price-box">
+          <div class="tool-price">150 000 <span>сум / день</span></div>
         </div>
+        <a href="https://t.me/ваш_телеграм" class="btn-rent">Забронировать</a>
+      </div>
     </div>
 
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo">SHER<span>LEST</span></a>
-            <ul class="nav-links">
-                <li><a href="index.html">Bosh sahifa</a></li>
-                <li><a href="catalog.html" class="active">Каталог</a></li>
-                <li><a href="contacts.html">Контакты / Алоқа</a></li>
-            </ul>
+    <!-- КАРТОЧКА 2: Лестница -->
+    <div class="tool-card">
+      <div class="tool-image-box">
+        <span class="tool-badge">В наличии</span>
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/7662274610859294751_0" alt="Алюминиевая лестница">
+      </div>
+      <div class="tool-info">
+        <span class="tool-category">Высотное оборудование</span>
+        <h3 class="tool-name">Лестница алюминиевая 3х10</h3>
+        <div class="tool-price-box">
+          <div class="tool-price">70 000 <span>сум / день</span></div>
         </div>
-    </nav>
+        <a href="https://t.me/ваш_телеграм" class="btn-rent">Забронировать</a>
+      </div>
+    </div>
 
-    <section class="container">
-        <h1 class="page-title">Ускуналар <span>Каталоги</span></h1>
-
-        <div class="catalog-grid">
-
-            <!-- 1. Нарвон -->
-            <div class="card">
-                <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#ff6600" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 3L15 21M9 3L5 21M17 7H7M16 11H7M15 15H6M14 19H5"/></svg>
-                </div>
-                <div class="card-body">
-                    <h3>Алюминий Нарвон (Лестница)</h3>
-                    <ul class="card-specs">
-                        <li>⚡ Баландлиги: 2м дан 12м гача</li>
-                        <li>⚡ 3 секцияли трансформер</li>
-                    </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <!-- 2. Леса ва Вышка-Тура -->
-            <div class="card">
-                <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#ff6600" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M4 8h16M4 14h16M4 20h16M8 2v20M16 2v20"/></svg>
-                </div>
-                <div class="card-body">
-                    <h3>Строительные Леса ва Вышка-Тура</h3>
-                    <ul class="card-specs">
-                        <li>⚡ Бўйи: 2м дан 15м гача</li>
-                        <li>⚡ Ғилдиракли ва хавфсиз</li>
-                    </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <!-- 3. Жираф -->
-            <div class="card">
-                <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#ff6600" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="6" r="4"/><path d="M15 8.5L4 18M18 10v10M3 21h6"/></svg>
-                </div>
-                <div class="card-body">
-                    <h3>Шлифмашина «Жираф»</h3>
-                    <ul class="card-specs">
-                        <li>⚡ Девор ва шипни текислаш учун</li>
-                        <li>⚡ Пылесос билан чангсиз ишлаш</li>
-                    </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <!-- 4. Рохля -->
-            <div class="card">
-                <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#ff6600" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h13l4-8H6M3 17l-1-9h16M6 17a2 2 0 100 4 2 2 0 000-4zm10 0a2 2 0 100 4 2 2 0 000-4z"/></svg>
-                </div>
-                <div class="card-body">
-                    <h3>Гидравлическая Рохля</h3>
-                    <ul class="card-specs">
-                        <li>⚡ Юк кўтариши: 2.5 — 3 тонна</li>
-                        <li>⚡ Склад ва стройка учун</li>
-                    </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <!-- 5. Штабелер -->
-            <div class="card">
-                <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#ff6600" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18M18 3v18M6 8h12M6 16h12M10 12h8M10 12l-2-2M10 12l-2 2"/></svg>
-                </div>
-                <div class="card-body">
-                    <h3>Гидравлический Штабелер</h3>
-                    <ul class="card-specs">
-                        <li>⚡ Юк кўтариши: 1 — 2 тонна</li>
-                        <li>⚡ Кўтариш баландлиги: 1.6м — 3м</li>
-                    </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <!-- 6. Генератор -->
-            <div class="card">
-                <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#ff6600" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M13 10l-2 4h3l-2 4M6 12h.01M18 12h.01"/></svg>
-                </div>
-                <div class="card-body">
-                    <h3>Бензин / Дизель Генератор</h3>
-                    <ul class="card-specs">
-                        <li>⚡ Қуввати: 3кВт дан 15кВт гача</li>
-                        <li>⚡ 220V ва 380V чиқишлар</li>
-                    </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <!-- 7. Виброплита -->
-            <div class="card">
-                <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#ff6600" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="14" width="18" height="5" rx="1"/><path d="M7 14V8l5-3 5 3v6M12 5v9"/></svg>
-                </div>
-                <div class="card-body">
-                    <h3>Виброплита (Трамбовка)</h3>
-                    <ul class="card-specs">
-                        <li>⚡ Оғирлиги: 60кг — 120кг</li>
-                        <li>⚡ Грунт, брусчатка ва асфальт учун</li>
-                    </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <!-- 8. Алмазный бур -->
-            <div class="card">
-                <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#ff6600" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9l4-6z"/></svg>
-                </div>
-                <div class="card-body">
-                    <h3>Алмазный Бур (Бурение)</h3>
-                    <ul class="card-specs">
-                        <li>⚡ Бетон, ғишт ва тош тешиш</li>
-                        <li>⚡ Диаметр: 32мм дан 350мм гача</li>
-                    </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <!-- 9. Пылесос -->
-            <div class="card">
-                <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#ff6600" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="12" height="12" rx="2"/><path d="M9 8V5a3 3 0 016 0v3M12 12v4M6 20h12"/></svg>
-                </div>
-                <div class="card-body">
-                    <h3>Строительный Пылесос</h3>
-                    <ul class="card-specs">
-                        <li>⚡ Объём: 30L — 50L</li>
-                        <li>⚡ Штроборез ва жираф учун</li>
-                    </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <!-- 10. Кенгуру -->
-            <div class="card">
-                <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#ff6600" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6M8 9h8M9 9l-2 9h10l-2-9M7 18h10v3H7z"/></svg>
-                </div>
-                <div class="card-body">
-                    <h3>Кенгуру (Вибротрамбовка)</h3>
-                    <ul class="card-specs">
-                        <li>⚡ Чуқур ва траншея трамбовкаси</li>
-                        <li>⚡ Ток ва сув йўллари учун</li>
-                    </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <!-- 11. Karcher -->
-            <div class="card">
-                <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#ff6600" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 18v4M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M18 12h4M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"/></svg>
-                </div>
-                <div class="card-body">
-                    <h3>Kärcher (Мойка высокого давления)</h3>
-                    <ul class="card-specs">
-                        <li>⚡ Юқори босимли ювиш аппарати</li>
-                        <li>⚡ Стройка, фасад ва техника ювиш учун</li>
-                    </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <!-- 12. Компрессор -->
-            <div class="card">
-                <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#ff6600" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="20" height="10" rx="3"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/><path d="M9 8V5a2 2 0 012-2h2a2 2 0 012 2v3"/></svg>
-                </div>
-                <div class="card-body">
-                    <h3>Воздушный Компрессор</h3>
-                    <ul class="card-specs">
-                        <li>⚡ Объём: 50L — 100L</li>
-                        <li>⚡ Пневмоинструмент ва бўяш учун</li>
-                    </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <!-- 13. Wagner -->
-            <div class="card">
-                <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#ff6600" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
-                </div>
-                <div class="card-body">
-                    <h3>Wagner (Краскопульт / Бўяш аппарати)</h3>
-                    <ul class="card-specs">
-                        <li>⚡ Безвоздушная покраска (Безвоздушка)</li>
-                        <li>⚡ Девор ва конструкцияларни тез бўяш</li>
-                    </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
-                </div>
-            </div>
-
+    <!-- КАРТОЧКА 3: Виброплита -->
+    <div class="tool-card">
+      <div class="tool-image-box">
+        <span class="tool-badge">В наличии</span>
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/9337212522442527812_0" alt="Виброплита">
+      </div>
+      <div class="tool-info">
+        <span class="tool-category">Дорожное оборудование</span>
+        <h3 class="tool-name">Виброплита бензиновая 90 кг</h3>
+        <div class="tool-price-box">
+          <div class="tool-price">180 000 <span>сум / день</span></div>
         </div>
-    </section>
+        <a href="https://t.me/ваш_телеграм" class="btn-rent">Забронировать</a>
+      </div>
+    </div>
 
-    <footer>
-        <p>&copy; 2026 SHERLEST & Tez Kel. Барча ҳуқуқлар ҳимояланган.</p>
-    </footer>
+    <!-- КАРТОЧКА 4: Отбойный молоток -->
+    <div class="tool-card">
+      <div class="tool-image-box">
+        <span class="tool-badge">В наличии</span>
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/14065706773071221246_0" alt="Отбойный молоток">
+      </div>
+      <div class="tool-info">
+        <span class="tool-category">Демонтажный инструмент</span>
+        <h3 class="tool-name">Отбойный молоток 45 Дж</h3>
+        <div class="tool-price-box">
+          <div class="tool-price">120 000 <span>сум / день</span></div>
+        </div>
+        <a href="https://t.me/ваш_телеграм" class="btn-rent">Забронировать</a>
+      </div>
+    </div>
 
-</body>
-</html>
+  </div>
+</section>
+<!-- ================= КОНЕЦ СЕКЦИИ КАТАЛОГА ================= -->
