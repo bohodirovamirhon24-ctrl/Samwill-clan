@@ -124,7 +124,6 @@
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            padding: 12px; 
             overflow: hidden;
             transition: all 0.4s ease;
         }
@@ -134,18 +133,16 @@
             border-bottom-color: rgba(255, 102, 0, 0.5);
         }
 
-        /* Настройка картинок — теперь сам инструмент отлично виден целиком */
         .card-img-box img { 
             width: 100%; 
             height: 100%; 
-            object-fit: contain; 
-            border-radius: 6px;
+            object-fit: cover; 
             transition: transform 0.4s ease, filter 0.4s ease;
         }
 
         .card:hover .card-img-box img {
             transform: scale(1.08);
-            filter: drop-shadow(0 0 10px var(--primary-glow));
+            filter: brightness(1.1) drop-shadow(0 0 10px var(--primary-glow));
         }
 
         .card-badge { 
@@ -258,7 +255,7 @@
             <div class="card">
                 <div class="card-img-box">
                     <span class="card-badge">Mavjud</span>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Extension_ladder.jpg/600px-Extension_ladder.jpg" alt="Алюминий Нарвон">
+                    <img src="https://images.unsplash.com/photo-1508873696983-2df515122519?w=600&auto=format&fit=crop" referrerpolicy="no-referrer" alt="Алюминий Нарвон">
                 </div>
                 <div class="card-body">
                     <h3>Алюминий Нарвон (Лестница)</h3>
@@ -274,7 +271,7 @@
             <div class="card">
                 <div class="card-img-box">
                     <span class="card-badge">Mavjud</span>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Scaffolding_in_Bologna.jpg/600px-Scaffolding_in_Bologna.jpg" alt="Строительные Леса">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b2?w=600&auto=format&fit=crop" referrerpolicy="no-referrer" alt="Строительные Леса">
                 </div>
                 <div class="card-body">
                     <h3>Строительные Леса ва Вышка-Тура</h3>
@@ -290,7 +287,7 @@
             <div class="card">
                 <div class="card-img-box">
                     <span class="card-badge">Mavjud</span>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Trockenbauschleifer_Giraffe.jpg/600px-Trockenbauschleifer_Giraffe.jpg" alt="Шлифмашина Жираф">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&auto=format&fit=crop" referrerpolicy="no-referrer" alt="Шлифмашина Жираф">
                 </div>
                 <div class="card-body">
                     <h3>Шлифмашина «Жираф»</h3>
@@ -306,7 +303,7 @@
             <div class="card">
                 <div class="card-img-box">
                     <span class="card-badge">Mavjud</span>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Hubwagen_2006.JPG/600px-Hubwagen_2006.JPG" alt="Гидравлическая Рохля">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&auto=format&fit=crop" referrerpolicy="no-referrer" alt="Гидравлическая Рохля">
                 </div>
                 <div class="card-body">
                     <h3>Гидравлическая Рохля</h3>
@@ -322,7 +319,7 @@
             <div class="card">
                 <div class="card-img-box">
                     <span class="card-badge">Mavjud</span>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Handstapler.jpg/600px-Handstapler.jpg" alt="Гидравлический Штабелер">
+                    <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=600&auto=format&fit=crop" referrerpolicy="no-referrer" alt="Гидравлический Штабелер">
                 </div>
                 <div class="card-body">
                     <h3>Гидравлический Штабелер</h3>
@@ -338,7 +335,7 @@
             <div class="card">
                 <div class="card-img-box">
                     <span class="card-badge">Mavjud</span>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Power-generator.jpg/600px-Power-generator.jpg" alt="Бензин Генератор">
+                    <img src="https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=600&auto=format&fit=crop" referrerpolicy="no-referrer" alt="Бензин Генератор">
                 </div>
                 <div class="card-body">
                     <h3>Бензин / Дизель Генератор</h3>
@@ -354,7 +351,7 @@
             <div class="card">
                 <div class="card-img-box">
                     <span class="card-badge">Mavjud</span>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/R%C3%BCttelplatte.jpg/600px-R%C3%BCttelplatte.jpg" alt="Виброплита">
+                    <img src="https://images.unsplash.com/photo-1504148455328-c376907d081c?w=600&auto=format&fit=crop" referrerpolicy="no-referrer" alt="Виброплита">
                 </div>
                 <div class="card-body">
                     <h3>Виброплита (Трамбовка)</h3>
@@ -370,7 +367,7 @@
             <div class="card">
                 <div class="card-img-box">
                     <span class="card-badge">Mavjud</span>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Kernbohrmaschine.jpg/600px-Kernbohrmaschine.jpg" alt="Алмазный Бур">
+                    <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=600&auto=format&fit=crop" referrerpolicy="no-referrer" alt="Алмазный Бур">
                 </div>
                 <div class="card-body">
                     <h3>Алмазный Бур (Бурение)</h3>
@@ -386,7 +383,7 @@
             <div class="card">
                 <div class="card-img-box">
                     <span class="card-badge">Mavjud</span>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/K%C3%A4rcher_Nass-_und_Trockensauger.jpg/600px-K%C3%A4rcher_Nass-_und_Trockensauger.jpg" alt="Строительный Пылесос">
+                    <img src="https://images.unsplash.com/photo-1558317374-067fb5f30001?w=600&auto=format&fit=crop" referrerpolicy="no-referrer" alt="Строительный Пылесос">
                 </div>
                 <div class="card-body">
                     <h3>Строительный Пылесос</h3>
@@ -402,7 +399,7 @@
             <div class="card">
                 <div class="card-img-box">
                     <span class="card-badge">Mavjud</span>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Stampfer.jpg/600px-Stampfer.jpg" alt="Вибротрамбовка Кенгуру">
+                    <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=600&auto=format&fit=crop" referrerpolicy="no-referrer" alt="Вибротрамбовка Кенгуру">
                 </div>
                 <div class="card-body">
                     <h3>Кенгуру (Вибротрамбовка)</h3>
@@ -418,7 +415,7 @@
             <div class="card">
                 <div class="card-img-box">
                     <span class="card-badge">Mavjud</span>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/K%C3%A4rcher_Hochdruckreiniger.jpg/600px-K%C3%A4rcher_Hochdruckreiniger.jpg" alt="Kärcher мойка">
+                    <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=600&auto=format&fit=crop" referrerpolicy="no-referrer" alt="Kärcher мойка">
                 </div>
                 <div class="card-body">
                     <h3>Kärcher (Мойка высокого давления)</h3>
@@ -434,7 +431,7 @@
             <div class="card">
                 <div class="card-img-box">
                     <span class="card-badge">Mavjud</span>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Kompressor_50l.jpg/600px-Kompressor_50l.jpg" alt="Воздушный Компрессор">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&auto=format&fit=crop" referrerpolicy="no-referrer" alt="Воздушный Компрессор">
                 </div>
                 <div class="card-body">
                     <h3>Воздушный Компрессор</h3>
@@ -450,7 +447,7 @@
             <div class="card">
                 <div class="card-img-box">
                     <span class="card-badge">Mavjud</span>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Airless_paint_sprayer.jpg/600px-Airless_paint_sprayer.jpg" alt="Краскопульт Wagner">
+                    <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600&auto=format&fit=crop" referrerpolicy="no-referrer" alt="Краскопульт Wagner">
                 </div>
                 <div class="card-body">
                     <h3>Wagner (Краскопульт / Бўяш аппарати)</h3>
