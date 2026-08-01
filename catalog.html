@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sherlest — Ускуналар каталоги</title>
+    <title>Аренда строительного оборудования в Ташкенте — SHERLEST & Tez Kel</title>
+    <meta name="description" content="Аренда рохли, штабелера, генератора, виброплиты, лестниц и лесов в Ташкенте. Qurg'ilish uskunalarini ijaraga berish. Быстрая доставка Tez Kel.">
+    <meta name="keywords" content="аренда рохли, аренда штабелера, аренда генератора, аренда виброплиты, аренда лестниц, аренда лесов, rohlya ijarasi, shtabeler ijarasi, generator ijarasi, Tashkent">
+    
     <style>
         :root {
             --primary: #ff6600;
@@ -24,12 +27,14 @@
             background-image: radial-gradient(circle at 50% 0%, rgba(255,102,0,0.08) 0%, transparent 50%);
         }
 
+        /* Top Bar */
         .top-bar { background: #050507; border-bottom: 1px solid var(--border-color); padding: 10px 20px; font-size: 0.88rem; }
         .top-bar-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
         .top-phones { display: flex; gap: 15px; flex-wrap: wrap; }
         .top-phones a { color: var(--primary); text-decoration: none; font-weight: 800; transition: all 0.3s ease; display: inline-block; }
         .top-phones a:hover { color: #ff8533; transform: scale(1.05); text-shadow: 0 0 12px var(--primary-glow); }
 
+        /* Navbar */
         nav { background-color: rgba(10, 10, 13, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); backdrop-filter: blur(12px); }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; flex-wrap: wrap; gap: 15px; }
 
@@ -68,6 +73,7 @@
             100% { filter: drop-shadow(0 0 10px rgba(255,102,0,0.8)); }
         }
 
+        .nav-right { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
         .nav-links { display: flex; gap: 10px; list-style: none; flex-wrap: wrap; }
         .nav-links a { 
             color: var(--text-light); 
@@ -93,10 +99,37 @@
             box-shadow: 0 0 12px rgba(255,102,0,0.3);
         }
 
+        /* Language Switcher Switch */
+        .lang-switch {
+            display: flex;
+            background: #1a1a22;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2px;
+        }
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 5px 12px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            cursor: pointer;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+        .lang-btn.active {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        /* Container */
         .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
         .page-title { text-align: center; font-size: 2.4rem; margin-bottom: 35px; text-transform: uppercase; }
         .page-title span { color: var(--primary); text-shadow: 0 0 15px var(--primary-glow); }
 
+        /* Catalog Grid */
         .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         
         .card { 
@@ -194,7 +227,20 @@
             box-shadow: 0 5px 20px rgba(0, 136, 204, 0.6);
             transform: translateY(-2px);
         }
-        
+
+        /* SEO Block */
+        .seo-block {
+            margin-top: 60px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .seo-block h2 { color: var(--primary); font-size: 1.5rem; margin-bottom: 15px; }
+        .seo-block p { margin-bottom: 12px; }
+
         footer { background-color: #050507; border-top: 1px solid var(--border-color); padding: 25px 20px; text-align: center; margin-top: 50px; color: var(--text-muted); font-size: 0.9rem; }
 
         @media (max-width: 768px) {
@@ -203,6 +249,7 @@
             
             .nav-container { flex-direction: column; text-align: center; padding: 12px 15px; }
             .logo { font-size: 1.8rem; }
+            .nav-right { width: 100%; justify-content: center; flex-direction: column; }
             .nav-links { width: 100%; justify-content: center; }
             .nav-links a { font-size: 0.9rem; padding: 8px 12px; }
 
@@ -216,9 +263,12 @@
 </head>
 <body>
 
+    <!-- Top Bar -->
     <div class="top-bar">
         <div class="top-bar-container">
-            <span><strong>Tez Kel</strong> — Тезкор етказиб бериш хизмати</span>
+            <span data-ru="<strong>Tez Kel</strong> — Быстрая служба доставки спецтехники" data-uz="<strong>Tez Kel</strong> — Тезкор етказиб бериш хизмати">
+                <strong>Tez Kel</strong> — Быстрая служба доставки спецтехники
+            </span>
             <div class="top-phones">
                 <a href="tel:+998971224455">+998 (97) 122-44-55</a>
                 <a href="tel:+998881074400">+998 (88) 107-44-00</a>
@@ -226,236 +276,274 @@
         </div>
     </div>
 
+    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">SHER<span>LEST</span></a>
-            <ul class="nav-links">
-                <li><a href="index.html">Bosh sahifa</a></li>
-                <li><a href="catalog.html" class="active">Каталог</a></li>
-                <li><a href="contacts.html">Контакты / Алоқа</a></li>
-            </ul>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="index.html" data-ru="Главная" data-uz="Bosh sahifa">Главная</a></li>
+                    <li><a href="catalog.html" class="active" data-ru="Каталог" data-uz="Каталог">Каталог</a></li>
+                    <li><a href="contacts.html" data-ru="Контакты" data-uz="Контакты / Алоқа">Контакты</a></li>
+                </ul>
+                <div class="lang-switch">
+                    <button class="lang-btn active" id="btn-ru" onclick="switchLang('ru')">RU</button>
+                    <button class="lang-btn" id="btn-uz" onclick="switchLang('uz')">UZ</button>
+                </div>
+            </div>
         </div>
     </nav>
 
+    <!-- Main Catalog -->
     <section class="container">
-        <h1 class="page-title">Ускуналар <span>Каталоги</span></h1>
+        <h1 class="page-title" data-ru="Каталог <span>оборудования</span>" data-uz="Ускуналар <span>Каталоги</span>">
+            Каталог <span>оборудования</span>
+        </h1>
 
         <div class="catalog-grid">
 
             <!-- 1. Нарвон -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <img src="https://images.unsplash.com/photo-1541888946425-d0fbb17666d6?auto=format&fit=crop&w=600&q=80" alt="Алюминий Нарвон">
+                    <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1541888946425-d0fbb17666d6?auto=format&fit=crop&w=600&q=80" alt="Аренда алюминиевой лестницы Ташкент">
                 </div>
                 <div class="card-body">
-                    <h3>Алюминий Нарвон (Лестница)</h3>
+                    <h3 data-ru="Аренда алюминиевой лестницы (Нарвон)" data-uz="Алюминий Нарвон (Лестница) ижараси">Аренда алюминиевой лестницы (Нарвон)</h3>
                     <ul class="card-specs">
-                        <li>Баландлиги: 2м дан 12м гача</li>
-                        <li>3 секцияли трансформер</li>
+                        <li data-ru="Высота: от 2м до 12м" data-uz="Баландлиги: 2м дан 12м гача">Высота: от 2м до 12м</li>
+                        <li data-ru="3-х секционный трансформер" data-uz="3 секцияли трансформер">3-х секционный трансформер</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 2. Леса ва Вышка-Тура -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="Строительные Леса">
+                    <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="Аренда строительных лесов Вышка-Тура">
                 </div>
                 <div class="card-body">
-                    <h3>Строительные Леса ва Вышка-Тура</h3>
+                    <h3 data-ru="Аренда строительных лесов и вышки-туры" data-uz="Строительные Леса ва Вышка-Тура ижараси">Аренда строительных лесов и вышки-туры</h3>
                     <ul class="card-specs">
-                        <li>Бўйи: 2м дан 15м гача</li>
-                        <li>Ғилдиракли ва хавфсиз</li>
+                        <li data-ru="Высота: от 2м до 15м" data-uz="Бўйи: 2м дан 15м гача">Высота: от 2м до 15м</li>
+                        <li data-ru="Передвижные на колесах, безопасные" data-uz="Ғилдиракли ва хавфсиз">Передвижные на колесах, безопасные</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 3. Жираф -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Шлифмашина Жираф">
+                    <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Аренда шлифмашины Жираф">
                 </div>
                 <div class="card-body">
-                    <h3>Шлифмашина «Жираф»</h3>
+                    <h3 data-ru="Аренда шлифмашины «Жираф»" data-uz="Шлифмашина «Жираф» ижараси">Аренда шлифмашины «Жираф»</h3>
                     <ul class="card-specs">
-                        <li>Девор ва шипни текислаш учун</li>
-                        <li>Пылесос билан чангсиз ишлаш</li>
+                        <li data-ru="Для выравнивания стен и потолков" data-uz="Девор ва шипни текислаш учун">Для выравнивания стен и потолков</li>
+                        <li data-ru="Работа без пыли вместе с пылесосом" data-uz="Пылесос билан чангсиз ишлаш">Работа без пыли вместе с пылесосом</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 4. Рохля -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80" alt="Гидравлическая Рохля">
+                    <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80" alt="Аренда рохли гидравлической в Ташкенте">
                 </div>
                 <div class="card-body">
-                    <h3>Гидравлическая Рохля</h3>
+                    <h3 data-ru="Аренда гидравлической рохли" data-uz="Гидравлик Рохля ижараси (Rohlya)">Аренда гидравлической рохли</h3>
                     <ul class="card-specs">
-                        <li>Юк кўтариши: 2.5 — 3 тонна</li>
-                        <li>Склад ва стройка учун</li>
+                        <li data-ru="Грузоподъемность: 2.5 — 3 тонны" data-uz="Юк кўтариши: 2.5 — 3 тонна">Грузоподъемность: 2.5 — 3 тонны</li>
+                        <li data-ru="Для складов и стройплощадок" data-uz="Склад ва стройка учун">Для складов и стройплощадок</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 5. Штабелер -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80" alt="Гидравлический Штабелер">
+                    <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80" alt="Аренда гидравлического штабелера">
                 </div>
                 <div class="card-body">
-                    <h3>Гидравлический Штабелер</h3>
+                    <h3 data-ru="Аренда гидравлического штабелера" data-uz="Гидравлик Штабелер ижараси (Shtabeler)">Аренда гидравлического штабелера</h3>
                     <ul class="card-specs">
-                        <li>Юк кўтариши: 1 — 2 тонна</li>
-                        <li>Кўтариш баландлиги: 1.6м — 3м</li>
+                        <li data-ru="Грузоподъемность: 1 — 2 тонны" data-uz="Юк кўтариши: 1 — 2 тонна">Грузоподъемность: 1 — 2 тонны</li>
+                        <li data-ru="Высота подъема: 1.6м — 3м" data-uz="Кўтариш баландлиги: 1.6м — 3м">Высота подъема: 1.6м — 3м</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 6. Генератор -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <img src="https://images.unsplash.com/photo-1590243651477-873d6a36284a?auto=format&fit=crop&w=600&q=80" alt="Бензин Генератор">
+                    <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1590243651477-873d6a36284a?auto=format&fit=crop&w=600&q=80" alt="Аренда бензинового дизельного генератора">
                 </div>
                 <div class="card-body">
-                    <h3>Бензин / Дизель Генератор</h3>
+                    <h3 data-ru="Аренда генератора (Бензин / Дизель)" data-uz="Бензин / Дизель Генератор ижараси">Аренда генератора (Бензин / Дизель)</h3>
                     <ul class="card-specs">
-                        <li>Қуввати: 3кВт дан 15кВт гача</li>
-                        <li>220V ва 380V чиқишлар</li>
+                        <li data-ru="Мощность: от 3 кВт до 15 кВт" data-uz="Қуввати: 3кВт дан 15кВт гача">Мощность: от 3 кВт до 15 кВт</li>
+                        <li data-ru="Выходы 220V и 380V" data-uz="220V ва 380V чиқишлар">Выходы 220V и 380V</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 7. Виброплита -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80" alt="Виброплита">
+                    <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80" alt="Аренда виброплиты трамбовка">
                 </div>
                 <div class="card-body">
-                    <h3>Виброплита (Трамбовка)</h3>
+                    <h3 data-ru="Аренда виброплиты (Трамбовка)" data-uz="Виброплита ижараси (Трамбовка)">Аренда виброплиты (Трамбовка)</h3>
                     <ul class="card-specs">
-                        <li>Оғирлиги: 60кг — 120кг</li>
-                        <li>Грунт, брусчатка ва асфальт учун</li>
+                        <li data-ru="Вес: от 60 кг до 120 кг" data-uz="Оғирлиги: 60кг — 120кг">Вес: от 60 кг до 120 кг</li>
+                        <li data-ru="Для грунта, брусчатки и асфальта" data-uz="Грунт, брусчатка ва асфальт учун">Для грунта, брусчатки и асфальта</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 8. Алмазный бур -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <img src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=600&q=80" alt="Алмазный Бур">
+                    <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=600&q=80" alt="Аренда алмазного бура">
                 </div>
                 <div class="card-body">
-                    <h3>Алмазный Бур (Бурение)</h3>
+                    <h3 data-ru="Аренда алмазного бура (Бурение)" data-uz="Алмазный Бур ижараси (Бурение)">Аренда алмазного бура (Бурение)</h3>
                     <ul class="card-specs">
-                        <li>Бетон, ғишт ва тош тешиш</li>
-                        <li>Диаметр: 32мм дан 350мм гача</li>
+                        <li data-ru="Сверление бетона, кирпича и камня" data-uz="Бетон, ғишт ва тош тешиш">Сверление бетона, кирпича и камня</li>
+                        <li data-ru="Диаметр: от 32мм до 350мм" data-uz="Диаметр: 32мм дан 350мм гача">Диаметр: от 32мм до 350мм</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 9. Пылесос -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Строительный Пылесос">
+                    <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Аренда строительного пылесоса">
                 </div>
                 <div class="card-body">
-                    <h3>Строительный Пылесос</h3>
+                    <h3 data-ru="Аренда строительного пылесоса" data-uz="Строительный Пылесос ижараси">Аренда строительного пылесоса</h3>
                     <ul class="card-specs">
-                        <li>Объём: 30L — 50L</li>
-                        <li>Штроборез ва жираф учун</li>
+                        <li data-ru="Объем бака: 30L — 50L" data-uz="Объём: 30L — 50L">Объем бака: 30L — 50L</li>
+                        <li data-ru="Подходит для штробореза и жирафа" data-uz="Штроборез ва жираф учун">Подходит для штробореза и жирафа</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 10. Кенгуру -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80" alt="Вибротрамбовка Кенгуру">
+                    <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80" alt="Аренда вибротрамбовки Кенгуру">
                 </div>
                 <div class="card-body">
-                    <h3>Кенгуру (Вибротрамбовка)</h3>
+                    <h3 data-ru="Аренда вибротрамбовки «Кенгуру»" data-uz="Кенгуру (Вибротрамбовка) ижараси">Аренда вибротрамбовки «Кенгуру»</h3>
                     <ul class="card-specs">
-                        <li>Чуқур ва траншея трамбовкаси</li>
-                        <li>Ток ва сув йўллари учун</li>
+                        <li data-ru="Трамбовка траншей и котлованов" data-uz="Чуқур ва траншея трамбовкаси">Трамбовка траншей и котлованов</li>
+                        <li data-ru="Для укладки труб и кабелей" data-uz="Ток ва сув йўллари учун">Для укладки труб и кабелей</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 11. Karcher -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80" alt="Kärcher мойка">
+                    <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80" alt="Аренда мойки Karcher высокого давления">
                 </div>
                 <div class="card-body">
-                    <h3>Kärcher (Мойка высокого давления)</h3>
+                    <h3 data-ru="Аренда мойки высокого давления Kärcher" data-uz="Kärcher (Мойка высокого давления) ижараси">Аренда мойки высокого давления Kärcher</h3>
                     <ul class="card-specs">
-                        <li>Юқори босимли ювиш аппарати</li>
-                        <li>Стройка, фасад ва техника ювиш учун</li>
+                        <li data-ru="Профессиональная мойка высокого давления" data-uz="Юқори босимли ювиш аппарати">Профессиональная мойка высокого давления</li>
+                        <li data-ru="Для фасадов, площадок и стройтехники" data-uz="Стройка, фасад ва техника ювиш учун">Для фасадов, площадок и стройтехники</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 12. Компрессор -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=600&q=80" alt="Воздушный Компрессор">
+                    <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=600&q=80" alt="Аренда компрессора воздушного">
                 </div>
                 <div class="card-body">
-                    <h3>Воздушный Компрессор</h3>
+                    <h3 data-ru="Аренда воздушного компрессора" data-uz="Воздушный Компрессор ижараси">Аренда воздушного компрессора</h3>
                     <ul class="card-specs">
-                        <li>Объём: 50L — 100L</li>
-                        <li>Пневмоинструмент ва бўяш учун</li>
+                        <li data-ru="Объем ресивера: 50L — 100L" data-uz="Объём: 50L — 100L">Объем ресивера: 50L — 100L</li>
+                        <li data-ru="Для покраски и пневмоинструмента" data-uz="Пневмоинструмент ва бўяш учун">Для покраски и пневмоинструмента</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
                 </div>
             </div>
 
             <!-- 13. Wagner -->
             <div class="card">
                 <div class="card-img-box">
-                    <span class="card-badge">Mavjud</span>
-                    <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80" alt="Краскопульт Wagner">
+                    <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
+                    <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80" alt="Аренда краскопульта Wagner безвоздушного">
                 </div>
                 <div class="card-body">
-                    <h3>Wagner (Краскопульт / Бўяш)</h3>
+                    <h3 data-ru="Аренда безвоздушного краскопульта Wagner" data-uz="Wagner (Краскопульт / Бўяш) ижараси">Аренда безвоздушного краскопульта Wagner</h3>
                     <ul class="card-specs">
-                        <li>Безвоздушная покраска (Безвоздушка)</li>
-                        <li>Девор ва конструкцияларни тез бўяш</li>
+                        <li data-ru="Безвоздушная скоростная покраска" data-uz="Безвоздушная покраска (Безвоздушка)">Безвоздушная скоростная покраска</li>
+                        <li data-ru="Быстрое окрашивание стен и металлоконструкций" data-uz="Девор ва конструкцияларни тез бўяш">Быстрое окрашивание стен и металлоконструкций</li>
                     </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram">Заказать в Telegram</a>
+                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
                 </div>
             </div>
 
         </div>
+
+        <!-- SEO Block for indexing -->
+        <div class="seo-block">
+            <h2 data-ru="Аренда строительного и складского оборудования в Ташкенте" data-uz="Тошкентда қурилиш ва омбор ускуналари ижараси">
+                Аренда строительного и складского оборудования в Ташкенте
+            </h2>
+            <p data-ru="Компания <strong>SHERLEST</strong> и служба экспресс-доставки <strong>Tez Kel</strong> предлагают профессиональное оборудование в аренду на выгодных условиях. В нашем каталоге доступна <strong>аренда рохли</strong>, <strong>аренда штабелера</strong>, <strong>аренда генератора</strong>, <strong>виброплиты</strong>, <strong>шлифмашины жираф</strong>, а также <strong>алюминиевых лестниц и строительных лесов</strong>."
+               data-uz="<strong>SHERLEST</strong> компанияси ва <strong>Tez Kel</strong> тезкор етказиб бериш хизмати қурилиш ҳамда омбор ускуналарини қулай шартларда ижарага беради. Каталогимизда <strong>рохля ижараси</strong>, <strong>штабелер ижараси</strong>, <strong>генератор</strong>, <strong>виброплита</strong>, <strong>жираф шлифмашинаси</strong> ва <strong>нарвонлар</strong> мавжуд.">
+                Компания <strong>SHERLEST</strong> и служба экспресс-доставки <strong>Tez Kel</strong> предлагают профессиональное оборудование в аренду на выгодных условиях. В нашем каталоге доступна <strong>аренда рохли</strong>, <strong>аренда штабелера</strong>, <strong>аренда генератора</strong>, <strong>виброплиты</strong>, <strong>шлифмашины жираф</strong>, а также <strong>алюминиевых лестниц и строительных лесов</strong>.
+            </p>
+        </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 SHERLEST & Tez Kel. Барча ҳуқуқлар ҳимояланган.</p>
+        <p>&copy; 2026 SHERLEST & Tez Kel. Все права защищены / Барча ҳуқуқлар ҳимояланган.</p>
     </footer>
 
+    <!-- Multilingual Switch Script -->
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('[data-ru]').forEach(el => {
+                if (lang === 'uz' && el.getAttribute('data-uz')) {
+                    el.innerHTML = el.getAttribute('data-uz');
+                } else if (lang === 'ru' && el.getAttribute('data-ru')) {
+                    el.innerHTML = el.getAttribute('data-ru');
+                }
+            });
+
+            document.getElementById('btn-ru').classList.toggle('active', lang === 'ru');
+            document.getElementById('btn-uz').classList.toggle('active', lang === 'uz');
+            document.documentElement.lang = lang;
+        }
+    </script>
 </body>
 </html>
