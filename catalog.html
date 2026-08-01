@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Аренда строительного оборудования в Ташкенте — SHERLEST & Tez Kel</title>
     <meta name="description" content="Аренда рохли, штабелера, генератора, виброплиты, лестниц и лесов в Ташкенте. Qurg'ilish uskunalarini ijaraga berish. Быстрая доставка Tez Kel.">
     <meta name="keywords" content="аренда рохли, аренда штабелера, аренда генератора, аренда виброплиты, аренда лестниц, аренда лесов, rohlya ijarasi, shtabeler ijarasi, generator ijarasi, Tashkent">
@@ -18,25 +18,24 @@
             --border-color: #24242c;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
         body { 
             background-color: var(--bg-dark); 
             color: var(--text-light); 
-            line-height: 1.6; 
+            line-height: 1.5; 
             overflow-x: hidden;
             background-image: radial-gradient(circle at 50% 0%, rgba(255,102,0,0.08) 0%, transparent 50%);
         }
 
         /* Top Bar */
-        .top-bar { background: #050507; border-bottom: 1px solid var(--border-color); padding: 10px 20px; font-size: 0.88rem; }
+        .top-bar { background: #050507; border-bottom: 1px solid var(--border-color); padding: 10px 15px; font-size: 0.88rem; }
         .top-bar-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
         .top-phones { display: flex; gap: 15px; flex-wrap: wrap; }
-        .top-phones a { color: var(--primary); text-decoration: none; font-weight: 800; transition: all 0.3s ease; display: inline-block; }
-        .top-phones a:hover { color: #ff8533; transform: scale(1.05); text-shadow: 0 0 12px var(--primary-glow); }
+        .top-phones a { color: var(--primary); text-decoration: none; font-weight: 800; padding: 4px 0; }
 
         /* Navbar */
         nav { background-color: rgba(10, 10, 13, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); backdrop-filter: blur(12px); }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; flex-wrap: wrap; gap: 15px; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; flex-wrap: wrap; gap: 12px; }
 
         .logo { 
             font-size: 2.2rem; 
@@ -49,7 +48,6 @@
             -webkit-text-fill-color: transparent;
             animation: gradientShift 5s ease infinite, logoGlow 3s ease-in-out infinite alternate;
             display: inline-block;
-            transition: transform 0.3s ease;
         }
 
         .logo span { 
@@ -60,77 +58,40 @@
             animation: gradientShift 3s ease infinite;
         }
 
-        .logo:hover { transform: scale(1.08) rotate(-1deg); }
+        @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes logoGlow { 0% { filter: drop-shadow(0 0 2px rgba(255,102,0,0.2)); } 100% { filter: drop-shadow(0 0 10px rgba(255,102,0,0.8)); } }
 
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        @keyframes logoGlow {
-            0% { filter: drop-shadow(0 0 2px rgba(255,102,0,0.2)); }
-            100% { filter: drop-shadow(0 0 10px rgba(255,102,0,0.8)); }
-        }
-
-        .nav-right { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
-        .nav-links { display: flex; gap: 10px; list-style: none; flex-wrap: wrap; }
+        .nav-right { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .nav-links { display: flex; gap: 8px; list-style: none; flex-wrap: wrap; }
         .nav-links a { 
             color: var(--text-light); 
             text-decoration: none; 
             font-weight: 600; 
-            padding: 8px 16px; 
+            padding: 8px 14px; 
             border-radius: 8px; 
             transition: all 0.3s ease;
             border: 1px solid transparent;
             display: inline-block;
+            font-size: 0.95rem;
         }
-        .nav-links a:hover { 
+        .nav-links a:hover, .nav-links a.active { 
             color: var(--primary); 
-            background: rgba(255, 102, 0, 0.12); 
-            border-color: rgba(255, 102, 0, 0.4);
-            box-shadow: 0 0 20px var(--primary-glow);
-            transform: translateY(-2px);
-        }
-        .nav-links a.active { 
-            color: var(--primary); 
-            background: rgba(255,102,0,0.18); 
+            background: rgba(255, 102, 0, 0.15); 
             border-color: var(--primary);
-            box-shadow: 0 0 12px rgba(255,102,0,0.3);
         }
 
-        /* Language Switcher Switch */
-        .lang-switch {
-            display: flex;
-            background: #1a1a22;
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 2px;
-        }
-        .lang-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-muted);
-            padding: 5px 12px;
-            font-weight: bold;
-            font-size: 0.85rem;
-            cursor: pointer;
-            border-radius: 16px;
-            transition: all 0.3s ease;
-        }
-        .lang-btn.active {
-            background: var(--primary);
-            color: #fff;
-            box-shadow: 0 0 10px var(--primary-glow);
-        }
+        /* Language Switcher */
+        .lang-switch { display: flex; background: #1a1a22; border: 1px solid var(--border-color); border-radius: 20px; padding: 2px; }
+        .lang-btn { background: transparent; border: none; color: var(--text-muted); padding: 6px 14px; font-weight: bold; font-size: 0.85rem; cursor: pointer; border-radius: 16px; transition: all 0.3s ease; }
+        .lang-btn.active { background: var(--primary); color: #fff; box-shadow: 0 0 10px var(--primary-glow); }
 
         /* Container */
-        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-        .page-title { text-align: center; font-size: 2.4rem; margin-bottom: 35px; text-transform: uppercase; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 30px 15px; }
+        .page-title { text-align: center; font-size: 2rem; margin-bottom: 25px; text-transform: uppercase; }
         .page-title span { color: var(--primary); text-shadow: 0 0 15px var(--primary-glow); }
 
         /* Catalog Grid */
-        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         
         .card { 
             background-color: var(--card-bg); 
@@ -139,135 +100,73 @@
             overflow: hidden; 
             display: flex; 
             flex-direction: column;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
+            transition: all 0.3s ease;
         }
 
-        .card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: var(--primary);
-            box-shadow: 0 15px 35px var(--primary-glow);
-        }
+        .card:hover { border-color: var(--primary); box-shadow: 0 10px 25px var(--primary-glow); }
         
-        .card-img-box { 
-            height: 220px; 
-            background: #111116; 
-            border-bottom: 1px solid var(--border-color); 
-            position: relative; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            overflow: hidden;
-        }
+        .card-img-box { height: 210px; background: #111116; border-bottom: 1px solid var(--border-color); position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .card-img-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        .card-img-box img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            transition: transform 0.4s ease;
-        }
+        .card-badge { position: absolute; top: 12px; right: 12px; background: rgba(10,10,13,0.9); border: 1px solid var(--primary); color: var(--primary); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; z-index: 2; }
 
-        .card:hover .card-img-box img {
-            transform: scale(1.08);
-        }
+        .card-body { padding: 18px; display: flex; flex-direction: column; flex-grow: 1; }
+        .card h3 { font-size: 1.15rem; color: #fff; margin-bottom: 10px; }
 
-        .card-badge { 
-            position: absolute; 
-            top: 12px; 
-            right: 12px; 
-            background: rgba(10,10,13,0.9); 
-            border: 1px solid var(--primary); 
-            color: var(--primary); 
-            padding: 4px 12px; 
-            border-radius: 20px; 
-            font-size: 0.75rem; 
-            font-weight: bold; 
-            box-shadow: 0 0 10px rgba(255,102,0,0.2);
-            z-index: 2;
-        }
-
-        .card-body { padding: 22px; display: flex; flex-direction: column; flex-grow: 1; }
-        .card h3 { font-size: 1.25rem; color: #fff; margin-bottom: 12px; transition: color 0.3s ease; }
-        
-        .card:hover h3 { color: var(--primary); }
-
-        .card-specs { list-style: none; margin-bottom: 20px; color: var(--text-muted); font-size: 0.92rem; flex-grow: 1; }
-        .card-specs li { 
-            margin-bottom: 8px; 
-            position: relative; 
-            padding-left: 18px; 
-        }
-
-        .card-specs li::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 8px;
-            width: 6px;
-            height: 6px;
-            background-color: var(--primary);
-            border-radius: 50%;
-            box-shadow: 0 0 6px var(--primary-glow);
-        }
+        .card-specs { list-style: none; margin-bottom: 18px; color: var(--text-muted); font-size: 0.9rem; flex-grow: 1; }
+        .card-specs li { margin-bottom: 6px; position: relative; padding-left: 16px; }
+        .card-specs li::before { content: ""; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; background-color: var(--primary); border-radius: 50%; }
 
         .btn-telegram { 
             background: linear-gradient(135deg, #0088cc, #006699); 
             color: white; 
-            padding: 13px; 
+            padding: 12px; 
             border-radius: 10px; 
             text-decoration: none; 
             font-weight: bold; 
             text-align: center; 
             display: block; 
-            transition: all 0.35s ease;
-        }
-
-        .btn-telegram:hover {
-            background: linear-gradient(135deg, #0099e6, #0077b3);
-            box-shadow: 0 5px 20px rgba(0, 136, 204, 0.6);
-            transform: translateY(-2px);
-        }
-
-        /* SEO Block */
-        .seo-block {
-            margin-top: 60px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 30px;
-            color: var(--text-muted);
             font-size: 0.95rem;
         }
-        .seo-block h2 { color: var(--primary); font-size: 1.5rem; margin-bottom: 15px; }
-        .seo-block p { margin-bottom: 12px; }
 
-        footer { background-color: #050507; border-top: 1px solid var(--border-color); padding: 25px 20px; text-align: center; margin-top: 50px; color: var(--text-muted); font-size: 0.9rem; }
+        .seo-block { margin-top: 40px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 20px; color: var(--text-muted); font-size: 0.9rem; }
+        .seo-block h2 { color: var(--primary); font-size: 1.3rem; margin-bottom: 10px; }
 
+        footer { background-color: #050507; border-top: 1px solid var(--border-color); padding: 20px; text-align: center; margin-top: 40px; color: var(--text-muted); font-size: 0.85rem; }
+
+        /* МОБИЛЬНАЯ АДАПТАЦИЯ (Smartphones & Tablets) */
         @media (max-width: 768px) {
-            .top-bar-container { flex-direction: column; text-align: center; justify-content: center; }
-            .top-phones { justify-content: center; margin-top: 5px; }
+            .top-bar-container { flex-direction: column; text-align: center; justify-content: center; gap: 6px; }
+            .top-phones { justify-content: center; gap: 12px; }
             
-            .nav-container { flex-direction: column; text-align: center; padding: 12px 15px; }
+            .nav-container { flex-direction: column; text-align: center; padding: 10px 12px; gap: 10px; }
             .logo { font-size: 1.8rem; }
-            .nav-right { width: 100%; justify-content: center; flex-direction: column; }
-            .nav-links { width: 100%; justify-content: center; }
-            .nav-links a { font-size: 0.9rem; padding: 8px 12px; }
+            .nav-right { width: 100%; justify-content: space-between; }
+            .nav-links { gap: 4px; }
+            .nav-links a { font-size: 0.85rem; padding: 6px 10px; }
 
-            .container { padding: 25px 15px; }
-            .page-title { font-size: 1.8rem; margin-bottom: 25px; }
+            .container { padding: 20px 12px; }
+            .page-title { font-size: 1.5rem; margin-bottom: 20px; }
             
-            .catalog-grid { grid-template-columns: 1fr; gap: 20px; }
-            .card-img-box { height: 190px; }
+            .catalog-grid { grid-template-columns: 1fr; gap: 16px; }
+            .card-img-box { height: 180px; }
+            .card-body { padding: 15px; }
+            .card h3 { font-size: 1.05rem; }
+            .btn-telegram { padding: 14px; font-size: 1rem; } /* Увеличенная зона нажатия пальцем */
+        }
+
+        @media (max-width: 380px) {
+            .nav-right { flex-direction: column; gap: 8px; }
+            .logo { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Bar -->
     <div class="top-bar">
         <div class="top-bar-container">
-            <span data-ru="<strong>Tez Kel</strong> — Быстрая служба доставки спецтехники" data-uz="<strong>Tez Kel</strong> — Тезкор етказиб бериш хизмати">
-                <strong>Tez Kel</strong> — Быстрая служба доставки спецтехники
+            <span data-ru="<strong>Tez Kel</strong> — Доставка спецтехники" data-uz="<strong>Tez Kel</strong> — Етказиб бериш хизмати">
+                <strong>Tez Kel</strong> — Доставка спецтехники
             </span>
             <div class="top-phones">
                 <a href="tel:+998971224455">+998 (97) 122-44-55</a>
@@ -276,7 +175,6 @@
         </div>
     </div>
 
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">SHER<span>LEST</span></a>
@@ -284,7 +182,7 @@
                 <ul class="nav-links">
                     <li><a href="index.html" data-ru="Главная" data-uz="Bosh sahifa">Главная</a></li>
                     <li><a href="catalog.html" class="active" data-ru="Каталог" data-uz="Каталог">Каталог</a></li>
-                    <li><a href="contacts.html" data-ru="Контакты" data-uz="Контакты / Алоқа">Контакты</a></li>
+                    <li><a href="contacts.html" data-ru="Контакты" data-uz="Алоқа">Контакты</a></li>
                 </ul>
                 <div class="lang-switch">
                     <button class="lang-btn active" id="btn-ru" onclick="switchLang('ru')">RU</button>
@@ -294,7 +192,6 @@
         </div>
     </nav>
 
-    <!-- Main Catalog -->
     <section class="container">
         <h1 class="page-title" data-ru="Каталог <span>оборудования</span>" data-uz="Ускуналар <span>Каталоги</span>">
             Каталог <span>оборудования</span>
@@ -302,11 +199,10 @@
 
         <div class="catalog-grid">
 
-            <!-- 1. Нарвон -->
             <div class="card">
                 <div class="card-img-box">
                     <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1541888946425-d0fbb17666d6?auto=format&fit=crop&w=600&q=80" alt="Аренда алюминиевой лестницы Ташкент">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d0fbb17666d6?auto=format&fit=crop&w=600&q=80" alt="Аренда алюминиевой лестницы">
                 </div>
                 <div class="card-body">
                     <h3 data-ru="Аренда алюминиевой лестницы (Нарвон)" data-uz="Алюминий Нарвон (Лестница) ижараси">Аренда алюминиевой лестницы (Нарвон)</h3>
@@ -318,23 +214,21 @@
                 </div>
             </div>
 
-            <!-- 2. Леса ва Вышка-Тура -->
             <div class="card">
                 <div class="card-img-box">
                     <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="Аренда строительных лесов Вышка-Тура">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="Аренда строительных лесов">
                 </div>
                 <div class="card-body">
                     <h3 data-ru="Аренда строительных лесов и вышки-туры" data-uz="Строительные Леса ва Вышка-Тура ижараси">Аренда строительных лесов и вышки-туры</h3>
                     <ul class="card-specs">
                         <li data-ru="Высота: от 2м до 15м" data-uz="Бўйи: 2м дан 15м гача">Высота: от 2м до 15м</li>
-                        <li data-ru="Передвижные на колесах, безопасные" data-uz="Ғилдиракли ва хавфсиз">Передвижные на колесах, безопасные</li>
+                        <li data-ru="Передвижные на колесах" data-uz="Ғилдиракли ва хавфсиз">Передвижные на колесах</li>
                     </ul>
                     <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
                 </div>
             </div>
 
-            <!-- 3. Жираф -->
             <div class="card">
                 <div class="card-img-box">
                     <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
@@ -344,17 +238,16 @@
                     <h3 data-ru="Аренда шлифмашины «Жираф»" data-uz="Шлифмашина «Жираф» ижараси">Аренда шлифмашины «Жираф»</h3>
                     <ul class="card-specs">
                         <li data-ru="Для выравнивания стен и потолков" data-uz="Девор ва шипни текислаш учун">Для выравнивания стен и потолков</li>
-                        <li data-ru="Работа без пыли вместе с пылесосом" data-uz="Пылесос билан чангсиз ишлаш">Работа без пыли вместе с пылесосом</li>
+                        <li data-ru="Работа без пыли" data-uz="Пылесос билан чангсиз ишлаш">Работа без пыли</li>
                     </ul>
                     <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
                 </div>
             </div>
 
-            <!-- 4. Рохля -->
             <div class="card">
                 <div class="card-img-box">
                     <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80" alt="Аренда рохли гидравлической в Ташкенте">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80" alt="Аренда гидравлической рохли">
                 </div>
                 <div class="card-body">
                     <h3 data-ru="Аренда гидравлической рохли" data-uz="Гидравлик Рохля ижараси (Rohlya)">Аренда гидравлической рохли</h3>
@@ -366,7 +259,6 @@
                 </div>
             </div>
 
-            <!-- 5. Штабелер -->
             <div class="card">
                 <div class="card-img-box">
                     <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
@@ -382,11 +274,10 @@
                 </div>
             </div>
 
-            <!-- 6. Генератор -->
             <div class="card">
                 <div class="card-img-box">
                     <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1590243651477-873d6a36284a?auto=format&fit=crop&w=600&q=80" alt="Аренда бензинового дизельного генератора">
+                    <img src="https://images.unsplash.com/photo-1590243651477-873d6a36284a?auto=format&fit=crop&w=600&q=80" alt="Аренда бензинового генератора">
                 </div>
                 <div class="card-body">
                     <h3 data-ru="Аренда генератора (Бензин / Дизель)" data-uz="Бензин / Дизель Генератор ижараси">Аренда генератора (Бензин / Дизель)</h3>
@@ -398,113 +289,16 @@
                 </div>
             </div>
 
-            <!-- 7. Виброплита -->
             <div class="card">
                 <div class="card-img-box">
                     <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80" alt="Аренда виброплиты трамбовка">
+                    <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80" alt="Аренда виброплиты">
                 </div>
                 <div class="card-body">
                     <h3 data-ru="Аренда виброплиты (Трамбовка)" data-uz="Виброплита ижараси (Трамбовка)">Аренда виброплиты (Трамбовка)</h3>
                     <ul class="card-specs">
                         <li data-ru="Вес: от 60 кг до 120 кг" data-uz="Оғирлиги: 60кг — 120кг">Вес: от 60 кг до 120 кг</li>
-                        <li data-ru="Для грунта, брусчатки и асфальта" data-uz="Грунт, брусчатка ва асфальт учун">Для грунта, брусчатки и асфальта</li>
-                    </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <!-- 8. Алмазный бур -->
-            <div class="card">
-                <div class="card-img-box">
-                    <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=600&q=80" alt="Аренда алмазного бура">
-                </div>
-                <div class="card-body">
-                    <h3 data-ru="Аренда алмазного бура (Бурение)" data-uz="Алмазный Бур ижараси (Бурение)">Аренда алмазного бура (Бурение)</h3>
-                    <ul class="card-specs">
-                        <li data-ru="Сверление бетона, кирпича и камня" data-uz="Бетон, ғишт ва тош тешиш">Сверление бетона, кирпича и камня</li>
-                        <li data-ru="Диаметр: от 32мм до 350мм" data-uz="Диаметр: 32мм дан 350мм гача">Диаметр: от 32мм до 350мм</li>
-                    </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <!-- 9. Пылесос -->
-            <div class="card">
-                <div class="card-img-box">
-                    <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Аренда строительного пылесоса">
-                </div>
-                <div class="card-body">
-                    <h3 data-ru="Аренда строительного пылесоса" data-uz="Строительный Пылесос ижараси">Аренда строительного пылесоса</h3>
-                    <ul class="card-specs">
-                        <li data-ru="Объем бака: 30L — 50L" data-uz="Объём: 30L — 50L">Объем бака: 30L — 50L</li>
-                        <li data-ru="Подходит для штробореза и жирафа" data-uz="Штроборез ва жираф учун">Подходит для штробореза и жирафа</li>
-                    </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <!-- 10. Кенгуру -->
-            <div class="card">
-                <div class="card-img-box">
-                    <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80" alt="Аренда вибротрамбовки Кенгуру">
-                </div>
-                <div class="card-body">
-                    <h3 data-ru="Аренда вибротрамбовки «Кенгуру»" data-uz="Кенгуру (Вибротрамбовка) ижараси">Аренда вибротрамбовки «Кенгуру»</h3>
-                    <ul class="card-specs">
-                        <li data-ru="Трамбовка траншей и котлованов" data-uz="Чуқур ва траншея трамбовкаси">Трамбовка траншей и котлованов</li>
-                        <li data-ru="Для укладки труб и кабелей" data-uz="Ток ва сув йўллари учун">Для укладки труб и кабелей</li>
-                    </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <!-- 11. Karcher -->
-            <div class="card">
-                <div class="card-img-box">
-                    <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80" alt="Аренда мойки Karcher высокого давления">
-                </div>
-                <div class="card-body">
-                    <h3 data-ru="Аренда мойки высокого давления Kärcher" data-uz="Kärcher (Мойка высокого давления) ижараси">Аренда мойки высокого давления Kärcher</h3>
-                    <ul class="card-specs">
-                        <li data-ru="Профессиональная мойка высокого давления" data-uz="Юқори босимли ювиш аппарати">Профессиональная мойка высокого давления</li>
-                        <li data-ru="Для фасадов, площадок и стройтехники" data-uz="Стройка, фасад ва техника ювиш учун">Для фасадов, площадок и стройтехники</li>
-                    </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <!-- 12. Компрессор -->
-            <div class="card">
-                <div class="card-img-box">
-                    <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=600&q=80" alt="Аренда компрессора воздушного">
-                </div>
-                <div class="card-body">
-                    <h3 data-ru="Аренда воздушного компрессора" data-uz="Воздушный Компрессор ижараси">Аренда воздушного компрессора</h3>
-                    <ul class="card-specs">
-                        <li data-ru="Объем ресивера: 50L — 100L" data-uz="Объём: 50L — 100L">Объем ресивера: 50L — 100L</li>
-                        <li data-ru="Для покраски и пневмоинструмента" data-uz="Пневмоинструмент ва бўяш учун">Для покраски и пневмоинструмента</li>
-                    </ul>
-                    <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
-                </div>
-            </div>
-
-            <!-- 13. Wagner -->
-            <div class="card">
-                <div class="card-img-box">
-                    <span class="card-badge" data-ru="В наличии" data-uz="Mavjud">В наличии</span>
-                    <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80" alt="Аренда краскопульта Wagner безвоздушного">
-                </div>
-                <div class="card-body">
-                    <h3 data-ru="Аренда безвоздушного краскопульта Wagner" data-uz="Wagner (Краскопульт / Бўяш) ижараси">Аренда безвоздушного краскопульта Wagner</h3>
-                    <ul class="card-specs">
-                        <li data-ru="Безвоздушная скоростная покраска" data-uz="Безвоздушная покраска (Безвоздушка)">Безвоздушная скоростная покраска</li>
-                        <li data-ru="Быстрое окрашивание стен и металлоконструкций" data-uz="Девор ва конструкцияларни тез бўяш">Быстрое окрашивание стен и металлоконструкций</li>
+                        <li data-ru="Для грунта и брусчатки" data-uz="Грунт, брусчатка ва асфальт учун">Для грунта и брусчатки</li>
                     </ul>
                     <a href="https://t.me/Narvon24" target="_blank" class="btn-telegram" data-ru="Заказать в Telegram" data-uz="Telegram'da buyurtma berish">Заказать в Telegram</a>
                 </div>
@@ -512,34 +306,26 @@
 
         </div>
 
-        <!-- SEO Block for indexing -->
         <div class="seo-block">
-            <h2 data-ru="Аренда строительного и складского оборудования в Ташкенте" data-uz="Тошкентда қурилиш ва омбор ускуналари ижараси">
-                Аренда строительного и складского оборудования в Ташкенте
+            <h2 data-ru="Аренда строительного оборудования в Ташкенте" data-uz="Тошкентда қурилиш ускуналари ижараси">
+                Аренда строительного оборудования в Ташкенте
             </h2>
-            <p data-ru="Компания <strong>SHERLEST</strong> и служба экспресс-доставки <strong>Tez Kel</strong> предлагают профессиональное оборудование в аренду на выгодных условиях. В нашем каталоге доступна <strong>аренда рохли</strong>, <strong>аренда штабелера</strong>, <strong>аренда генератора</strong>, <strong>виброплиты</strong>, <strong>шлифмашины жираф</strong>, а также <strong>алюминиевых лестниц и строительных лесов</strong>."
-               data-uz="<strong>SHERLEST</strong> компанияси ва <strong>Tez Kel</strong> тезкор етказиб бериш хизмати қурилиш ҳамда омбор ускуналарини қулай шартларда ижарага беради. Каталогимизда <strong>рохля ижараси</strong>, <strong>штабелер ижараси</strong>, <strong>генератор</strong>, <strong>виброплита</strong>, <strong>жираф шлифмашинаси</strong> ва <strong>нарвонлар</strong> мавжуд.">
-                Компания <strong>SHERLEST</strong> и служба экспресс-доставки <strong>Tez Kel</strong> предлагают профессиональное оборудование в аренду на выгодных условиях. В нашем каталоге доступна <strong>аренда рохли</strong>, <strong>аренда штабелера</strong>, <strong>аренда генератора</strong>, <strong>виброплиты</strong>, <strong>шлифмашины жираф</strong>, а также <strong>алюминиевых лестниц и строительных лесов</strong>.
+            <p data-ru="Компания <strong>SHERLEST</strong> и служба экспресс-доставки <strong>Tez Kel</strong> предлагают оборудование в аренду. В каталоге доступна <strong>аренда рохли</strong>, <strong>аренда штабелера</strong>, <strong>аренда генератора</strong>, <strong>виброплиты</strong>, а также <strong>лестниц и лесов</strong>."
+               data-uz="<strong>SHERLEST</strong> ва <strong>Tez Kel</strong> хизмати ускуналарни ижарага беради. Каталогда <strong>рохля ижараси</strong>, <strong>штабелер ижараси</strong>, <strong>генератор</strong> ва <strong>нарвонлар</strong> мавжуд.">
+                Компания <strong>SHERLEST</strong> и служба экспресс-доставки <strong>Tez Kel</strong> предлагают оборудование в аренду. В каталоге доступна <strong>аренда рохли</strong>, <strong>аренда штабелера</strong>, <strong>аренда генератора</strong>, <strong>виброплиты</strong>, а также <strong>лестниц и лесов</strong>.
             </p>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 SHERLEST & Tez Kel. Все права защищены / Барча ҳуқуқлар ҳимояланган.</p>
+        <p>&copy; 2026 SHERLEST & Tez Kel.</p>
     </footer>
 
-    <!-- Multilingual Switch Script -->
     <script>
         function switchLang(lang) {
             document.querySelectorAll('[data-ru]').forEach(el => {
-                if (lang === 'uz' && el.getAttribute('data-uz')) {
-                    el.innerHTML = el.getAttribute('data-uz');
-                } else if (lang === 'ru' && el.getAttribute('data-ru')) {
-                    el.innerHTML = el.getAttribute('data-ru');
-                }
+                el.innerHTML = (lang === 'uz' && el.getAttribute('data-uz')) ? el.getAttribute('data-uz') : el.getAttribute('data-ru');
             });
-
             document.getElementById('btn-ru').classList.toggle('active', lang === 'ru');
             document.getElementById('btn-uz').classList.toggle('active', lang === 'uz');
             document.documentElement.lang = lang;
